@@ -1,0 +1,75 @@
+minimum_cumulusci_version: '4.3.0'
+project:
+    name: agrec-contract-field-merge
+    package:
+        name: Contract and Form Field Merge
+        namespace: agrec
+        api_version: '62.0'
+    dependencies:
+        - github: 'https://github.com/stefanserkin/agrec-base-pack'
+        - version_id: 04tKi0000000SO8IAM
+        - version_id: 04t5G00000481Y4QAI
+    git:
+        default_branch: 'main'
+    test:
+        name_match: '%_Test%'
+    source_format: sfdx
+
+tasks:
+    configure_scratch_user:
+        description: Updates the default user to eastern time
+        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+        options:
+            apex: >
+                User u = [SELECT Id, TimeZoneSidKey FROM User WHERE Alias = 'UUser' LIMIT 1];
+                u.TimeZoneSidKey = 'America/New_York';
+                update u;
+    
+    dx_deploy:
+        description: Deploy metadata to the org using the new command
+        class_path: cumulusci.tasks.sfdx.SFDXOrgTask
+        options:
+            command: "project deploy start --ignore-conflicts"
+            
+    dx_retrieve:
+        description: Retrieve metadata from the org using the new command
+        class_path: cumulusci.tasks.sfdx.SFDXOrgTask
+        options:
+            command: "project retrieve start --ignore-conflicts"
+
+    robot:
+        options:
+            suites: robot/agrec-contract-field-merge/tests
+            options:
+                outputdir: robot/agrec-contract-field-merge/results
+
+    robot_testdoc:
+        options:
+            path: robot/agrec-contract-field-merge/tests
+            output: robot/agrec-contract-field-merge/doc/agrec-contract-field-merge_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 85
+
+flows:
+    config_dev:
+        steps:
+            10:
+                task: configure_scratch_user
+
+    config_managed:
+        steps:
+            10:
+                task: configure_scratch_user
+                
+orgs:
+    scratch:
+        dev_named:
+            config_file: orgs/dev.json
+            days: 7
+            namespaced: True
+        build:
+            config_file: orgs/build.json
+            days: 1
+            namespaced: True
