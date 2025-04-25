@@ -16,6 +16,9 @@
       "sessionSettings": {
         "forceRelogin": false
       }
-    }  
+    },
+    "enhancedNotesSettings": {
+      "enableEnhancedNotes": true
+    }
   }
 }
