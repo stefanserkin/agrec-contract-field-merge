@@ -3,7 +3,7 @@
  * @date 2025
  ***********************************************************************/
 @NamespaceAccessible
-public without sharing class TA_CAF_MergeFieldValuesAI {
+public without sharing class TA_CAF_MergeFieldValuesAI implements agrec.TriggerAction.AfterInsert {
 
     @NamespaceAccessible
     public void afterInsert(List<TREX1__Contract_and_Form__c> newList) {
