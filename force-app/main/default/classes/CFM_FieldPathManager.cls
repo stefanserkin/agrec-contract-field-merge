@@ -10,7 +10,7 @@
  * @author 
  * Asphalt Green Data and Information Systems
  ***********************************************************************/
-public with sharing class FieldPathManager {
+public with sharing class CFM_FieldPathManager {
     
     /**
      * @description Normalizes a merge field path to standard format (lowercase)

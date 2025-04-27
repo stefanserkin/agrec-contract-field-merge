@@ -32,7 +32,7 @@ public with sharing class ContractAndFormQueryService {
             ];
 
             for (Contract_and_Form_Query__c record : queryRecords) {
-                cachedQueries.put(FieldPathManager.normalize(record.Key__c), record);
+                cachedQueries.put(CFM_FieldPathManager.normalize(record.Key__c), record);
             }
         }
     }
@@ -58,7 +58,7 @@ public with sharing class ContractAndFormQueryService {
         while (matcher.find()) {
             String key = matcher.group(1);
             if (String.isNotBlank(key)) {
-                keys.add(FieldPathManager.normalize(key));
+                keys.add(CFM_FieldPathManager.normalize(key));
             }
         }
 

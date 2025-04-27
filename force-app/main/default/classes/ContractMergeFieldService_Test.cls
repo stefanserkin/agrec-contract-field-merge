@@ -4,7 +4,7 @@ private class ContractMergeFieldService_Test {
     @IsTest
     static void testGetMergeFieldsFromString() {
         String input = 'Hello {!Name}, your contract ID is {!Id}';
-        Set<String> expectedFields = new Set<String>{'Name', 'Id'};
+        Set<String> expectedFields = new Set<String>{'name', 'id'};
         
         Test.startTest();
         Set<String> actualFields = ContractMergeFieldService.getMergeFieldsFromString(input);
@@ -16,7 +16,7 @@ private class ContractMergeFieldService_Test {
     @IsTest
     static void testGetMergeFieldsWithFallbackValue() {
         String input = 'Hello {!Name, "Guest"}, your contract ID is {!Id}';
-        Set<String> expectedFields = new Set<String>{'Name', 'Id'};
+        Set<String> expectedFields = new Set<String>{'name', 'id'};
         
         Test.startTest();
         Set<String> actualFields = ContractMergeFieldService.getMergeFieldsFromString(input);

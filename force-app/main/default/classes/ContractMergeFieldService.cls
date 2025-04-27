@@ -29,8 +29,8 @@ public inherited sharing class ContractMergeFieldService {
         Matcher m = p.matcher(input);
         while (m.find()) {
             String rawFieldPath = m.group(1);
-            String normalizedFieldPath = FieldPathManager.normalize(rawFieldPath);
-            if (!isNonFieldCommand(normalizedFieldPath) && FieldPathManager.isValid(normalizedFieldPath)) {
+            String normalizedFieldPath = CFM_FieldPathManager.normalize(rawFieldPath);
+            if (!isNonFieldCommand(normalizedFieldPath) && CFM_FieldPathManager.isValid(normalizedFieldPath)) {
                 mergeFields.add(normalizedFieldPath);
             }
         }
@@ -80,14 +80,14 @@ public inherited sharing class ContractMergeFieldService {
         Map<String, List<SObject>> result = new Map<String, List<SObject>>();
 
         for (String key : neededKeys) {
-            agrec__Contract_and_Form_Query__c queryRec = preloadedQueries.get(FieldPathManager.normalize(key));
+            agrec__Contract_and_Form_Query__c queryRec = preloadedQueries.get(CFM_FieldPathManager.normalize(key));
             if (queryRec == null || String.isBlank(queryRec.SOQL_Query__c)) {
                 continue;
             }
 
             String finalQuery = ContractMergeFieldService.replaceMergeFieldsWithValues(queryRec.SOQL_Query__c, contract);
             List<SObject> childRecords = Database.query(finalQuery);
-            result.put(FieldPathManager.normalize(key), childRecords);
+            result.put(CFM_FieldPathManager.normalize(key), childRecords);
         }
 
         return result;
@@ -111,7 +111,7 @@ public inherited sharing class ContractMergeFieldService {
             String queryKey = matcher.group(1);
             String rowTemplate = matcher.group(2);
             
-            List<SObject> childRecords = preloadedData.get(FieldPathManager.normalize(queryKey));
+            List<SObject> childRecords = preloadedData.get(CFM_FieldPathManager.normalize(queryKey));
             
             String renderedRows = '';
             if (childRecords != null) {

@@ -42,7 +42,7 @@ public with sharing class ContractFieldMerge {
 
     private String buildContractQuery() {
         Set<String> mergeFields = new Set<String>{
-            FieldPathManager.normalize(WAIVER_TEXT_FIELD)
+            CFM_FieldPathManager.normalize(WAIVER_TEXT_FIELD)
         };
 
         for (TREX1__Contract_and_Form__c contract : contracts) {
