@@ -74,6 +74,33 @@ public inherited sharing class ContractMergeFieldService {
      * @param preloadedData
      * @return String
      ****************************************************/
+    public static Map<String, List<SObject>> prepareChildData(SObject contract, String waiverText, Map<String, Contract_and_Form_Query__c> preloadedQueries) {
+        Set<String> neededKeys = ContractAndFormQueryService.detectNeededQueryKeys(waiverText);
+
+        Map<String, List<SObject>> result = new Map<String, List<SObject>>();
+
+        for (String key : neededKeys) {
+            agrec__Contract_and_Form_Query__c queryRec = preloadedQueries.get(FieldPathManager.normalize(key));
+            if (queryRec == null || String.isBlank(queryRec.SOQL_Query__c)) {
+                continue;
+            }
+
+            String finalQuery = ContractMergeFieldService.replaceMergeFieldsWithValues(queryRec.SOQL_Query__c, contract);
+            List<SObject> childRecords = Database.query(finalQuery);
+            result.put(FieldPathManager.normalize(key), childRecords);
+        }
+
+        return result;
+    }
+
+    /****************************************************
+     * @description Expands table blocks for related data based on a preloaded map.
+     * Handles {!tableStart:key}...{!tableEnd} syntax.
+     * @param contract
+     * @param waiverText
+     * @param preloadedData
+     * @return String
+     ****************************************************/
     public static String expandTables(SObject contract, String waiverText, Map<String, List<SObject>> preloadedData) {
         String result = waiverText;
 

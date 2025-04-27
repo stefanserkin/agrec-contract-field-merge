@@ -13,43 +13,55 @@
  ***********************************************************************/
 public with sharing class ContractAndFormQueryService {
 
-    private static final String TABLE_PATTERN = '\\{!tableStart:([a-zA-Z0-9_]+)\\}';
+    private static Map<String, Contract_and_Form_Query__c> cachedQueries = new Map<String, Contract_and_Form_Query__c>();
 
-    public static Map<String, List<SObject>> prepareChildData(SObject contract, String waiverText) {
-        Set<String> neededKeys = getNeededQueryKeys(waiverText);
-        
-        if (neededKeys.isEmpty()) {
-            return new Map<String, List<SObject>>();
+    public static void loadQueriesFromContracts(List<TREX1__Contract_and_Form__c> contracts) {
+        Set<String> neededKeys = new Set<String>();
+
+        for (TREX1__Contract_and_Form__c contract : contracts) {
+            if (String.isNotBlank(contract.TREX1__Waiver_Text__c)) {
+                neededKeys.addAll(detectNeededQueryKeys(contract.TREX1__Waiver_Text__c));
+            }
         }
-        
-        List<Contract_and_Form_Query__c> queryRecords = [
-            SELECT Key__c, SOQL_Query__c
-              FROM Contract_and_Form_Query__c
-             WHERE Key__c IN :neededKeys
-        ];
-        
-        Map<String, List<SObject>> result = new Map<String, List<SObject>>();
-        
-        for (Contract_and_Form_Query__c queryRec : queryRecords) {
-            String finalQuery = ContractMergeFieldService.replaceMergeFieldsWithValues(queryRec.SOQL_Query__c, contract);
-            List<SObject> childRecords = Database.query(finalQuery);
-            result.put(FieldPathManager.normalize(queryRec.Key__c), childRecords);
+
+        if (!neededKeys.isEmpty()) {
+            List<Contract_and_Form_Query__c> queryRecords = [
+                SELECT Key__c, SOQL_Query__c
+                FROM Contract_and_Form_Query__c
+                WHERE Key__c IN :neededKeys
+            ];
+
+            for (Contract_and_Form_Query__c record : queryRecords) {
+                cachedQueries.put(FieldPathManager.normalize(record.Key__c), record);
+            }
         }
-        
-        return result;
     }
 
-    private static Set<String> getNeededQueryKeys(String waiverText) {
+    public static Map<String, Contract_and_Form_Query__c> getCachedQueries() {
+        return cachedQueries;
+    }
+
+    public static void clearCache() {
+        cachedQueries.clear();
+    }
+
+    public static Set<String> detectNeededQueryKeys(String waiverText) {
         Set<String> keys = new Set<String>();
-        
-        Pattern pattern = Pattern.compile(TABLE_PATTERN);
-        Matcher matcher = pattern.matcher(waiverText);
-        
-        while (matcher.find()) {
-            String queryKey = matcher.group(1);
-            keys.add(FieldPathManager.normalize(queryKey));
+
+        if (String.isBlank(waiverText)) {
+            return keys;
         }
-        
+
+        Pattern pattern = Pattern.compile('\\{!tableStart:([a-zA-Z0-9_]+)\\}');
+        Matcher matcher = pattern.matcher(waiverText);
+
+        while (matcher.find()) {
+            String key = matcher.group(1);
+            if (String.isNotBlank(key)) {
+                keys.add(FieldPathManager.normalize(key));
+            }
+        }
+
         return keys;
     }
 
