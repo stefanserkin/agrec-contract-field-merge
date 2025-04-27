@@ -30,11 +30,11 @@ public with sharing class ContractFieldMerge {
                 continue;
             }
             
-            // Step 1: Prepare child data for any tables
+            // Prepare child data for any tables
             Map<String, List<SObject>> tableData = ContractAndFormQueryService.prepareChildData(contract, waiverText);
-            // Step 2: Expand table blocks
+            // Expand table blocks
             waiverText = ContractMergeFieldService.expandTables(contract, waiverText, tableData);
-            // Step 3: Expand simple field-level merge fields
+            // Expand simple field-level merge fields
             waiverText = ContractMergeFieldService.replaceMergeFieldsWithValues(waiverText, contract);
             // Save the updated text back
             contract.TREX1__Waiver_Text__c = waiverText;
@@ -53,7 +53,9 @@ public with sharing class ContractFieldMerge {
     private List<String> getMergeFields() {
         Set<String> uniqueMergeFields = new Set<String>{ FieldPathManager.normalize(WAIVER_TEXT_FIELD) };
         for (TREX1__Contract_and_Form__c contract : contracts) {
-            uniqueMergeFields.addAll(ContractMergeFieldService.getMergeFieldsFromString(contract.TREX1__Waiver_Text__c));
+            if (String.isNotBlank(contract.TREX1__Waiver_Text__c)) {
+                uniqueMergeFields.addAll(ContractMergeFieldService.getMergeFieldsFromString(contract.TREX1__Waiver_Text__c));
+            }
         }
         return new List<String>(uniqueMergeFields);
     }

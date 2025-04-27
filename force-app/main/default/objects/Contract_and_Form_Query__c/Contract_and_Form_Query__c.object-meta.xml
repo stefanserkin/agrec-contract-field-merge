@@ -156,9 +156,8 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>Contract and Form Query</label>
     <nameField>
-        <displayFormat>CAFQ-{0000}</displayFormat>
         <label>Contract and Form Query Name</label>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>Contract and Form Queries</pluralLabel>
     <searchLayouts></searchLayouts>

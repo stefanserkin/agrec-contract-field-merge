@@ -22,7 +22,6 @@ public with sharing class ContractAndFormQueryService {
             return new Map<String, List<SObject>>();
         }
         
-        // Bulk query Contract_and_Form_Query__c
         List<Contract_and_Form_Query__c> queryRecords = [
             SELECT Key__c, SOQL_Query__c
               FROM Contract_and_Form_Query__c

@@ -30,7 +30,7 @@ public inherited sharing class ContractMergeFieldService {
         while (m.find()) {
             String rawFieldPath = m.group(1);
             String normalizedFieldPath = FieldPathManager.normalize(rawFieldPath);
-            if (FieldPathManager.isValid(normalizedFieldPath)) {
+            if (!isNonFieldCommand(normalizedFieldPath) && FieldPathManager.isValid(normalizedFieldPath)) {
                 mergeFields.add(normalizedFieldPath);
             }
         }
@@ -98,6 +98,16 @@ public inherited sharing class ContractMergeFieldService {
         }
 
         return result;
+    }
+
+    /****************************************************
+     * @description Determines if a merge token is a non-field command.
+     * @param fieldPath
+     * @return Boolean True if fieldPath is a non-field command
+     ****************************************************/
+    private static Boolean isNonFieldCommand(String fieldPath) {
+        String lowerFieldPath = fieldPath.toLowerCase();
+        return lowerFieldPath.startsWith('tablestart:') || lowerFieldPath == 'tableend';
     }
 
     /****************************************************
