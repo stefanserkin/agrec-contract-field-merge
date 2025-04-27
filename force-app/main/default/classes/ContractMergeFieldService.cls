@@ -40,7 +40,7 @@ public inherited sharing class ContractMergeFieldService {
         Matcher m = p.matcher(input);
         while(m.find()) {
             String fieldApiPath = m.group(1);
-            mergeFields.add(fieldApiPath);
+            mergeFields.add(fieldApiPath.toLowerCase());
         }
         return mergeFields;
     }
