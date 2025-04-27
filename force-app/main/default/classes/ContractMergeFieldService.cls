@@ -4,37 +4,43 @@
  * Copyright (c) 2025 Asphalt Green, Inc.
  * See the LICENSE file in the project root for full license text.
  * 
- * @description Utilities for merge field substitution for an SObject
- *              - Get merge fields from string
- *              - Replace merge fields with values
+ * @description 
+ * Utilities for merge field substitution for an SObject.
+ * - Replace field-level merge fields
+ * - Expand table blocks with related data
  * 
  * @date 2025
- * @author Asphalt Green Data and Information Systems
+ * @author 
+ * Asphalt Green Data and Information Systems
  ***********************************************************************/
 public inherited sharing class ContractMergeFieldService {
 
     private static final String MERGE_FIELD_REGEX = '\\{!([a-zA-Z0-9_.]+)(?:,\\s*(?:"(.*?)"|&quot;(.*?)&quot;))?\\}';
+    private static final String TABLE_REGEX = '\\{!tableStart:([a-zA-Z0-9_]+)\\}([\\s\\S]+?)\\{!tableEnd\\}';
     
     /****************************************************
      * @description Returns a set of field api names for merge fields in the input
-     * @param String String containing merge fields
+     * @param input String containing merge fields
      * @return Set<String> Merge fields
      ****************************************************/
     public static Set<String> getMergeFieldsFromString(String input) {
         Set<String> mergeFields = new Set<String>();
         Pattern p = Pattern.compile(MERGE_FIELD_REGEX);
         Matcher m = p.matcher(input);
-        while(m.find()) {
-            String fieldApiPath = m.group(1);
-            mergeFields.add(fieldApiPath.toLowerCase());
+        while (m.find()) {
+            String rawFieldPath = m.group(1);
+            String normalizedFieldPath = FieldPathManager.normalize(rawFieldPath);
+            if (FieldPathManager.isValid(normalizedFieldPath)) {
+                mergeFields.add(normalizedFieldPath);
+            }
         }
         return mergeFields;
     }
 
     /****************************************************
-     * @description Returns the original string with merge fields substituted for their values
-     * @param String String containing merge fields to be replaced
-     * @param SObject The api name of the sObject type
+     * @description Replaces standard field-level merge fields with actual field values
+     * @param input String containing merge fields to be replaced
+     * @param obj The sobject record
      * @return String String with merge fields replaced
      ****************************************************/
     public static String replaceMergeFieldsWithValues(String input, SObject obj) {
@@ -46,7 +52,7 @@ public inherited sharing class ContractMergeFieldService {
             String fieldApiPath = m.group(1);
             String defaultValue = m.group(2) != null ? m.group(2) : m.group(3);
     
-            Object fieldValue = getFieldValue(obj, fieldApiPath.toLowerCase());
+            Object fieldValue = getFieldValue(obj, fieldApiPath);
             String formattedValue;
             if (fieldValue != null) {
                 Schema.DescribeFieldResult fieldDescribe = getFieldDescribe(obj, fieldApiPath);
@@ -55,9 +61,42 @@ public inherited sharing class ContractMergeFieldService {
                 formattedValue = defaultValue ?? '';
             }
     
-            // Replace merge field with resolved value
             result = result.replace(m.group(0), formattedValue);
         }
+        return result;
+    }
+
+    /****************************************************
+     * @description Expands table blocks for related data based on a preloaded map.
+     * Handles {!tableStart:key}...{!tableEnd} syntax.
+     * @param contract
+     * @param waiverText
+     * @param preloadedData
+     * @return String
+     ****************************************************/
+    public static String expandTables(SObject contract, String waiverText, Map<String, List<SObject>> preloadedData) {
+        String result = waiverText;
+
+        Pattern pattern = Pattern.compile(TABLE_REGEX);
+        Matcher matcher = pattern.matcher(result);
+
+        while (matcher.find()) {
+            String queryKey = matcher.group(1);
+            String rowTemplate = matcher.group(2);
+            
+            List<SObject> childRecords = preloadedData.get(FieldPathManager.normalize(queryKey));
+            
+            String renderedRows = '';
+            if (childRecords != null) {
+                for (SObject child : childRecords) {
+                    String rowContent = replaceMergeFieldsWithValues(rowTemplate, child);
+                    renderedRows += rowContent;
+                }
+            }
+            
+            result = result.replace(matcher.group(0), renderedRows);
+        }
+
         return result;
     }
 
@@ -98,7 +137,7 @@ public inherited sharing class ContractMergeFieldService {
      * 
      * @param record The SObject to describe
      * @param fieldPath The dot-separated field path (e.g., 'TREX1__Registration__r.TREX1__Contact__r.Account.Name')
-     * @return The Schema.DescribeFieldResult for the last field in the path
+     * @return Schema.DescribeFieldResult for the last field in the path
      ****************************************************/
     private static Schema.DescribeFieldResult getFieldDescribe(SObject record, String fieldPath) {
         List<String> fieldParts = fieldPath.split('\\.');

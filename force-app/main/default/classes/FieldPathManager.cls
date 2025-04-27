@@ -7,7 +7,8 @@
  * @description Utilities for handling field paths in fields to merge
  * 
  * @date 2025
- * @author Asphalt Green Data and Information Systems
+ * @author 
+ * Asphalt Green Data and Information Systems
  ***********************************************************************/
 public with sharing class FieldPathManager {
     
