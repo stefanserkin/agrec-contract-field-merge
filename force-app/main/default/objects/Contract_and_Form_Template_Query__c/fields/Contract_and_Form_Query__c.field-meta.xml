@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_and_Form_Query__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <label>Contract and Form Query</label>
+    <referenceTo>Contract_and_Form_Query__c</referenceTo>
+    <relationshipLabel>Contract and Form Template Queries</relationshipLabel>
+    <relationshipName>Contract_and_Form_Template_Queries</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

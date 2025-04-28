@@ -5,9 +5,11 @@
  * See the LICENSE file in the project root for full license text.
  * 
  * @description 
- * Utilities for merge field substitution for an SObject.
- * - Replace field-level merge fields
- * - Expand table blocks with related data
+ * Utilities for merge field substitution for an SObject:
+ *  - Normalize and validate field paths
+ *  - Replace merge fields with values
+ *  - Expand dynamic tables
+ *  - Remove table blocks from waiver text
  * 
  * @date 2025
  * @author 
@@ -16,7 +18,8 @@
 public inherited sharing class ContractMergeFieldService {
 
     private static final String MERGE_FIELD_REGEX = '\\{!([a-zA-Z0-9_.]+)(?:,\\s*(?:"(.*?)"|&quot;(.*?)&quot;))?\\}';
-    private static final String TABLE_REGEX = '\\{!tableStart:([a-zA-Z0-9_]+)\\}([\\s\\S]+?)\\{!tableEnd\\}';
+    private static final String TABLE_BLOCK_REMOVE_REGEX = '\\{!tableStart:[^}]+\\}([\\s\\S]*?)\\{!tableEnd\\}';
+    private static final String TABLE_BLOCK_PARSE_REGEX  = '\\{!tableStart:([a-zA-Z0-9_]+)\\}([\\s\\S]+?)\\{!tableEnd\\}';
     
     /****************************************************
      * @description Returns a set of field api names for merge fields in the input
@@ -29,8 +32,8 @@ public inherited sharing class ContractMergeFieldService {
         Matcher m = p.matcher(input);
         while (m.find()) {
             String rawFieldPath = m.group(1);
-            String normalizedFieldPath = CFM_FieldPathManager.normalize(rawFieldPath);
-            if (!isNonFieldCommand(normalizedFieldPath) && CFM_FieldPathManager.isValid(normalizedFieldPath)) {
+            String normalizedFieldPath = agrec.FieldPathManager.normalize(rawFieldPath);
+            if (!isNonFieldCommand(normalizedFieldPath) && agrec.FieldPathManager.isValid(normalizedFieldPath)) {
                 mergeFields.add(normalizedFieldPath);
             }
         }
@@ -67,8 +70,22 @@ public inherited sharing class ContractMergeFieldService {
     }
 
     /****************************************************
-     * @description Expands table blocks for related data based on a preloaded map.
-     * Handles {!tableStart:key}...{!tableEnd} syntax.
+     * @description Removes all table blocks (from {!tableStart:key} to {!tableEnd}) from the input
+     * @param input Original string with table blocks
+     * @return String Updated string with table blocks removed
+     ****************************************************/
+    public static String removeTableBlocks(String input) {
+        if (String.isBlank(input)) {
+            return '';
+        }
+        Pattern tablePattern = Pattern.compile(TABLE_BLOCK_REMOVE_REGEX);
+        Matcher matcher = tablePattern.matcher(input);
+        return matcher.replaceAll('');
+    }
+
+    /****************************************************
+     * @description Expands table blocks for related data based on a preloaded map
+     * Handles {!tableStart:key}...{!tableEnd} syntax
      * @param contract
      * @param waiverText
      * @param preloadedData
@@ -80,22 +97,22 @@ public inherited sharing class ContractMergeFieldService {
         Map<String, List<SObject>> result = new Map<String, List<SObject>>();
 
         for (String key : neededKeys) {
-            agrec__Contract_and_Form_Query__c queryRec = preloadedQueries.get(CFM_FieldPathManager.normalize(key));
+            Contract_and_Form_Query__c queryRec = preloadedQueries.get(agrec.FieldPathManager.normalize(key));
             if (queryRec == null || String.isBlank(queryRec.SOQL_Query__c)) {
                 continue;
             }
 
             String finalQuery = ContractMergeFieldService.replaceMergeFieldsWithValues(queryRec.SOQL_Query__c, contract);
             List<SObject> childRecords = Database.query(finalQuery);
-            result.put(CFM_FieldPathManager.normalize(key), childRecords);
+            result.put(agrec.FieldPathManager.normalize(key), childRecords);
         }
 
         return result;
     }
 
     /****************************************************
-     * @description Expands table blocks for related data based on a preloaded map.
-     * Handles {!tableStart:key}...{!tableEnd} syntax.
+     * @description Expands table blocks for related data based on a preloaded map
+     * Handles {!tableStart:key}...{!tableEnd} syntax
      * @param contract
      * @param waiverText
      * @param preloadedData
@@ -104,14 +121,14 @@ public inherited sharing class ContractMergeFieldService {
     public static String expandTables(SObject contract, String waiverText, Map<String, List<SObject>> preloadedData) {
         String result = waiverText;
 
-        Pattern pattern = Pattern.compile(TABLE_REGEX);
+        Pattern pattern = Pattern.compile(TABLE_BLOCK_PARSE_REGEX);
         Matcher matcher = pattern.matcher(result);
 
         while (matcher.find()) {
             String queryKey = matcher.group(1);
             String rowTemplate = matcher.group(2);
             
-            List<SObject> childRecords = preloadedData.get(CFM_FieldPathManager.normalize(queryKey));
+            List<SObject> childRecords = preloadedData.get(agrec.FieldPathManager.normalize(queryKey));
             
             String renderedRows = '';
             if (childRecords != null) {
@@ -128,7 +145,7 @@ public inherited sharing class ContractMergeFieldService {
     }
 
     /****************************************************
-     * @description Determines if a merge token is a non-field command.
+     * @description Determines if a merge token is a non-field command
      * @param fieldPath
      * @return Boolean True if fieldPath is a non-field command
      ****************************************************/

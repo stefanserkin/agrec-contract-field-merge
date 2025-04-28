@@ -3,50 +3,8 @@ private class ContractFieldMerge_Test {
 
     @TestSetup
     static void makeData() {
-        // TREX1__Contract_and_Form__c contract = agrec.TestDataFactory.createContractScenario();
-        // insert contract;
-
-        /*
-        Account account = new Account(Name = 'Test Account');
-        insert account;
-
-        // Create a Contact
-        Contact contact = new Contact(
-            FirstName = 'Test',
-            LastName = 'User',
-            Email = 'testuser@example.com',
-            AccountId = account.Id
-        );
-        insert contact;
-
-        TREX1__Registration__c reg = new TREX1__Registration__c();
-        reg.TREX1__Account__c = account.Id;
-        reg.TREX1__Contact__c = contact.Id;
-        insert reg;
-
-        List<TREX1__Add_On__c> addOns = new List<TREX1__Add_On__c>{
-            new TREX1__Add_On__c(Name = 'Locker Rental', TREX1__Status__c = 'Draft', TREX1__Registration__c = reg.Id),
-            new TREX1__Add_On__c(Name = 'Swim Goggles', TREX1__Status__c = 'Draft', TREX1__Registration__c = reg.Id)
-        };
-        insert addOns;
-
-        TREX1__Contract_and_Form__c contract = new TREX1__Contract_and_Form__c(
-            Name = 'Test Contract',
-            TREX1__Contact__c = contact.Id,
-            TREX1__Account__c = account.Id,
-            TREX1__Registration__c = reg.Id,
-            TREX1__Contract_Expiry_Policy__c = 'Always Required',
-            TREX1__Valid_For__c = 'Account',
-            TREX1__Type__c = 'Waiver Form',
-            TREX1__Status__c = 'Draft',
-            TREX1__Waiver_Text__c = 'Hello {!TREX1__Contact__r.FirstName}, your account is {!TREX1__Account__r.Name}.' +
-                                    '\nAdd-Ons:\n{!tableStart:addOns}- {!Name} (Status: {!TREX1__Status__c}){!tableEnd}'
-        );
-        insert contract;
-        */
-
-        TREX1__Contract_and_Form__c contract = CFM_TestDataFactory.createContractScenario();
-        TREX1__Registration__c registration = CFM_TestDataFactory.createRegistrationWithAddOns(contract.TREX1__Account__c, contract.TREX1__Contact__c);
+        TREX1__Contract_and_Form__c contract = agrec.TestDataFactory.createContractScenario();
+        TREX1__Registration__c registration = agrec.TestDataFactory.createRegistrationWithAddOns(contract.TREX1__Account__c, contract.TREX1__Contact__c);
         contract.TREX1__Registration__c = registration.Id;
         insert contract;
 

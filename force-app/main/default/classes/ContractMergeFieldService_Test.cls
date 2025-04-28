@@ -97,5 +97,20 @@ private class ContractMergeFieldService_Test {
 
         System.Assert.isNotNull(formattedRevenue, 'Formatted revenue should not be null');
     }
+
+    @IsTest
+    static void testRemoveTableBlocks() {
+        String waiverWithTables = 'Hello {!TREX1__Contact__r.FirstName} {!tableStart:addOns}Item {!Name}{!tableEnd} Goodbye {!TREX1__Contact__r.LastName}';
+        
+        Test.startTest();
+        String cleaned = ContractMergeFieldService.removeTableBlocks(waiverWithTables);
+        Test.stopTest();
+
+        System.assert(cleaned.contains('{!TREX1__Contact__r.FirstName}'), 'First name field should be retained.');
+        System.assert(cleaned.contains('{!TREX1__Contact__r.LastName}'), 'Last name field should be retained.');
+        System.assert(!cleaned.contains('{!Name}'), 'Field inside table block should be removed.');
+        System.assert(!cleaned.contains('{!tableStart:addOns}'), 'tableStart tag should be removed.');
+        System.assert(!cleaned.contains('{!tableEnd}'), 'tableEnd tag should be removed.');
+    }
     
 }

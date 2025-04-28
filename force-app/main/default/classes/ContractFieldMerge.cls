@@ -13,10 +13,10 @@
  ***********************************************************************/
 public with sharing class ContractFieldMerge {
 
-    private static final String WAIVER_TEXT_FIELD = 'TREX1__Waiver_Text__c';
+    private static final String WAIVER_TEXT_FIELD = 'trex1__waiver_text__c';
 
     private List<TREX1__Contract_and_Form__c> contracts;
-    private Map<String, agrec__Contract_and_Form_Query__c> queryKeyToQuery = new Map<String, agrec__Contract_and_Form_Query__c>();
+    private Map<String, Contract_and_Form_Query__c> queryKeyToQuery = new Map<String, Contract_and_Form_Query__c>();
 
     public ContractFieldMerge(List<TREX1__Contract_and_Form__c> contracts) {
         this.contracts = contracts;
@@ -41,17 +41,17 @@ public with sharing class ContractFieldMerge {
     }
 
     private String buildContractQuery() {
-        Set<String> mergeFields = new Set<String>{
-            CFM_FieldPathManager.normalize(WAIVER_TEXT_FIELD)
-        };
+        Set<String> mergeFields = new Set<String>{ agrec.FieldPathManager.normalize(WAIVER_TEXT_FIELD) };
 
         for (TREX1__Contract_and_Form__c contract : contracts) {
             if (String.isNotBlank(contract.TREX1__Waiver_Text__c)) {
-                mergeFields.addAll(ContractMergeFieldService.getMergeFieldsFromString(contract.TREX1__Waiver_Text__c));
+                // Remove table blocks so that only contract and form fields are added to this query
+                String waiverTextWithoutTables = ContractMergeFieldService.removeTableBlocks(contract.TREX1__Waiver_Text__c);
+                mergeFields.addAll(ContractMergeFieldService.getMergeFieldsFromString(waiverTextWithoutTables));
             }
         }
 
-        for (agrec__Contract_and_Form_Query__c queryRec : queryKeyToQuery.values()) {
+        for (Contract_and_Form_Query__c queryRec : queryKeyToQuery.values()) {
             if (String.isNotBlank(queryRec.SOQL_Query__c)) {
                 mergeFields.addAll(ContractMergeFieldService.getMergeFieldsFromString(queryRec.SOQL_Query__c));
             }

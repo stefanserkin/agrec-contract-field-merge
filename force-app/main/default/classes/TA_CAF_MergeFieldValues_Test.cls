@@ -16,12 +16,11 @@ private class TA_CAF_MergeFieldValues_Test {
         triggerAction.afterInsert(new List<TREX1__Contract_and_Form__c>{contract});
         Test.stopTest();
 
-        TREX1__Contract_and_Form__c refreshedContract = [SELECT TREX1__Waiver_Text__c, Name, TREX1__Account__r.Name, TREX1__Contact__r.Account.Name FROM TREX1__Contract_and_Form__c WHERE Id = :contract.Id LIMIT 1];
+        TREX1__Contract_and_Form__c refreshedContract = [SELECT TREX1__Waiver_Text__c, Name, TREX1__Account__r.Name, TREX1__Contact__r.FirstName FROM TREX1__Contract_and_Form__c WHERE Id = :contract.Id LIMIT 1];
         String waiverText = refreshedContract.TREX1__Waiver_Text__c;
 
-        System.Assert.isTrue(waiverText.contains(refreshedContract.Name), 'Should have received the contract name. Received: ' + waiverText);
         System.Assert.isTrue(waiverText.contains(refreshedContract.TREX1__Account__r.Name), 'Should have received the account name. Received: ' + waiverText);
-        System.Assert.isTrue(waiverText.contains(refreshedContract.TREX1__Contact__r.Account.Name), 'Should have received the account name through the contact. Received: ' + waiverText);
+        System.Assert.isTrue(waiverText.contains(refreshedContract.TREX1__Contact__r.FirstName), 'Should have received the contact\'s first name. Received: ' + waiverText);
     }
 
 }
