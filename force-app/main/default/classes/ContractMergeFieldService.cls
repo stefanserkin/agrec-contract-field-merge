@@ -88,21 +88,17 @@ public inherited sharing class ContractMergeFieldService {
      * Handles {!tableStart:key}...{!tableEnd} syntax
      * @param contract
      * @param waiverText
-     * @param preloadedData
+     * @param tableQueryMap
      * @return String
      ****************************************************/
-    public static Map<String, List<SObject>> prepareChildData(SObject contract, String waiverText, Map<String, Contract_and_Form_Query__c> preloadedQueries) {
+    public static Map<String, List<SObject>> prepareChildData(SObject contract, String waiverText, Map<String, String> tableQueryMap) {
         Set<String> neededKeys = ContractAndFormQueryService.detectNeededQueryKeys(waiverText);
 
         Map<String, List<SObject>> result = new Map<String, List<SObject>>();
 
         for (String key : neededKeys) {
-            Contract_and_Form_Query__c queryRec = preloadedQueries.get(agrec.FieldPathManager.normalize(key));
-            if (queryRec == null || String.isBlank(queryRec.SOQL_Query__c)) {
-                continue;
-            }
-
-            String finalQuery = ContractMergeFieldService.replaceMergeFieldsWithValues(queryRec.SOQL_Query__c, contract);
+            String templateQuery = tableQueryMap.get(agrec.FieldPathManager.normalize(key));
+            String finalQuery = ContractMergeFieldService.replaceMergeFieldsWithValues(templateQuery, contract);
             List<SObject> childRecords = Database.query(finalQuery);
             result.put(agrec.FieldPathManager.normalize(key), childRecords);
         }
@@ -115,10 +111,10 @@ public inherited sharing class ContractMergeFieldService {
      * Handles {!tableStart:key}...{!tableEnd} syntax
      * @param contract
      * @param waiverText
-     * @param preloadedData
+     * @param tableData
      * @return String
      ****************************************************/
-    public static String expandTables(SObject contract, String waiverText, Map<String, List<SObject>> preloadedData) {
+    public static String expandTables(SObject contract, String waiverText, Map<String, List<SObject>> tableData) {
         String result = waiverText;
 
         Pattern pattern = Pattern.compile(TABLE_BLOCK_PARSE_REGEX);
@@ -128,7 +124,7 @@ public inherited sharing class ContractMergeFieldService {
             String queryKey = matcher.group(1);
             String rowTemplate = matcher.group(2);
             
-            List<SObject> childRecords = preloadedData.get(agrec.FieldPathManager.normalize(queryKey));
+            List<SObject> childRecords = tableData.get(agrec.FieldPathManager.normalize(queryKey));
             
             String renderedRows = '';
             if (childRecords != null) {
