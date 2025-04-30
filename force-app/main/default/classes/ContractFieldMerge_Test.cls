@@ -3,21 +3,27 @@ private class ContractFieldMerge_Test {
 
     @TestSetup
     static void makeData() {
-        TREX1__Contract_and_Form__c contract = agrec.TestDataFactory.createContractScenario();
-        TREX1__Registration__c registration = agrec.TestDataFactory.createRegistrationWithAddOns(contract.TREX1__Account__c, contract.TREX1__Contact__c);
-        contract.TREX1__Registration__c = registration.Id;
-        insert contract;
-
         Contract_and_Form_Query__c query = new Contract_and_Form_Query__c(
             Key__c = 'addOns',
             SOQL_Query__c = 'SELECT Name, TREX1__Status__c FROM TREX1__Add_On__c WHERE TREX1__Registration__c = \'{!TREX1__Registration__c}\''
         );
         insert query;
+
+        TREX1__Contract_and_Form__c contract = agrec.TestDataFactory.createContractScenario();
+
+        Contract_and_Form_Template_Query__c link = new Contract_and_Form_Template_Query__c();
+        link.Contract_and_Form_Query__c = query.Id;
+        link.Contract_or_Form_Template__c = contract.TREX1__caf_Template__c;
+        insert link;
+
+        TREX1__Registration__c registration = agrec.TestDataFactory.createRegistrationWithAddOns(contract.TREX1__Account__c, contract.TREX1__Contact__c);
+        contract.TREX1__Registration__c = registration.Id;
+        insert contract;
     }
 
     @IsTest
     static void testPopulateMergeFields() {
-        List<TREX1__Contract_and_Form__c> contracts = [SELECT Id, TREX1__Waiver_Text__c FROM TREX1__Contract_and_Form__c];
+        List<TREX1__Contract_and_Form__c> contracts = [SELECT Id, TREX1__caf_Template__c FROM TREX1__Contract_and_Form__c];
 
         Test.startTest();
         ContractFieldMerge fieldMerge = new ContractFieldMerge(contracts);
@@ -33,5 +39,4 @@ private class ContractFieldMerge_Test {
         System.Assert.isTrue(waiverText.contains(refreshedContract.TREX1__Account__r.Name), 'Should have received the account name. Received: ' + waiverText);
         System.Assert.isTrue(waiverText.contains(refreshedContract.TREX1__Contact__r.Account.Name), 'Should have received the account name through the contact. Received: ' + waiverText);
     }
-
 }

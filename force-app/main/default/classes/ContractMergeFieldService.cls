@@ -91,13 +91,14 @@ public inherited sharing class ContractMergeFieldService {
      * @param tableQueryMap
      * @return String
      ****************************************************/
-    public static Map<String, List<SObject>> prepareChildData(SObject contract, String waiverText, Map<String, String> tableQueryMap) {
-        Set<String> neededKeys = ContractAndFormQueryService.detectNeededQueryKeys(waiverText);
+    public static Map<String, List<SObject>> prepareChildData(SObject contract, String waiverText) {
+        Map<String, String> tableQueryMap = ContractTemplateService.getContractQueriesByKeys();
 
         Map<String, List<SObject>> result = new Map<String, List<SObject>>();
 
-        for (String key : neededKeys) {
-            String templateQuery = tableQueryMap.get(agrec.FieldPathManager.normalize(key));
+        for (String key : tableQueryMap.keySet()) {
+            System.debug(':::: getting template query for key --> ' + key);
+            String templateQuery = tableQueryMap.get(key);
             String finalQuery = ContractMergeFieldService.replaceMergeFieldsWithValues(templateQuery, contract);
             List<SObject> childRecords = Database.query(finalQuery);
             result.put(agrec.FieldPathManager.normalize(key), childRecords);
@@ -114,11 +115,11 @@ public inherited sharing class ContractMergeFieldService {
      * @param tableData
      * @return String
      ****************************************************/
-    public static String expandTables(SObject contract, String waiverText, Map<String, List<SObject>> tableData) {
+    public static String expandTables(String waiverText, Map<String, List<SObject>> tableData) {
         String result = waiverText;
 
         Pattern pattern = Pattern.compile(TABLE_BLOCK_PARSE_REGEX);
-        Matcher matcher = pattern.matcher(result);
+        Matcher matcher = Pattern.matcher(result);
 
         while (matcher.find()) {
             String queryKey = matcher.group(1);

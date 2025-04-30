@@ -3,13 +3,27 @@ private class TA_CAF_MergeFieldValues_Test {
 
     @TestSetup
     static void makeData() {
+        Contract_and_Form_Query__c query = new Contract_and_Form_Query__c(
+            Key__c = 'addOns',
+            SOQL_Query__c = 'SELECT Name, TREX1__Status__c FROM TREX1__Add_On__c WHERE TREX1__Registration__c = \'{!TREX1__Registration__c}\''
+        );
+        insert query;
+
         TREX1__Contract_and_Form__c contract = agrec.TestDataFactory.createContractScenario();
+
+        Contract_and_Form_Template_Query__c link = new Contract_and_Form_Template_Query__c();
+        link.Contract_and_Form_Query__c = query.Id;
+        link.Contract_or_Form_Template__c = contract.TREX1__caf_Template__c;
+        insert link;
+
+        TREX1__Registration__c registration = agrec.TestDataFactory.createRegistrationWithAddOns(contract.TREX1__Account__c, contract.TREX1__Contact__c);
+        contract.TREX1__Registration__c = registration.Id;
         insert contract;
     }
 
     @IsTest
     static void testPopulateMergeFields() {
-        TREX1__Contract_and_Form__c contract = [SELECT Id, TREX1__Waiver_Text__c FROM TREX1__Contract_and_Form__c LIMIT 1];
+        TREX1__Contract_and_Form__c contract = [SELECT Id, TREX1__caf_Template__c FROM TREX1__Contract_and_Form__c LIMIT 1];
 
         Test.startTest();
         TA_CAF_MergeFieldValuesAI triggerAction = new TA_CAF_MergeFieldValuesAI();
