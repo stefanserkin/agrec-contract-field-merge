@@ -19,7 +19,6 @@ public without sharing class TA_CAF_MergeFieldValuesAI implements agrec.TriggerA
     }
 
     private static void updateContracts(List<TREX1__Contract_and_Form__c> contractsToUpdate) {
-        System.debug('::: ready to update contracts --> ' + contractsToUpdate);
         Database.update(contractsToUpdate, AccessLevel.SYSTEM_MODE);
     }
 

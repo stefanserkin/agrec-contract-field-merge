@@ -97,7 +97,6 @@ public inherited sharing class ContractMergeFieldService {
         Map<String, List<SObject>> result = new Map<String, List<SObject>>();
 
         for (String key : tableQueryMap.keySet()) {
-            System.debug(':::: getting template query for key --> ' + key);
             String templateQuery = tableQueryMap.get(key);
             String finalQuery = ContractMergeFieldService.replaceMergeFieldsWithValues(templateQuery, contract);
             List<SObject> childRecords = Database.query(finalQuery);

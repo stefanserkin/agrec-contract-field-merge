@@ -18,8 +18,6 @@ public with sharing class ContractFieldMerge {
 
     private List<TREX1__Contract_and_Form__c> contracts;
     private List<TREX1__Contract_and_Form__c> contractsWithMergeInfo;
-    // private Map<Id, TREX1__Contract_or_Form_Template__c> templateMap;
-    // private Map<String, String> contractQueryMap;
 
     public ContractFieldMerge(List<TREX1__Contract_and_Form__c> contracts) {
         this.contracts = contracts;
@@ -64,17 +62,11 @@ public with sharing class ContractFieldMerge {
 
     private List<TREX1__Contract_and_Form__c> replaceMergeFieldsWithValues(List<TREX1__Contract_and_Form__c> contractsWithMergeInfo) {
         for (TREX1__Contract_and_Form__c contract : contractsWithMergeInfo) {
-            System.debug('::: evaluating contract --> ' + contract);
             TREX1__Contract_or_Form_Template__c template = ContractTemplateService.getTemplates().get(contract.TREX1__caf_Template__c);
-            System.debug('::: got template --> ' + template);
             Map<String, List<SObject>> tableData = ContractMergeFieldService.prepareChildData(contract, template.TREX1__Waiver_Text__c);
-            System.debug('::: got tableData --> ' + tableData);
             String waiverText = ContractMergeFieldService.expandTables(template.TREX1__Waiver_Text__c, tableData);
-            System.debug('::: got waiverText --> ' + waiverText);
             waiverText = ContractMergeFieldService.replaceMergeFieldsWithValues(waiverText, contract);
-            System.debug('::: updated waiverText --> ' + waiverText);
             contract.TREX1__Waiver_Text__c = waiverText;
-            System.debug('::: set contract waiver text --> ' + contract);
         }
         return contractsWithMergeInfo;
     }
