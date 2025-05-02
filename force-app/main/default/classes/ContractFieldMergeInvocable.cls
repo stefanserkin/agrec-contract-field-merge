@@ -17,6 +17,7 @@ global with sharing class ContractFieldMergeInvocable {
         label='Refresh Contract Merge Fields'
         description='Refreshes Waiver Text by recalculating merge fields for a Contract and Form record.'
         category='agrec'
+        iconName='resource:agrec__agGlyph:Layer_1'
     )
     global static List<Result> refreshContracts(List<Request> requests) {
         List<Result> results = new List<Result>();
