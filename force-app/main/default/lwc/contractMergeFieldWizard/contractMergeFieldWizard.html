@@ -1,23 +1,34 @@
 <template>
     <lightning-card title="Merge Field Wizard">
         <div class="slds-p-around_medium">
+            <!-- Breadcrumb navigation -->
+            <template if:true={breadcrumbLabels}>
+                <div class="slds-text-title_bold slds-m-bottom_small">
+                    Path:
+                    <template for:each={breadcrumbLabels} for:item="label" for:index="index">
+                        <span key={label}>
+                            {label}
+                            <template if:true={label}> &gt; </template>
+                        </span>
+                    </template>
+                </div>
+            </template>
+
+            <!-- Field picker -->
             <lightning-combobox
                 name="fieldPath"
-                label="Select Merge Field"
-                value={selectedField}
-                placeholder="Select a field"
+                label="Select Field or Relationship"
+                value=""
+                placeholder="Choose a field"
                 options={fieldOptions}
-                onchange={handleFieldChange}>
+                onchange={handleComboChange}>
             </lightning-combobox>
 
-            <lightning-input
-                type="text"
-                label="Table Alias (if table mode)"
-                value={tableAlias}
-                onchange={handleAliasChange}>
-            </lightning-input>
-
-            <lightning-button label="Insert" onclick={handleInsert}></lightning-button>
+            <!-- Navigation controls -->
+            <div class="slds-m-top_medium slds-grid slds-grid_align-spread">
+                <lightning-button label="Back" onclick={handleBack} disabled={isAtRoot}></lightning-button>
+                <lightning-button label="Insert Selected Field" onclick={handleInsert}></lightning-button>
+            </div>
         </div>
     </lightning-card>
 </template>
