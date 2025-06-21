@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Merge Field Wizard">
+        <div class="slds-p-around_medium">
+            <lightning-combobox
+                name="fieldPath"
+                label="Select Merge Field"
+                value={selectedField}
+                placeholder="Select a field"
+                options={fieldOptions}
+                onchange={handleFieldChange}>
+            </lightning-combobox>
+
+            <lightning-input
+                type="text"
+                label="Table Alias (if table mode)"
+                value={tableAlias}
+                onchange={handleAliasChange}>
+            </lightning-input>
+
+            <lightning-button label="Insert" onclick={handleInsert}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
