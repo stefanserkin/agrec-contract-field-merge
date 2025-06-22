@@ -1,41 +1,50 @@
 <template>
-    <lightning-card title="Template Editor">
-        <div class="slds-p-around_medium">
-            <lightning-input-rich-text
-                value={templateBody}
-                onchange={handleEditorChange}
-                label="Waiver Template Content"
-                class="editor">
-            </lightning-input-rich-text>
+    <lightning-card title="Template Editor" icon-name="custom:custom18">
 
-            <div class="slds-m-top_medium">
+        <lightning-spinner
+            lwc:if={isLoading}
+            size="medium"
+            alternative-text="Loading..."
+        ></lightning-spinner>
+
+        <div slot="actions">
+            <lightning-button-group>
                 <lightning-button 
                     label="Insert Merge Field" 
                     icon-name="utility:insert_tag_field" 
                     icon-position="left" 
                     onclick={openMergeFieldWizard}
                 ></lightning-button>
-
-                <template if:true={showMergeWizard}>
-                    <c-contract-merge-field-wizard
-                        object-api-name="TREX1__Contract_and_Form__c"
-                        onmergefieldselected={handleMergeFieldSelected}>
-                    </c-contract-merge-field-wizard>
-                </template>
-            </div>
-
-            <div class="slds-m-top_medium">
                 <lightning-button 
                     label="Preview Template" 
+                    icon-name="utility:preview" 
+                    icon-position="left" 
                     onclick={previewTemplate}
                 ></lightning-button>
-            </div>
+                <lightning-button 
+                    label="Save" 
+                    icon-name="utility:save" 
+                    icon-position="left" 
+                    onclick={handleSave}
+                ></lightning-button>
+            </lightning-button-group>
+        </div>
+
+        <div class="slds-p-around_medium">
+            <lightning-input-rich-text
+                value={templateBody}
+                onchange={handleEditorChange}
+                label="Waiver Template Content"
+                class="editor"
+            ></lightning-input-rich-text>
 
             <template lwc:if={previewContent}>
                 <div class="slds-box slds-m-top_medium">
                     <h3 class="slds-text-heading_small">Preview</h3>
                     <div>
-                        <lightning-formatted-rich-text value={previewContent}></lightning-formatted-rich-text>
+                        <lightning-formatted-rich-text 
+                            value={previewContent}
+                        ></lightning-formatted-rich-text>
                     </div>
                 </div>
             </template>

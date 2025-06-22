@@ -12,6 +12,7 @@
  * Asphalt Green Data and Information Systems
  ***********************************************************************/
 import { LightningElement, api, track } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getFieldDescriptors from '@salesforce/apex/ContractTemplateEditorController.getFieldDescriptors';
 
 export default class ContractMergeFieldWizard extends LightningElement {
@@ -21,44 +22,23 @@ export default class ContractMergeFieldWizard extends LightningElement {
     @track currentObject = '';
     @track currentPath = '';
     @track selectedValue = '';
+    pathIsCopied = false;
+
+    get breadcrumbLabels() {
+        return this.breadcrumbTrail.map(crumb => crumb.label);
+    }
+
+    get isAtRoot() {
+        return this.breadcrumbTrail.length === 0;
+    }
+    
+    get pathActionsAreDisabled() {
+        return !this.selectedValue || !this.selectedValue.includes('{!');
+    }
 
     connectedCallback() {
         this.loadFieldOptions(this.objectApiName);
     }
-
-    /*
-    loadFieldOptions(objectApiName, relationshipPath = null) {
-        this.currentObject = objectApiName;
-        this.currentPath = relationshipPath || '';
-
-        getFieldDescriptors({ objectApiName, relationshipPath })
-            .then((data) => {
-                this.fieldOptions = data.map(field => {
-                    if (field.isRelationship) {
-                        const relationshipSegment = field.relationshipName;
-                        const fullPath = this.currentPath ? `${this.currentPath}.${relationshipSegment}` : relationshipSegment;
-                        return {
-                            label: field.label + ' (→)',
-                            value: fullPath,
-                            isRelationship: true,
-                            relationshipName: field.relationshipName,
-                            baseObject: this.currentObject,
-                            fullPath: fullPath,
-                            targetObjectApiName: field.targetObjectApiName
-                        };
-                    } else {
-                        return {
-                            label: field.label,
-                            value: `{!${field.apiName}}`
-                        };
-                    }
-                });
-            })
-            .catch((error) => {
-                console.error('Error loading fields:', error);
-            });
-    }
-            */
 
     loadFieldOptions(objectApiName, relationshipPath = null) {
         this.currentObject = objectApiName;
@@ -105,8 +85,8 @@ export default class ContractMergeFieldWizard extends LightningElement {
             });
     }
 
-    handleFieldSelection(event) {
-        const selected = this.fieldOptions.find(opt => opt.value === event.detail.value);
+    handleFieldSelection() {
+        const selected = this.fieldOptions.find(opt => opt.value === this.selectedValue);
         if (selected?.isRelationship) {
             this.breadcrumbTrail.push({
                 objectApiName: this.currentObject,
@@ -116,23 +96,20 @@ export default class ContractMergeFieldWizard extends LightningElement {
             const nextPath = selected.fullPath;
             const nextObject = selected.targetObjectApiName;
             this.loadFieldOptions(nextObject, nextPath);
-        } else {
-            this.dispatchEvent(new CustomEvent('mergefieldselected', {
-                detail: { mergeText: selected.value }
-            }));
         }
     }
 
     handleBack() {
         if (this.breadcrumbTrail.length > 0) {
             const previous = this.breadcrumbTrail.pop();
+            this.selectedValue = previous.relationshipPath;
             this.loadFieldOptions(previous.objectApiName, previous.relationshipPath);
         }
     }
 
     handleComboChange(event) {
         this.selectedValue = event.detail.value;
-        this.handleFieldSelection({ detail: { value: this.selectedValue } });
+        this.handleFieldSelection();
     }
 
     handleInsert() {
@@ -144,12 +121,45 @@ export default class ContractMergeFieldWizard extends LightningElement {
         }
     }
 
-    get breadcrumbLabels() {
-        return this.breadcrumbTrail.map(crumb => crumb.label);
+    handleCopyPath() {
+        if (!this.selectedValue) {
+            return;
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(this.selectedValue)
+                .then(() => {
+                    this.showToast('Success', 'Merge path was copied to the clipboard', 'success');
+                })
+                .catch(error => {
+                    const errorMessage = error && error.message ? error.message : 'Merge path could not be copied';
+                    this.showToast('Error', errorMessage, 'error');
+                });
+        } else {
+            let input = document.createElement("input");
+            input.value = this.selectedValue;
+            document.body.appendChild(input);
+            input.focus();
+            input.select();
+            document.execCommand("Copy");
+            input.remove();
+            this.showToast('Success', 'Merge path was copied to the clipboard', 'success');
+        }
+
+        this.pathIsCopied = true;
+        setTimeout(() => {
+            this.pathIsCopied = false;
+        }, 4000);
     }
 
-    get isAtRoot() {
-        return this.breadcrumbTrail.length === 0;
+    showToast(title, message, variant) {
+        this.dispatchEvent(
+            new ShowToastEvent({
+                title,
+                message,
+                variant
+            })
+        );
     }
 
 }

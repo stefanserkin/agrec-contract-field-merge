@@ -1,0 +1,14 @@
+<template>
+    <lightning-modal-header label="Insert Merge Field"></lightning-modal-header>
+
+    <lightning-modal-body>
+        <c-contract-merge-field-wizard
+            object-api-name={objectApiName}
+            onmergefieldselected={handleMergeFieldSelected}>
+        </c-contract-merge-field-wizard>
+    </lightning-modal-body>
+
+    <lightning-modal-footer>
+        <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>
+    </lightning-modal-footer>
+</template>
