@@ -1,7 +1,7 @@
 <template>
     <lightning-card title="Merge Field Wizard">
         <div class="slds-p-around_medium">
-            <!-- Breadcrumb navigation -->
+            <!-- Breadcrumb Navigation -->
             <template if:true={breadcrumbLabels}>
                 <div class="slds-text-title_bold slds-m-bottom_small">
                     Path:
@@ -14,7 +14,7 @@
                 </div>
             </template>
 
-            <!-- Field picker -->
+            <!-- Field Picker -->
             <lightning-combobox
                 name="fieldPath"
                 label="Select Field or Relationship"
@@ -24,7 +24,7 @@
                 onchange={handleComboChange}>
             </lightning-combobox>
 
-            <!-- Navigation controls -->
+            <!-- Navigation Controls -->
             <div class="slds-m-top_medium slds-grid slds-grid_align-spread">
                 <lightning-button label="Back" onclick={handleBack} disabled={isAtRoot}></lightning-button>
                 <lightning-button label="Insert Selected Field" onclick={handleInsert}></lightning-button>

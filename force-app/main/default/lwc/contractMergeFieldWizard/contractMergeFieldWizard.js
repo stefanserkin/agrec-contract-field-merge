@@ -26,6 +26,7 @@ export default class ContractMergeFieldWizard extends LightningElement {
         this.loadFieldOptions(this.objectApiName);
     }
 
+    /*
     loadFieldOptions(objectApiName, relationshipPath = null) {
         this.currentObject = objectApiName;
         this.currentPath = relationshipPath || '';
@@ -33,20 +34,17 @@ export default class ContractMergeFieldWizard extends LightningElement {
         getFieldDescriptors({ objectApiName, relationshipPath })
             .then((data) => {
                 this.fieldOptions = data.map(field => {
-                    if (field.apiName.startsWith('table:')) {
-                        const alias = field.apiName.split(':')[1];
-                        return {
-                            label: field.label,
-                            value: `{!tableStart:${alias}}{!Name} - {!Price__c}{!tableEnd}`
-                        };
-                    } else if (field.isRelationship) {
+                    if (field.isRelationship) {
+                        const relationshipSegment = field.relationshipName;
+                        const fullPath = this.currentPath ? `${this.currentPath}.${relationshipSegment}` : relationshipSegment;
                         return {
                             label: field.label + ' (→)',
-                            value: field.apiName,
+                            value: fullPath,
                             isRelationship: true,
                             relationshipName: field.relationshipName,
                             baseObject: this.currentObject,
-                            fullPath: field.apiName
+                            fullPath: fullPath,
+                            targetObjectApiName: field.targetObjectApiName
                         };
                     } else {
                         return {
@@ -60,21 +58,63 @@ export default class ContractMergeFieldWizard extends LightningElement {
                 console.error('Error loading fields:', error);
             });
     }
+            */
+
+    loadFieldOptions(objectApiName, relationshipPath = null) {
+        this.currentObject = objectApiName;
+        this.currentPath = relationshipPath || '';
+
+        getFieldDescriptors({ objectApiName, relationshipPath })
+            .then((data) => {
+                const options = [];
+
+                data.forEach(field => {
+                    if (field.isRelationship) {
+                        // Direct field reference
+                        const directPath = this.currentPath ? `${this.currentPath}.${field.apiName}` : field.apiName;
+                        options.push({
+                            label: `${field.label} (Id)`,
+                            value: `{!${directPath}}`
+                        });
+
+                        // Traversal path
+                        const relationshipSegment = field.relationshipName;
+                        const fullPath = this.currentPath ? `${this.currentPath}.${relationshipSegment}` : relationshipSegment;
+                        options.push({
+                            label: `${field.label} (→)`,
+                            value: fullPath,
+                            isRelationship: true,
+                            relationshipName: field.relationshipName,
+                            baseObject: this.currentObject,
+                            fullPath: fullPath,
+                            targetObjectApiName: field.targetObjectApiName
+                        });
+                    } else {
+                        // Non-relationship fields
+                        options.push({
+                            label: field.label,
+                            value: `{!${field.apiName}}`
+                        });
+                    }
+                });
+
+                this.fieldOptions = options;
+            })
+            .catch((error) => {
+                console.error('Error loading fields:', error);
+            });
+    }
 
     handleFieldSelection(event) {
         const selected = this.fieldOptions.find(opt => opt.value === event.detail.value);
-        console.log('selected --> ', JSON.stringify(selected));
         if (selected?.isRelationship) {
             this.breadcrumbTrail.push({
                 objectApiName: this.currentObject,
                 relationshipPath: this.currentPath,
                 label: selected.label
             });
-            console.log('breadcrumbTrail --> ', JSON.stringify(this.breadcrumbTrail));
             const nextPath = selected.fullPath;
-            console.log('nextPath --> ', nextPath);
-            const nextObject = selected.relationshipName;
-            console.log('nextObject --> ', nextObject);
+            const nextObject = selected.targetObjectApiName;
             this.loadFieldOptions(nextObject, nextPath);
         } else {
             this.dispatchEvent(new CustomEvent('mergefieldselected', {

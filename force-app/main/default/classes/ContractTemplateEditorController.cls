@@ -18,15 +18,11 @@ public with sharing class ContractTemplateEditorController {
         @AuraEnabled public String apiName;
         @AuraEnabled public Boolean isRelationship;
         @AuraEnabled public String relationshipName;
+        @AuraEnabled public String targetObjectApiName;
     }
 
     @AuraEnabled(cacheable=true)
-    public static List<FieldDescriptor> getFieldDescriptors(String objectApiName) {
-        return getFieldDescriptorsForPath(objectApiName, null);
-    }
-
-    @AuraEnabled(cacheable=true)
-    public static List<FieldDescriptor> getFieldDescriptorsForPath(String objectApiName, String relationshipPath) {
+    public static List<FieldDescriptor> getFieldDescriptors(String objectApiName, String relationshipPath) {
         List<FieldDescriptor> results = new List<FieldDescriptor>();
 
         try {
@@ -39,23 +35,28 @@ public with sharing class ContractTemplateEditorController {
                 descriptor.label = fieldDescribe.getLabel();
 
                 String qualifiedName = fieldDescribe.getName();
+                System.debug(':::: ready to append relationshipPath (' + relationshipPath + ') and qualifiedName (' + qualifiedName + ')');
                 if (String.isNotBlank(relationshipPath)) {
+                    System.debug('::::: relationshipPath is not blank');
                     qualifiedName = relationshipPath + '.' + qualifiedName;
                 }
                 descriptor.apiName = qualifiedName;
+                System.debug('::: set apiName --> ' + descriptor.apiName);
 
                 descriptor.isRelationship = fieldDescribe.getType() == Schema.DisplayType.REFERENCE;
                 descriptor.relationshipName = descriptor.isRelationship ? fieldDescribe.getRelationshipName() : null;
-                results.add(descriptor);
-            }
+                
+                if (descriptor.isRelationship) {
+                    System.debug('::: evaluating relationship --> ' + descriptor);
+                    List<Schema.SObjectType> relatedTypes = fieldDescribe.getReferenceTo();
+                    System.debug('::: relatedTypes --> ' + relatedTypes);
+                    if (!relatedTypes.isEmpty()) {
+                        descriptor.targetObjectApiName = relatedTypes[0].getDescribe().getName();
+                        System.debug('::: targetObjectApiName --> ' + descriptor.targetObjectApiName);
+                    }
+                }
 
-            // Add special handling for known child relationships (e.g. Contract Items)
-            if (objectApiName == 'TREX1__Contract_and_Form__c') {
-                FieldDescriptor tableStub = new FieldDescriptor();
-                tableStub.label = 'Contract Items Table';
-                tableStub.apiName = 'table:contractItems';
-                tableStub.isRelationship = true;
-                results.add(tableStub);
+                results.add(descriptor);
             }
         } catch (Exception ex) {
             throw new AuraHandledException('Error describing fields for ' + objectApiName + ': ' + ex.getMessage());
