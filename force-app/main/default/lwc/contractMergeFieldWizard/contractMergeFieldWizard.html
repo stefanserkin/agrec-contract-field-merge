@@ -4,11 +4,10 @@
             <!-- Breadcrumb Navigation -->
             <template if:true={breadcrumbLabels}>
                 <div class="slds-text-title_bold slds-m-bottom_small">
-                    Path: TREX1__Contract_and_Form__c &gt;
+                    Path: TREX1__Contract_and_Form__c
                     <template for:each={breadcrumbLabels} for:item="label" for:index="index">
                         <span key={label}>
-                            &nbsp;{label}
-                            <template if:true={label}> &gt; </template>
+                            &nbsp;&gt; {label}
                         </span>
                     </template>
                 </div>

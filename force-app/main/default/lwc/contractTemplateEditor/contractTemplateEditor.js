@@ -28,8 +28,12 @@ export default class ContractTemplateEditor extends LightningElement {
 
     wiredContractTemplate = [];
     contractTemplate;
+    originalTemplateBody = '';
     @track templateBody = '';
-    @track previewContent = '';
+
+    get saveIsDisabled() {
+        return this.templateBody === this.originalTemplateBody;
+    }
 
     /**
      * Database calls
@@ -46,13 +50,19 @@ export default class ContractTemplateEditor extends LightningElement {
             this.isLoading = false;
         } else if (result.data) {
             this.contractTemplate = result.data;
-            this.templateBody = getFieldValue(this.contractTemplate, WAIVER_TEXT_FIELD);
+            this.originalTemplateBody = getFieldValue(this.contractTemplate, WAIVER_TEXT_FIELD);
+            this.templateBody = this.originalTemplateBody;
             this.isLoading = false;
         }
     }
 
     updateContractTemplate() {
         this.isLoading = true;
+
+        const editor = this.template.querySelector('lightning-input-rich-text');
+        if (!editor.valid) {
+            this.showToast('Error', 'This content is not valid. Please fix the errors on the page before saving.', 'error');
+        }
 
         const fields = {};
         fields[ID_FIELD.fieldApiName] = this.recordId;
@@ -93,7 +103,7 @@ export default class ContractTemplateEditor extends LightningElement {
 
         if (result) {
             const editor = this.template.querySelector('lightning-input-rich-text');
-            editor.setRangeText(result);
+            editor.insertTextAtCursor(result);
         }
     }
 

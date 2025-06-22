@@ -16,7 +16,7 @@
                     onclick={openMergeFieldWizard}
                 ></lightning-button>
                 <lightning-button 
-                    label="Preview Template" 
+                    label="Preview" 
                     icon-name="utility:preview" 
                     icon-position="left" 
                     onclick={openPreviewModal}
@@ -26,6 +26,7 @@
                     icon-name="utility:save" 
                     icon-position="left" 
                     onclick={handleSave}
+                    disabled={saveIsDisabled}
                 ></lightning-button>
             </lightning-button-group>
         </div>
