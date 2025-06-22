@@ -71,10 +71,9 @@ export default class ContractMergeFieldWizard extends LightningElement {
                 data.forEach(field => {
                     if (field.isRelationship) {
                         // Direct field reference
-                        const directPath = this.currentPath ? `${this.currentPath}.${field.apiName}` : field.apiName;
                         options.push({
                             label: `${field.label} (Id)`,
-                            value: `{!${directPath}}`
+                            value: `{!${field.apiName}}`
                         });
 
                         // Traversal path
@@ -98,6 +97,7 @@ export default class ContractMergeFieldWizard extends LightningElement {
                     }
                 });
 
+                options.sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()));
                 this.fieldOptions = options;
             })
             .catch((error) => {
