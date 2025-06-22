@@ -5,7 +5,9 @@
  * See the LICENSE file in the project root for full license text.
  * 
  * @description
- * Gathers field metadata for merging into contract templates
+ * Controller for the contractTemplateEditor component and child components
+ *  - Get waiver text with merge field value substitution
+ *  - Gather field metadata for merging into a contract template
  * 
  * @date 2025
  * @author
@@ -13,12 +15,28 @@
  ***********************************************************************/
 public with sharing class ContractTemplateEditorController {
 
-    public class FieldDescriptor {
-        @AuraEnabled public String label;
-        @AuraEnabled public String apiName;
-        @AuraEnabled public Boolean isRelationship;
-        @AuraEnabled public String relationshipName;
-        @AuraEnabled public String targetObjectApiName;
+    @AuraEnabled(cacheable=true)
+    public static String getPreviewWaiverText(String templateId, String contractId) {
+        try {
+            TREX1__Contract_or_Form_Template__c template = [
+                SELECT Id, TREX1__Waiver_Text__c
+                  FROM TREX1__Contract_or_Form_Template__c
+                 WHERE Id = :templateId
+                 LIMIT 1
+            ];
+
+            TREX1__Contract_and_Form__c contract = new TREX1__Contract_and_Form__c(
+                Id = contractId,
+                TREX1__caf_Template__c = template.Id,
+                TREX1__Waiver_Text__c = template.TREX1__Waiver_Text__c
+            );
+
+            ContractFieldMerge fieldMerge = new ContractFieldMerge( new List<TREX1__Contract_and_Form__c>{contract} );
+            TREX1__Contract_and_Form__c updatedForm = fieldMerge.populateMergeFields().get(0);
+            return updatedForm.TREX1__Waiver_Text__c;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
     }
 
     @AuraEnabled(cacheable=true)
@@ -35,24 +53,18 @@ public with sharing class ContractTemplateEditorController {
                 descriptor.label = fieldDescribe.getLabel();
 
                 String qualifiedName = fieldDescribe.getName();
-                System.debug(':::: ready to append relationshipPath (' + relationshipPath + ') and qualifiedName (' + qualifiedName + ')');
                 if (String.isNotBlank(relationshipPath)) {
-                    System.debug('::::: relationshipPath is not blank');
                     qualifiedName = relationshipPath + '.' + qualifiedName;
                 }
                 descriptor.apiName = qualifiedName;
-                System.debug('::: set apiName --> ' + descriptor.apiName);
 
                 descriptor.isRelationship = fieldDescribe.getType() == Schema.DisplayType.REFERENCE;
                 descriptor.relationshipName = descriptor.isRelationship ? fieldDescribe.getRelationshipName() : null;
                 
                 if (descriptor.isRelationship) {
-                    System.debug('::: evaluating relationship --> ' + descriptor);
                     List<Schema.SObjectType> relatedTypes = fieldDescribe.getReferenceTo();
-                    System.debug('::: relatedTypes --> ' + relatedTypes);
                     if (!relatedTypes.isEmpty()) {
                         descriptor.targetObjectApiName = relatedTypes[0].getDescribe().getName();
-                        System.debug('::: targetObjectApiName --> ' + descriptor.targetObjectApiName);
                     }
                 }
 
@@ -63,6 +75,14 @@ public with sharing class ContractTemplateEditorController {
         }
 
         return results;
+    }
+
+    public class FieldDescriptor {
+        @AuraEnabled public String label;
+        @AuraEnabled public String apiName;
+        @AuraEnabled public Boolean isRelationship;
+        @AuraEnabled public String relationshipName;
+        @AuraEnabled public String targetObjectApiName;
     }
 
 }

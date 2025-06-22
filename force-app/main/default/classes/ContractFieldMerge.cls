@@ -20,10 +20,24 @@ public with sharing class ContractFieldMerge {
     private List<TREX1__Contract_and_Form__c> contractsWithMergeInfo;
 
     public ContractFieldMerge(List<TREX1__Contract_and_Form__c> contracts) {
-        this.contracts = contracts;
+        this.contracts = filterToContractsWithTemplates(contracts);
+    }
+
+    private List<TREX1__Contract_and_Form__c> filterToContractsWithTemplates(List<TREX1__Contract_and_Form__c> contracts) {
+        List<TREX1__Contract_and_Form__c> filteredContracts = new List<TREX1__Contract_and_Form__c>();
+        for (TREX1__Contract_and_Form__c contract : contracts) {
+            if (contract.TREX1__caf_Template__c != null) {
+                filteredContracts.add(contract);
+            }
+        }
+        return filteredContracts;
     }
 
     public List<TREX1__Contract_and_Form__c> populateMergeFields() {
+        if (contracts == null || contracts.isEmpty()) {
+            return new List<TREX1__Contract_and_Form__c>();
+        }
+
         loadTemplateMap();
         contractsWithMergeInfo = Database.query( buildContractQuery() );
         return replaceMergeFieldsWithValues(contractsWithMergeInfo);

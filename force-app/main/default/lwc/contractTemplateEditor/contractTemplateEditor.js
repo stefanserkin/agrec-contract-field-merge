@@ -17,6 +17,7 @@ import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import { updateRecord } from 'lightning/uiRecordApi';
 import { refreshApex } from '@salesforce/apex';
 import MergeFieldModal from 'c/contractMergeFieldModal';
+import PreviewModal from 'c/contractTemplatePreviewModal';
 import ID_FIELD from '@salesforce/schema/TREX1__Contract_or_Form_Template__c.Id';
 import WAIVER_TEXT_FIELD from '@salesforce/schema/TREX1__Contract_or_Form_Template__c.TREX1__Waiver_Text__c';
 
@@ -91,14 +92,16 @@ export default class ContractTemplateEditor extends LightningElement {
         });
 
         if (result) {
-            // this.templateBody += result;
             const editor = this.template.querySelector('lightning-input-rich-text');
             editor.setRangeText(result);
         }
     }
 
-    previewTemplate() {
-        this.previewContent = this.templateBody;
+    async openPreviewModal() {
+        const result = await PreviewModal.open({
+            size: 'medium',
+            templateId: this.recordId
+        });
     }
 
     /**
@@ -106,7 +109,11 @@ export default class ContractTemplateEditor extends LightningElement {
      */
 
     handleError() {
-        console.log(':::: received an error --> ' + JSON.stringify(error));
+        if (!this.error) {
+            return;
+        }
+        
+        const error = this.error;
         let message = 'Unknown error';
         if (Array.isArray(error.body)) {
             message = error.body.map((e) => e.message).join(', ');
