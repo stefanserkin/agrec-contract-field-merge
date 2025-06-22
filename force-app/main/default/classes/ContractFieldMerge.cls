@@ -80,7 +80,7 @@ public with sharing class ContractFieldMerge {
             Map<String, List<SObject>> tableData = ContractMergeFieldService.prepareChildData(contract, template.TREX1__Waiver_Text__c);
             String waiverText = ContractMergeFieldService.expandTables(template.TREX1__Waiver_Text__c, tableData);
             waiverText = ContractMergeFieldService.replaceMergeFieldsWithValues(waiverText, contract);
-            contract.TREX1__Waiver_Text__c = waiverText;
+            contract.TREX1__Waiver_Text__c = waiverText.trim();
         }
         return contractsWithMergeInfo;
     }
