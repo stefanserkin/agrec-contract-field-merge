@@ -13,6 +13,10 @@
  ***********************************************************************/
 public with sharing class ContractFieldMerge {
 
+    public class ContractFieldMergeException extends Exception {}
+
+    private static final String STATUS_DRAFT = 'Draft';
+    private static final String TYPE_WAIVER = 'Waiver Form';
     private static final String WAIVER_TEMPLATE_ID_FIELD = 'trex1__caf_template__c';
     private static final String WAIVER_TEXT_FIELD = 'trex1__caf_template__r.trex1__waiver_text__c';
 
@@ -20,17 +24,7 @@ public with sharing class ContractFieldMerge {
     private List<TREX1__Contract_and_Form__c> contractsWithMergeInfo;
 
     public ContractFieldMerge(List<TREX1__Contract_and_Form__c> contracts) {
-        this.contracts = filterToContractsWithTemplates(contracts);
-    }
-
-    private List<TREX1__Contract_and_Form__c> filterToContractsWithTemplates(List<TREX1__Contract_and_Form__c> contracts) {
-        List<TREX1__Contract_and_Form__c> filteredContracts = new List<TREX1__Contract_and_Form__c>();
-        for (TREX1__Contract_and_Form__c contract : contracts) {
-            if (contract.TREX1__caf_Template__c != null) {
-                filteredContracts.add(contract);
-            }
-        }
-        return filteredContracts;
+        this.contracts = filterToEligibleTemplates(contracts);
     }
 
     public List<TREX1__Contract_and_Form__c> populateMergeFields() {
@@ -41,6 +35,39 @@ public with sharing class ContractFieldMerge {
         loadTemplateMap();
         contractsWithMergeInfo = Database.query( buildContractQuery() );
         return replaceMergeFieldsWithValues(contractsWithMergeInfo);
+    }
+
+    private List<TREX1__Contract_and_Form__c> filterToEligibleTemplates(List<TREX1__Contract_and_Form__c> contracts) {
+        List<TREX1__Contract_and_Form__c> filteredContracts = new List<TREX1__Contract_and_Form__c>();
+        for (TREX1__Contract_and_Form__c contract : contracts) {
+            if (contractIsMergeEligible(contract)) {
+                filteredContracts.add(contract);
+            }
+        }
+        return filteredContracts;
+    }
+
+    private Boolean contractIsMergeEligible(TREX1__Contract_and_Form__c contract) {
+        Boolean isEligible = true;
+
+        // Contract must be in draft
+        if (contract.TREX1__Status__c != STATUS_DRAFT) {
+            throw new ContractFieldMergeException('Only draft contracts can be updated with merge field values. Contract with Record ID ' + 
+                contract.Id + ' has a status of ' + contract.TREX1__Status__c);
+        }
+
+        // Contract must have a type of Waiver Form
+        if (contract.TREX1__Type__c != TYPE_WAIVER) {
+            throw new ContractFieldMergeException('Only contracts with a type of Waiver can be updated with merge field values. Contract with Record ID ' + 
+                contract.Id + ' has a type of ' + contract.TREX1__Type__c);
+        }
+
+        // Contract must have a template
+        if (contract.TREX1__caf_Template__c == null) {
+            isEligible = false;
+        }
+
+        return isEligible;
     }
 
     private void loadTemplateMap() {
