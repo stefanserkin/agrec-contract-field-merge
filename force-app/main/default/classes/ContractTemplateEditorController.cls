@@ -15,6 +15,9 @@
  ***********************************************************************/
 public with sharing class ContractTemplateEditorController {
 
+    private static final String STATUS_DRAFT = 'Draft';
+    private static final String TYPE_WAIVER = 'Waiver Form';
+
     @AuraEnabled(cacheable=true)
     public static String getPreviewWaiverText(String templateId, String contractId) {
         try {
@@ -28,7 +31,9 @@ public with sharing class ContractTemplateEditorController {
             TREX1__Contract_and_Form__c contract = new TREX1__Contract_and_Form__c(
                 Id = contractId,
                 TREX1__caf_Template__c = template.Id,
-                TREX1__Waiver_Text__c = template.TREX1__Waiver_Text__c
+                TREX1__Waiver_Text__c = template.TREX1__Waiver_Text__c,
+                TREX1__Status__c = STATUS_DRAFT,
+                TREX1__Type__c = TYPE_WAIVER
             );
 
             ContractFieldMerge fieldMerge = new ContractFieldMerge( new List<TREX1__Contract_and_Form__c>{contract} );

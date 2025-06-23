@@ -45,7 +45,7 @@ private class ContractTemplateEditorController_Test {
                 String waiverText = ContractTemplateEditorController.getPreviewWaiverText(fakeTemplateId, contract.Id);
                 System.Assert.fail('Should have received an exception for the invalid record id');
             } catch (Exception e) {
-                System.debug('Excepion: ' + e);
+                System.debug('Exception: ' + e.getMessage());
             }
             Test.stopTest();
         }
@@ -110,7 +110,7 @@ private class ContractTemplateEditorController_Test {
             fieldDescriptors = ContractTemplateEditorController.getFieldDescriptors(objectApiName, null);
             System.Assert.fail('Should have received an exception for the invalid object name');
         } catch (Exception e) {
-            System.debug('Excepion: ' + e);
+            System.debug('Exception: ' + e.getMessage());
         }
         Test.stopTest();
     }

@@ -54,14 +54,12 @@ public with sharing class ContractFieldMerge {
 
         // Contract must be in draft
         if (contract.TREX1__Status__c != STATUS_DRAFT) {
-            throw new ContractFieldMergeException('Only draft contracts can be updated with merge field values. Contract with Record ID ' + 
-                contract.Id + ' has a status of ' + contract.TREX1__Status__c);
+            throw new ContractFieldMergeException('Only draft contracts can be updated with merge field values. Contract with Record ID');
         }
 
         // Contract must have a type of Waiver Form
         if (contract.TREX1__Type__c != TYPE_WAIVER) {
-            throw new ContractFieldMergeException('Only contracts with a type of Waiver can be updated with merge field values. Contract with Record ID ' + 
-                contract.Id + ' has a type of ' + contract.TREX1__Type__c);
+            throw new ContractFieldMergeException('Only contracts with a type of Waiver can be updated with merge field values');
         }
 
         // Contract must have a template
