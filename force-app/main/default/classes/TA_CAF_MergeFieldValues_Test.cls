@@ -39,7 +39,7 @@ private class TA_CAF_MergeFieldValues_Test {
         System.runAs(getUser()) {
             makeData();
 
-            TREX1__Contract_and_Form__c contract = [SELECT Id, TREX1__caf_Template__c FROM TREX1__Contract_and_Form__c LIMIT 1];
+            TREX1__Contract_and_Form__c contract = [SELECT Id, TREX1__caf_Template__c, TREX1__Status__c, TREX1__Type__c FROM TREX1__Contract_and_Form__c LIMIT 1];
 
             Test.startTest();
             TA_CAF_MergeFieldValuesAI triggerAction = new TA_CAF_MergeFieldValuesAI();

@@ -43,7 +43,7 @@ private class ContractFieldMergeInvocable_Test {
         System.runAs(getUser()) {
             makeData();
             
-            TREX1__Contract_and_Form__c contract = [SELECT Id, TREX1__caf_Template__c FROM TREX1__Contract_and_Form__c LIMIT 1];
+            TREX1__Contract_and_Form__c contract = [SELECT Id, TREX1__caf_Template__c, TREX1__Status__c, TREX1__Type__c FROM TREX1__Contract_and_Form__c LIMIT 1];
 
             req.contract = contract;
             requests.add(req);

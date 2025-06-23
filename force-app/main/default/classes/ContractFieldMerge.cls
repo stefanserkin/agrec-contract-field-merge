@@ -17,8 +17,10 @@ public with sharing class ContractFieldMerge {
 
     private static final String STATUS_DRAFT = 'Draft';
     private static final String TYPE_WAIVER = 'Waiver Form';
+    private static final String WAIVER_STATUS_FIELD = 'trex1__status__c';
     private static final String WAIVER_TEMPLATE_ID_FIELD = 'trex1__caf_template__c';
     private static final String WAIVER_TEXT_FIELD = 'trex1__caf_template__r.trex1__waiver_text__c';
+    private static final String WAIVER_TYPE_FIELD = 'trex1__type__c';
 
     private List<TREX1__Contract_and_Form__c> contracts;
     private List<TREX1__Contract_and_Form__c> contractsWithMergeInfo;
@@ -86,7 +88,7 @@ public with sharing class ContractFieldMerge {
     }
 
     private List<String> getMergeFields() {
-        Set<String> uniqueMergeFields = new Set<String>{ WAIVER_TEMPLATE_ID_FIELD, WAIVER_TEXT_FIELD };
+        Set<String> uniqueMergeFields = getDefaultQueryFields();
 
         Map<Id, TREX1__Contract_or_Form_Template__c> templateMap = ContractTemplateService.getTemplates();
         for (TREX1__Contract_or_Form_Template__c template : templateMap.values()) {
@@ -99,6 +101,15 @@ public with sharing class ContractFieldMerge {
         }
 
         return new List<String>(uniqueMergeFields);
+    }
+
+    private Set<String> getDefaultQueryFields() {
+        return new Set<String>{ 
+            WAIVER_TEMPLATE_ID_FIELD, 
+            WAIVER_TEXT_FIELD, 
+            WAIVER_STATUS_FIELD, 
+            WAIVER_TYPE_FIELD 
+        };
     }
 
     private List<TREX1__Contract_and_Form__c> replaceMergeFieldsWithValues(List<TREX1__Contract_and_Form__c> contractsWithMergeInfo) {

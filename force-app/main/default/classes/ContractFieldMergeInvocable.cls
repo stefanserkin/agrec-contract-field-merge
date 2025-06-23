@@ -49,7 +49,7 @@ global with sharing class ContractFieldMergeInvocable {
         }
 
         return [
-            SELECT Id, TREX1__caf_Template__c
+            SELECT Id, TREX1__caf_Template__c, TREX1__Status__c, TREX1__Type__c
               FROM TREX1__Contract_and_Form__c
              WHERE Id IN :contractIds
               WITH USER_MODE
