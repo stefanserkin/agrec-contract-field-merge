@@ -1,7 +1,7 @@
 <template>
     <lightning-card>
         <div class="slds-p-around_medium">
-            <!-- Breadcrumb Navigation -->
+            <!-- BREADCRUMB PATH -->
             <template if:true={breadcrumbLabels}>
                 <div class="slds-text-title_bold slds-m-bottom_small">
                     Path: TREX1__Contract_and_Form__c
@@ -13,7 +13,7 @@
                 </div>
             </template>
 
-            <!-- Field Picker -->
+            <!-- FIELD PICKER -->
             <lightning-combobox
                 name="fieldPath"
                 label="Select Field or Relationship"
@@ -24,14 +24,44 @@
                 class="slds-var-m-around_medium"
             ></lightning-combobox>
 
-            <!-- Selected Value -->
-            <div lwc:if={selectedValue} class="slds-var-m-around_medium">                        
+            <div lwc:if={selectedValue} class="slds-var-m-around_medium">
+                <!-- MERGE FIELD -->
                 <div class="slds-var-m-around_small merge-field-output slds-text-align_center">
-                    <span class="slds-text-color_default">{selectedValue}</span>
+                    <span class="slds-text-color_default">{mergeField}</span>
+                </div>
+
+                <!-- ADDITIONAL SETTINGS -->
+                <lightning-layout multiple-rows="true" class="slds-var-m-around_medium">
+                    <lightning-layout-item size="6" padding="small">
+                        <!-- FALLBACK VALUE -->
+                        <lightning-input 
+                            type="toggle" 
+                            label="Include a fallback value if the field is empty" 
+                            name="includeFallback"
+                            value={includeFallback}
+                            onchange={handleFallbackChange}
+                        ></lightning-input>
+                    
+                        <template lwc:if={includeFallback}>
+                            <lightning-input
+                                type="text"
+                                label="Fallback Value"
+                                onchange={handleFallbackValueChange}
+                                value={fallbackValue}
+                                required
+                            ></lightning-input>
+                        </template>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="6" padding="small"></lightning-layout-item>
+                </lightning-layout>
+
+                <div class="slds-var-m-around_small">
+                    
                 </div>
             </div>
 
-            <!-- Navigation Controls -->
+            <!-- NAVIGATION -->
              <div class="slds-text-align_center">
                 <lightning-button 
                     label="Back" 

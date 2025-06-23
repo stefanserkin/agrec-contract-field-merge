@@ -23,6 +23,8 @@ export default class ContractMergeFieldWizard extends LightningElement {
     @track currentPath = '';
     @track selectedValue = '';
     pathIsCopied = false;
+    includeFallback = false;
+    fallbackValue = '';
 
     get breadcrumbLabels() {
         return this.breadcrumbTrail.map(crumb => crumb.label);
@@ -33,7 +35,16 @@ export default class ContractMergeFieldWizard extends LightningElement {
     }
     
     get pathActionsAreDisabled() {
-        return !this.selectedValue || !this.selectedValue.includes('{!');
+        return !this.selectedValue || !this.selectedValue.includes('{!') || 
+            (this.includeFallback && !this.fallbackValue);
+    }
+
+    get mergeField() {
+        let result = this.selectedValue;
+        if (this.includeFallback && this.fallbackValue) {
+            result = `${result.slice(0, -1)}, "${this.fallbackValue}"}`;
+        }
+        return result;
     }
 
     connectedCallback() {
@@ -99,6 +110,21 @@ export default class ContractMergeFieldWizard extends LightningElement {
         }
     }
 
+    handleComboChange(event) {
+        this.selectedValue = event.detail.value;
+        this.handleFieldSelection();
+    }
+
+    handleFallbackChange(event) {
+        const selected = event.detail.checked;
+        this.includeFallback = selected;
+    }
+
+    handleFallbackValueChange(event) {
+        const selected = event.detail.value;
+        this.fallbackValue = selected;
+    }
+
     handleBack() {
         if (this.breadcrumbTrail.length > 0) {
             const previous = this.breadcrumbTrail.pop();
@@ -107,27 +133,22 @@ export default class ContractMergeFieldWizard extends LightningElement {
         }
     }
 
-    handleComboChange(event) {
-        this.selectedValue = event.detail.value;
-        this.handleFieldSelection();
-    }
-
     handleInsert() {
         const selected = this.fieldOptions.find(opt => opt.value === this.selectedValue);
         if (selected && !selected.isRelationship) {
             this.dispatchEvent(new CustomEvent('mergefieldselected', {
-                detail: { mergeText: selected.value }
+                detail: { mergeText: this.mergeField }
             }));
         }
     }
 
     handleCopyPath() {
-        if (!this.selectedValue) {
+        if (!this.mergeField) {
             return;
         }
 
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(this.selectedValue)
+            navigator.clipboard.writeText(this.mergeField)
                 .then(() => {
                     this.showToast('Success', 'Merge path was copied to the clipboard', 'success');
                 })
@@ -137,7 +158,7 @@ export default class ContractMergeFieldWizard extends LightningElement {
                 });
         } else {
             let input = document.createElement("input");
-            input.value = this.selectedValue;
+            input.value = this.mergeField;
             document.body.appendChild(input);
             input.focus();
             input.select();
