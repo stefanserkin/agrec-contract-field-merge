@@ -12,10 +12,27 @@
 @NamespaceAccessible
 public without sharing class TA_CAF_MergeFieldValuesAI implements agrec.TriggerAction.AfterInsert {
 
+    private static final String STATUS_DRAFT = 'Draft';
+    private static final String TYPE_WAIVER = 'Waiver Form';
+
+    private List<TREX1__Contract_and_Form__c> filteredContracts;
+    private List<TREX1__Contract_and_Form__c> contractsToUpdate;
+
     @NamespaceAccessible
     public void afterInsert(List<TREX1__Contract_and_Form__c> newList) {
-        List<TREX1__Contract_and_Form__c> contractsToUpdate = new ContractFieldMerge(newList).populateMergeFields();
+        filteredContracts = filterContracts(newList);
+        contractsToUpdate = new ContractFieldMerge(filteredContracts).populateMergeFields();
         updateContracts(contractsToUpdate);
+    }
+
+    private static List<TREX1__Contract_and_Form__c> filterContracts(List<TREX1__Contract_and_Form__c> newList) {
+        List<TREX1__Contract_and_Form__c> filteredContracts = new List<TREX1__Contract_and_Form__c>();
+        for (TREX1__Contract_and_Form__c contract : newList) {
+            if (contract.TREX1__Status__c == STATUS_DRAFT && contract.TREX1__Type__c == TYPE_WAIVER) {
+                filteredContracts.add(contract);
+            }
+        }
+        return filteredContracts;
     }
 
     private static void updateContracts(List<TREX1__Contract_and_Form__c> contractsToUpdate) {

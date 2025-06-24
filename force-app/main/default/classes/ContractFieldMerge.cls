@@ -15,8 +15,8 @@ public with sharing class ContractFieldMerge {
 
     public class ContractFieldMergeException extends Exception {}
 
-    private static final String STATUS_DRAFT = 'Draft';
-    private static final String TYPE_WAIVER = 'Waiver Form';
+    @TestVisible private static final String STATUS_DRAFT = 'Draft';
+    @TestVisible private static final String TYPE_WAIVER = 'Waiver Form';
     private static final String WAIVER_STATUS_FIELD = 'trex1__status__c';
     private static final String WAIVER_TEMPLATE_ID_FIELD = 'trex1__caf_template__c';
     private static final String WAIVER_TEXT_FIELD = 'trex1__caf_template__r.trex1__waiver_text__c';

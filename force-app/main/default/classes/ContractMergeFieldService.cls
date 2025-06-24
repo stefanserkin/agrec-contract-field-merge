@@ -189,6 +189,7 @@ public inherited sharing class ContractMergeFieldService {
      * @param fieldPath The dot-separated field path (e.g., 'TREX1__Registration__r.TREX1__Contact__r.Account.Name')
      * @return Schema.DescribeFieldResult for the last field in the path
      ****************************************************/
+    @TestVisible
     private static Schema.DescribeFieldResult getFieldDescribe(SObject record, String fieldPath) {
         List<String> fieldParts = fieldPath.split('\\.');
         Schema.SObjectType currentSObjectType = record.getSObjectType();

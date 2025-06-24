@@ -103,4 +103,38 @@ private class ContractFieldMerge_Test {
         }
     }
 
+    @IsTest
+    static void testPopulateMergeFieldsForEmptyList() {
+        System.runAs(getUser()) {
+            List<TREX1__Contract_and_Form__c> emptyContracts = new List<TREX1__Contract_and_Form__c>();
+
+            Test.startTest();
+            List<TREX1__Contract_and_Form__c> updatedContracts = new ContractFieldMerge(emptyContracts).populateMergeFields();
+            Test.stopTest();
+
+            System.Assert.isNotNull(updatedContracts, 'Returned list should not be null');
+            System.Assert.isTrue(updatedContracts.isEmpty(), 'Returned list should be empty');
+        }
+    }
+
+    @IsTest
+    static void testInitializeServiceWithTemplatelessContract() {
+        System.runAs(getUser()) {
+            TREX1__Contract_and_Form__c contract = new TREX1__Contract_and_Form__c(
+                TREX1__Waiver_Text__c = 'Test templateless contract',
+                TREX1__Status__c = ContractFieldMerge.STATUS_DRAFT,
+                TREX1__Type__c = ContractFieldMerge.TYPE_WAIVER
+            );
+
+            Test.startTest();
+            List<TREX1__Contract_and_Form__c> updatedContracts = new ContractFieldMerge(
+                new List<TREX1__Contract_and_Form__c>{ contract }
+            ).populateMergeFields();
+            Test.stopTest();
+
+            System.Assert.isNotNull(updatedContracts, 'Returned list should not be null');
+            System.Assert.isTrue(updatedContracts.isEmpty(), 'Returned list should be empty');
+        }
+    }
+
 }

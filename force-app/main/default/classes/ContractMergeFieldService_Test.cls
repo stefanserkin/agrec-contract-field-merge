@@ -70,8 +70,19 @@ private class ContractMergeFieldService_Test {
     }
 
     @IsTest
-    static void testFormatFieldValue() {
-        Schema.DescribeFieldResult dateFieldDescribe = Account.CreatedDate.getDescribe();
+    static void testFormatDatetimeFieldValue() {
+        Schema.DescribeFieldResult datetimeFieldDescribe = Account.CreatedDate.getDescribe();
+
+        Test.startTest();
+        String formattedDatetime = ContractMergeFieldService.formatFieldValue(Datetime.now(), datetimeFieldDescribe);
+        Test.stopTest();
+
+        System.Assert.isNotNull(formattedDatetime, 'Formatted date/time should not be empty');
+    }
+
+    @IsTest
+    static void testFormatDateFieldValue() {
+        Schema.DescribeFieldResult dateFieldDescribe = Opportunity.CloseDate.getDescribe();
 
         Test.startTest();
         String formattedDate = ContractMergeFieldService.formatFieldValue(Date.today(), dateFieldDescribe);
@@ -110,11 +121,34 @@ private class ContractMergeFieldService_Test {
         String cleaned = ContractMergeFieldService.removeTableBlocks(waiverWithTables);
         Test.stopTest();
 
-        System.assert(cleaned.contains('{!TREX1__Contact__r.FirstName}'), 'First name field should be retained.');
-        System.assert(cleaned.contains('{!TREX1__Contact__r.LastName}'), 'Last name field should be retained.');
-        System.assert(!cleaned.contains('{!Name}'), 'Field inside table block should be removed.');
-        System.assert(!cleaned.contains('{!tableStart:addOns}'), 'tableStart tag should be removed.');
-        System.assert(!cleaned.contains('{!tableEnd}'), 'tableEnd tag should be removed.');
+        System.Assert.isTrue(cleaned.contains('{!TREX1__Contact__r.FirstName}'), 'First name field should be retained.');
+        System.Assert.isTrue(cleaned.contains('{!TREX1__Contact__r.LastName}'), 'Last name field should be retained.');
+        System.Assert.isTrue(!cleaned.contains('{!Name}'), 'Field inside table block should be removed.');
+        System.Assert.isTrue(!cleaned.contains('{!tableStart:addOns}'), 'tableStart tag should be removed.');
+        System.Assert.isTrue(!cleaned.contains('{!tableEnd}'), 'tableEnd tag should be removed.');
+    }
+
+    @IsTest
+    static void testRemoveTableBlocksWithEmptyInput() {
+        String emptyInput = '';
+        
+        Test.startTest();
+        String cleaned = ContractMergeFieldService.removeTableBlocks(emptyInput);
+        Test.stopTest();
+
+        System.Assert.isTrue(String.isBlank(cleaned), 'Should have received an empty string');
+    }
+
+    @IsTest
+    static void testGetFieldDescribeForInvalidField() {
+        String invalidField = 'ruhroh__r';
+        Contact contact = new Contact(FirstName = 'Testeroo', LastName = 'Testeroodle');
+
+        Test.startTest();
+        Schema.DescribeFieldResult fieldDescribe = ContractMergeFieldService.getFieldDescribe(contact, invalidField);
+        Test.stopTest();
+
+        System.Assert.isNull(fieldDescribe, 'Should have received a null response for the invalid field');
     }
     
 }
