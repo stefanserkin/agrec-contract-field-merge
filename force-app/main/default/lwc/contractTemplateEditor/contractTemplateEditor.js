@@ -11,13 +11,15 @@
  * @author
  * Asphalt Green Data and Information Systems
  ***********************************************************************/
-import { LightningElement, api, wire, track } from 'lwc';
+import { LightningElement, api, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import { updateRecord } from 'lightning/uiRecordApi';
 import { refreshApex } from '@salesforce/apex';
+import { unescapeAllowedHtml, normalizeHtml } from 'c/htmlUtils';
 import MergeFieldModal from 'c/contractMergeFieldModal';
 import PreviewModal from 'c/contractTemplatePreviewModal';
+
 import ID_FIELD from '@salesforce/schema/TREX1__Contract_or_Form_Template__c.Id';
 import WAIVER_TEXT_FIELD from '@salesforce/schema/TREX1__Contract_or_Form_Template__c.TREX1__Waiver_Text__c';
 
@@ -29,10 +31,10 @@ export default class ContractTemplateEditor extends LightningElement {
     wiredContractTemplate = [];
     contractTemplate;
     originalTemplateBody = '';
-    @track templateBody = '';
+    templateBody = '';
 
-    get saveIsDisabled() {
-        return this.templateBody === this.originalTemplateBody;
+    get waiverTextHasChanged() {
+        return normalizeHtml(this.templateBody) !== normalizeHtml(this.originalTemplateBody);
     }
 
     /**
@@ -74,12 +76,12 @@ export default class ContractTemplateEditor extends LightningElement {
             .then(() => {
                 this.showToast('Success', `The template's Waiver Text has been updated`, 'success');
                 refreshApex(this.wiredContractTemplate);
-                this.isLoading = false;
             })
             .catch((error) => {
-                console.error(error);
                 this.error = error;
                 this.handleError();
+            })
+            .finally(() => {
                 this.isLoading = false;
             });
     }
@@ -93,6 +95,10 @@ export default class ContractTemplateEditor extends LightningElement {
     }
 
     handleSave() {
+        if (!this.waiverTextHasChanged) {
+            this.showToast('No Updates', 'There are no changes to save', 'info');
+            return;
+        }
         this.updateContractTemplate();
     }
 
@@ -105,6 +111,11 @@ export default class ContractTemplateEditor extends LightningElement {
         if (result) {
             const editor = this.template.querySelector('lightning-input-rich-text');
             editor.insertTextAtCursor(result);
+
+            // Small timeout to let the DOM update before reading bound value
+            await Promise.resolve();
+
+            this.templateBody = unescapeAllowedHtml(this.templateBody);
         }
     }
 
@@ -130,6 +141,8 @@ export default class ContractTemplateEditor extends LightningElement {
             message = error.body.map((e) => e.message).join(', ');
         } else if (typeof error.body.message === 'string') {
             message = error.body.message;
+        } else {
+            message = error.body?.message || JSON.stringify(error);
         }
         this.showToast('Something went wrong', message, 'error');
     }

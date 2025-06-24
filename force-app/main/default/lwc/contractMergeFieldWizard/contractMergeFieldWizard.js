@@ -21,9 +21,9 @@ export default class ContractMergeFieldWizard extends LightningElement {
     @api objectApiName;
     @track fieldOptions = [];
     @track breadcrumbTrail = [];
-    @track currentObject = '';
-    @track currentPath = '';
-    @track selectedValue = '';
+    currentObject = '';
+    currentPath = '';
+    selectedValue = '';
     includeFallback = false;
     fallbackValue = '';
 
@@ -89,7 +89,7 @@ export default class ContractMergeFieldWizard extends LightningElement {
                 this.selectedQueryFields.forEach(field => {
                     fieldBullets.push(`{!${field}}`);
                 });
-                result += `{!tableStart:${this.selectedQueryKey}}${fieldBullets.join(' | ')}{!tableEnd}`;
+                result += `{!tableStart:${this.selectedQueryKey}}&bull; ${fieldBullets.join(' | ')}<br>{!tableEnd}`;
             }
         }
         return result;
@@ -105,12 +105,10 @@ export default class ContractMergeFieldWizard extends LightningElement {
 
     @wire(getTemplateQueries, { templateId: '$recordId' })
     wiredQueryResult(result) {
-        console.log('::: looking for template queries for record');
         this.isLoading = true;
         this.wiredTemplateQueries = result;
 
         if (result.data) {
-            console.log('got template data --> ' + JSON.stringify(result.data));
             this.templateQueries = result.data;
             this.error = undefined;
             this.isLoading = false;
@@ -164,6 +162,8 @@ export default class ContractMergeFieldWizard extends LightningElement {
             })
             .catch((error) => {
                 console.error('Error loading fields:', error);
+                this.error = error;
+                this.handleError();
             });
     }
 
@@ -219,14 +219,6 @@ export default class ContractMergeFieldWizard extends LightningElement {
     }
 
     handleInsert() {
-        /*
-        const selected = this.fieldOptions.find(opt => opt.value === this.selectedValue);
-        if (selected && !selected.isRelationship) {
-            this.dispatchEvent(new CustomEvent('mergefieldselected', {
-                detail: { mergeText: this.mergeField }
-            }));
-        }
-            */
         if (!this.mergeField) {
             return;
         }
