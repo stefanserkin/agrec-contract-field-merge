@@ -44,6 +44,7 @@ public with sharing class ContractTemplateEditorController {
         }
     }
 
+    /*
     @AuraEnabled(cacheable=true)
     public static List<TemplateQuery> getTemplateQueries(String templateId) {
         List<TemplateQuery> templateQueries = new List<TemplateQuery>();
@@ -77,6 +78,64 @@ public with sharing class ContractTemplateEditorController {
             }
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
+        }
+
+        return templateQueries;
+    }
+        */
+
+    @AuraEnabled(cacheable=true)
+    public static List<TemplateQuery> getTemplateQueries(String templateId) {
+        List<TemplateQuery> templateQueries = new List<TemplateQuery>();
+
+        try {
+            Id tId = Id.valueOf(templateId);
+
+            for (List<Contract_and_Form_Template_Query__c> sobjs : [
+                SELECT Contract_and_Form_Query__r.Key__c, Contract_and_Form_Query__r.Name, Contract_and_Form_Query__r.SOQL_Query__c
+                  FROM Contract_and_Form_Template_Query__c
+                 WHERE Contract_or_Form_Template__c = :tId
+            ]) {
+                for (Contract_and_Form_Template_Query__c sobj : sobjs) {
+                    Contract_and_Form_Query__c query = sobj.Contract_and_Form_Query__r;
+
+                    TemplateQuery tq = new TemplateQuery();
+                    tq.key = query.Key__c;
+                    tq.name = query.Name;
+                    tq.fields = new List<FieldDescriptor>();
+
+                    // Parse SELECT clause
+                    List<String> selectedFields = query.SOQL_Query__c
+                        .substringBetween('SELECT', 'FROM')
+                        .deleteWhitespace()
+                        .split(',');
+
+                    String baseObjectName = query.SOQL_Query__c
+                        .substringBetween('FROM', 'WHERE')
+                        .deleteWhitespace();
+                        
+                    Schema.SObjectType baseType = Schema.getGlobalDescribe().get(baseObjectName);
+                    if (baseType == null) {
+                        throw new AuraHandledException('Could not resolve base object for field introspection');
+                    }
+
+                    for (String fieldPath : selectedFields) {
+                        FieldPathResolver.ResolutionResult res = FieldPathResolver.resolveFieldPath(baseType, fieldPath);
+                        FieldDescriptor fd = new FieldDescriptor();
+                        fd.apiName = res.apiName;
+                        fd.label = res.label;
+                        fd.targetObjectApiName = res.objectApiName;
+                        fd.isRelationship = res.isRelationship;
+                        fd.relationshipName = res.relationshipName;
+
+                        tq.fields.add(fd);
+                    }
+
+                    templateQueries.add(tq);
+                }
+            }
+        } catch (Exception e) {
+            throw new AuraHandledException('Failed to generate template queries: ' + e.getMessage());
         }
 
         return templateQueries;

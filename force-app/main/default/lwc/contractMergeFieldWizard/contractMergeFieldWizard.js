@@ -68,7 +68,7 @@ export default class ContractMergeFieldWizard extends LightningElement {
         if (!query.fields) return [];
 
         return query.fields.map(row => ({
-            label: row.apiName,
+            label: `${row.label} (${row.apiName})`,
             value: row.apiName
         }));
     }

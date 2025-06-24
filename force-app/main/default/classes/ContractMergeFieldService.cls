@@ -46,6 +46,7 @@ public inherited sharing class ContractMergeFieldService {
      * @param obj The sobject record
      * @return String String with merge fields replaced
      ****************************************************/
+    /*
     public static String replaceMergeFieldsWithValues(String input, SObject obj) {
         String result = input;
         Pattern p = Pattern.compile(MERGE_FIELD_REGEX);
@@ -64,6 +65,31 @@ public inherited sharing class ContractMergeFieldService {
                 formattedValue = defaultValue ?? '';
             }
     
+            result = result.replace(m.group(0), formattedValue);
+        }
+        return result;
+    }
+        */
+
+    public static String replaceMergeFieldsWithValues(String input, SObject obj) {
+        String result = input;
+        Pattern p = Pattern.compile(MERGE_FIELD_REGEX);
+        Matcher m = p.matcher(result);
+
+        while (m.find()) {
+            String fieldApiPath = m.group(1);
+            String defaultValue = m.group(2) != null ? m.group(2) : m.group(3);
+
+            Object fieldValue = getFieldValue(obj, fieldApiPath);
+
+            String formattedValue;
+            if (fieldValue != null) {
+                FieldPathResolver.ResolutionResult resolved = FieldPathResolver.resolveFieldPath(obj.getSObjectType(), fieldApiPath);
+                formattedValue = formatFieldValue(fieldValue, resolved.fieldDescribe);
+            } else {
+                formattedValue = defaultValue ?? '';
+            }
+
             result = result.replace(m.group(0), formattedValue);
         }
         return result;
