@@ -1,9 +1,9 @@
 <template>
-    <lightning-card>
-        <lightning-tabset>
+    <lightning-tabset>
 
-            <!-- INSERT INDIVIDUAL FIELDS -->
-            <lightning-tab label="Fields" value="fields" onactive={handleActiveTab}>
+        <!-- INSERT INDIVIDUAL FIELDS -->
+        <lightning-tab label={tabs.FIELDS.label} value={tabs.FIELDS.value} onactive={handleActiveTab}>
+            <lightning-card>
                 <!-- BREADCRUMB PATH -->
                 <template if:true={breadcrumbLabels}>
                     <div class="slds-text-title_bold slds-m-bottom_small">
@@ -13,6 +13,23 @@
                                 &nbsp;&gt; {label}
                             </span>
                         </template>
+                        <template if:false={isAtRoot}>
+                            <lightning-button-icon
+                                icon-name="utility:undo"
+                                onclick={handleBack}
+                                disabled={isAtRoot}
+                                class="slds-var-p-left_small"
+                            ></lightning-button-icon>
+                        </template>
+                        
+                        <!--
+                        <lightning-button 
+                            label="Back" 
+                            onclick={handleBack} 
+                            disabled={isAtRoot}
+                            class="slds-var-p-left_small"
+                        ></lightning-button>
+                    -->
                     </div>
                 </template>
                 
@@ -30,7 +47,7 @@
                 <template lwc:if={selectedValue}>
                     <!-- ADDITIONAL SETTINGS -->
                     <lightning-layout multiple-rows="true" class="slds-var-m-around_medium">
-                        <lightning-layout-item size="6" padding="small">
+                        <lightning-layout-item size="6" padding="around-small">
                             <!-- FALLBACK VALUE -->
                             <lightning-input 
                                 type="toggle" 
@@ -51,18 +68,21 @@
                             </template>
                         </lightning-layout-item>
 
-                        <lightning-layout-item size="6" padding="small"></lightning-layout-item>
+                        <lightning-layout-item size="6" padding="around-small"></lightning-layout-item>
+
                     </lightning-layout>
                 </template>
 
-            </lightning-tab>
+            </lightning-card>
+        </lightning-tab>
 
-            <!-- INSERT TABLES -->
-            <template lwc:if={templateQueries}>
-                <lightning-tab label="Tables" value="tables" onactive={handleActiveTab}>
-
+        <!-- INSERT TABLES -->
+        <template lwc:if={templateQueries}>
+            <lightning-tab label={tabs.TABLES.label} value={tabs.TABLES.value} onactive={handleActiveTab}>
+                <lightning-card>
                     <lightning-layout>
                         <lightning-layout-item size="6" padding="small">
+                            <!-- SELECT QUERY -->
                             <lightning-radio-group 
                                 name="queryRadioGroup"
                                 label="Select a Query"
@@ -74,6 +94,7 @@
                         </lightning-layout-item>
 
                         <lightning-layout-item size="6" padding="small">
+                            <!-- SELECT FIELDS TO INCLUDE -->
                             <template lwc:if={selectedQueryKey}>
                                 <lightning-checkbox-group 
                                     name="queryFieldsRadioGroup"
@@ -85,25 +106,19 @@
                             </template>
                         </lightning-layout-item>
                     </lightning-layout>
-                    
-                </lightning-tab>
-            </template>
-        </lightning-tabset>
+                </lightning-card>
+            </lightning-tab>
+        </template>
+    </lightning-tabset>
 
-        <!-- SELECTED MERGE FIELD -->
-        <div lwc:if={mergeField} class="slds-var-m-around_medium">
-            <div class="slds-var-m-around_small merge-field-output slds-text-align_center">
-                <span class="slds-text-color_default">{mergeField}</span>
-            </div>
+    <!-- SELECTED MERGE FIELD -->
+    <lightning-card lwc:if={mergeField}>
+        <div class="slds-var-m-around_small merge-field-output slds-text-align_center">
+            <span class="slds-text-color_default">{mergeField}</span>
         </div>
 
         <!-- NAVIGATION -->
         <div class="slds-text-align_center">
-            <lightning-button 
-                label="Back" 
-                onclick={handleBack} 
-                disabled={isAtRoot}
-            ></lightning-button>
             <lightning-button-stateful
                 label-when-off="Copy"
                 label-when-on="Copied!"

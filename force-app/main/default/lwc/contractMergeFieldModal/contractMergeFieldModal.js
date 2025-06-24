@@ -14,9 +14,11 @@
 import { api } from 'lwc';
 import LightningModal from 'lightning/modal';
 
+const DEFAULT_OBJECT_API_NAME = 'TREX1__Contract_and_Form__c';
+
 export default class ContractMergeFieldModal extends LightningModal {
     @api recordId;
-    objectApiName = 'TREX1__Contract_and_Form__c';
+    objectApiName = DEFAULT_OBJECT_API_NAME;
 
     handleMergeFieldSelected(event) {
         this.close(event.detail.mergeText);

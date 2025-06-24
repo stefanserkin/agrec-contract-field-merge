@@ -13,8 +13,14 @@
  ***********************************************************************/
 import { LightningElement, api, wire, track } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import { convertHtmlForClipboard } from 'c/htmlUtils';
 import getTemplateQueries from '@salesforce/apex/ContractTemplateEditorController.getTemplateQueries';
 import getFieldDescriptors from '@salesforce/apex/ContractTemplateEditorController.getFieldDescriptors';
+
+const TABS = Object.freeze({
+    FIELDS: { label: 'Fields', value: 'fields' },
+    TABLES: { label: 'Tables', value: 'tables' }
+});
 
 export default class ContractMergeFieldWizard extends LightningElement {
     @api recordId;
@@ -32,36 +38,39 @@ export default class ContractMergeFieldWizard extends LightningElement {
     selectedQueryKey;
     @track selectedQueryFields = [];
 
-    activeTab = 'fields';
+    tabs = TABS;
+    activeTab = TABS.FIELDS.value;
     isLoading = false;
     pathIsCopied = false;
     error;
 
+    get isFieldsTab() {
+        return this.activeTab === this.tabs.FIELDS.value;
+    }
+
+    get isTablesTab() {
+        return this.activeTab === this.tabs.TABLES.value;
+    }
+
     get queryOptions() {
-        let options = [];
-        this.templateQueries.forEach(row => {
-            options.push({
-                label: row.name,
-                value: row.key
-            });
-        });
-        return options;
+        if (!this.templateQueries) return [];
+
+        return this.templateQueries.map(row => ({
+            label: row.name,
+            value: row.key
+        }));
     }
 
     get queryFieldOptions() {
-        if (!this.selectedQueryKey) {
-            return;
-        }
+        if (!this.selectedQueryKey) return [];
 
         const query = this.templateQueries.find(opt => opt.key === this.selectedQueryKey);
-        let options = [];
-        query.fields.forEach(field => {
-            options.push({
-                label: field.apiName,
-                value: field.apiName
-            });
-        });
-        return options;
+        if (!query.fields) return [];
+
+        return query.fields.map(row => ({
+            label: row.apiName,
+            value: row.apiName
+        }));
     }
 
     get breadcrumbLabels() {
@@ -78,18 +87,18 @@ export default class ContractMergeFieldWizard extends LightningElement {
 
     get mergeField() {
         let result = '';
-        if (this.activeTab === 'fields') {
+        if (this.isFieldsTab) {
             result = this.selectedValue;
             if (this.includeFallback && this.fallbackValue) {
                 result = `${result.slice(0, -1)}, "${this.fallbackValue}"}`;
             }
-        } else if (this.activeTab === 'tables') {
+        } else if (this.isTablesTab) {
             if (this.selectedQueryKey) {
                 let fieldBullets = [];
                 this.selectedQueryFields.forEach(field => {
                     fieldBullets.push(`{!${field}}`);
                 });
-                result += `{!tableStart:${this.selectedQueryKey}}&bull; ${fieldBullets.join(' | ')}<br>{!tableEnd}`;
+                result = `{!tableStart:${this.selectedQueryKey}}&bull; ${fieldBullets.join(' | ')}<br>{!tableEnd}`;
             }
         }
         return result;
@@ -105,18 +114,15 @@ export default class ContractMergeFieldWizard extends LightningElement {
 
     @wire(getTemplateQueries, { templateId: '$recordId' })
     wiredQueryResult(result) {
-        this.isLoading = true;
         this.wiredTemplateQueries = result;
 
         if (result.data) {
             this.templateQueries = result.data;
             this.error = undefined;
-            this.isLoading = false;
         } else if (result.error) {
             this.templateQueries = undefined;
             this.error = result.error;
             this.handleError();
-            this.isLoading = false;
         }
     }
 
@@ -233,8 +239,10 @@ export default class ContractMergeFieldWizard extends LightningElement {
             return;
         }
 
+        const plainText = convertHtmlForClipboard(this.mergeField);
+
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(this.mergeField)
+            navigator.clipboard.writeText(plainText)
                 .then(() => {
                     this.showToast('Success', 'Merge path was copied to the clipboard', 'success');
                 })
@@ -244,7 +252,7 @@ export default class ContractMergeFieldWizard extends LightningElement {
                 });
         } else {
             let input = document.createElement("input");
-            input.value = this.mergeField;
+            input.value = plainText;
             document.body.appendChild(input);
             input.focus();
             input.select();
@@ -274,6 +282,8 @@ export default class ContractMergeFieldWizard extends LightningElement {
             message = error.body.map((e) => e.message).join(', ');
         } else if (typeof error.body.message === 'string') {
             message = error.body.message;
+        } else {
+            message = error.body?.message || JSON.stringify(error);
         }
         this.showToast('Something went wrong', message, 'error');
     }

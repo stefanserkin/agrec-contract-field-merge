@@ -56,3 +56,19 @@ export function normalizeHtml(input) {
         .replace(/\s+/g, ' ')
         .trim();
 }
+
+export function convertHtmlForClipboard(input) {
+    if (!input) return '';
+
+    return input
+        .replace(/&nbsp;/g, ' ')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&amp;/g, '&')
+        .replace(/&quot;/g, '"')
+        .replace(/&bull;/gi, '•')
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<\/?[^>]+(>|$)/g, '') // remove any remaining HTML tags
+        .trim();
+}
+

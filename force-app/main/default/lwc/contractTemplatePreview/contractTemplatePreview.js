@@ -46,26 +46,34 @@ export default class ContractTemplatePreview extends LightningElement {
         additionalFields: [{ fieldPath: 'TREX1__Account__r.Name', mode: 'contains' }]
     };
 
+    get noSelectedContract() {
+        return !this.selectedContractId;
+    }
+
     handleContractSelection(event) {
         this.selectedContractId = event.detail.recordId;
     }
 
     handleShowPreview() {
+        if (!this.selectedContractId) {
+            this.showToast('Missing Selection', 'Please select a contract to preview', 'warning');
+            return;
+        }
         this.isLoading = true;
         
         getPreviewContent({templateId: this.recordId, contractId: this.selectedContractId})
             .then(result => {
                 this.previewContent = result;
-                this.isLoading = false;
+                this.isShowPreview = true;
             })
             .catch(error => {
                 console.error(error);
                 this.error = error;
                 this.handleError();
-            });
-
-        this.toggleShowPreview();
-        this.isLoading = false;
+            })
+            .finally(() => {
+                this.isLoading = false;
+            })
     }
 
     handleBack() {
@@ -91,6 +99,8 @@ export default class ContractTemplatePreview extends LightningElement {
             message = error.body.map((e) => e.message).join(', ');
         } else if (typeof error.body.message === 'string') {
             message = error.body.message;
+        } else {
+            message = error.body?.message || JSON.stringify(error);
         }
         this.showToast('Something went wrong', message, 'error');
     }
