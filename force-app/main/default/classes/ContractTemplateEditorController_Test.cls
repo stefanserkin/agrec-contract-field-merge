@@ -11,10 +11,29 @@ private class ContractTemplateEditorController_Test {
         PERM_SET_MERGE_ADMIN
     };
 
+    private static List<ContractTemplateEditorController.TemplateQuery> templateQueries;
     private static List<ContractTemplateEditorController.FieldDescriptor> fieldDescriptors;
 
     private static User getUser() {
         return agrec.TestDataFactory.getUser(adminPermissionSetNames);
+    }
+
+    private static TREX1__Contract_or_Form_Template__c createTemplateWithQueries() {
+        TREX1__Contract_or_Form_Template__c template = agrec.TestDataFactory.createContractTemplate();
+        insert template;
+
+        Contract_and_Form_Query__c query = new Contract_and_Form_Query__c(
+            Key__c = 'addOns',
+            SOQL_Query__c = 'SELECT Name, TREX1__Status__c FROM TREX1__Add_On__c WHERE TREX1__Registration__c = \'{!TREX1__Registration__c}\''
+        );
+        insert query;
+
+        Contract_and_Form_Template_Query__c link = new Contract_and_Form_Template_Query__c();
+        link.Contract_and_Form_Query__c = query.Id;
+        link.Contract_or_Form_Template__c = template.Id;
+        insert link;
+
+        return template;
     }
     
     @IsTest
@@ -46,6 +65,50 @@ private class ContractTemplateEditorController_Test {
                 System.Assert.fail('Should have received an exception for the invalid record id');
             } catch (Exception e) {
                 System.debug('Exception: ' + e.getMessage());
+            }
+            Test.stopTest();
+        }
+    }
+
+    @IsTest
+    static void testGetTemplateQueries() {
+        System.runAs(getUser()) {
+            TREX1__Contract_or_Form_Template__c template = createTemplateWithQueries();
+
+            Test.startTest();
+            templateQueries = ContractTemplateEditorController.getTemplateQueries(template.Id);
+            Test.stopTest();
+
+            List<Contract_and_Form_Query__c> expectedQueries = [
+                SELECT Key__c, SOQL_Query__c
+                  FROM Contract_and_Form_Query__c
+                 WHERE Id IN (SELECT Contract_and_Form_Query__c
+                                FROM Contract_and_Form_Template_Query__c
+                               WHERE Contract_or_Form_Template__c = :template.Id)
+            ];
+
+            System.Assert.areEqual(1, templateQueries.size(), 'Should have received a single query associated with the template');
+            System.Assert.areEqual(expectedQueries[0].Key__c, templateQueries[0].key, 'Received unexpected template query key');
+
+            List<String> expectedSelectFields = expectedQueries[0].SOQL_Query__c
+                                            .substringBetween('SELECT', 'FROM')
+                                            .deleteWhitespace()
+                                            .split(',');
+
+            System.Assert.areEqual(expectedSelectFields.size(), templateQueries[0].fields.size(), 'Should have received a field for each field in the select statement');
+        }
+    }
+
+    @IsTest
+    static void testGetTemplateQueriesWithInvalidId() {
+        String invalidId = 'ruhroh';
+        System.runAs(getUser()) {
+            Test.startTest();
+            try {
+                ContractTemplateEditorController.getTemplateQueries(invalidId);
+                System.Assert.fail('Should have received an exception for the invalid id');
+            } catch (Exception e) {
+                System.debug(e.getMessage());
             }
             Test.stopTest();
         }

@@ -45,6 +45,44 @@ public with sharing class ContractTemplateEditorController {
     }
 
     @AuraEnabled(cacheable=true)
+    public static List<TemplateQuery> getTemplateQueries(String templateId) {
+        List<TemplateQuery> templateQueries = new List<TemplateQuery>();
+
+        try {
+            Id tId = Id.valueOf(templateId);
+            for (List<Contract_and_Form_Template_Query__c> sobjs : [
+                SELECT Contract_and_Form_Query__r.Key__c, Contract_and_Form_Query__r.Name, Contract_and_Form_Query__r.SOQL_Query__c
+                  FROM Contract_and_Form_Template_Query__c
+                 WHERE Contract_or_Form_Template__c = :tId
+            ]) {
+                for (Contract_and_Form_Template_Query__c sobj : sobjs) {
+                    TemplateQuery tq = new TemplateQuery();
+                    tq.key = sobj.Contract_and_Form_Query__r.Key__c;
+                    tq.name = sobj.Contract_and_Form_Query__r.Name;
+                    tq.fields = new List<FieldDescriptor>();
+
+                    List<String> selectedFields = sobj.Contract_and_Form_Query__r.SOQL_Query__c
+                        .substringBetween('SELECT', 'FROM')
+                        .deleteWhitespace()
+                        .split(',');
+
+                    for (String selectedField : selectedFields) {
+                        FieldDescriptor fd = new FieldDescriptor();
+                        fd.apiName = selectedField;
+                        tq.fields.add(fd);
+                    }
+
+                    templateQueries.add(tq);
+                }
+            }
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+
+        return templateQueries;
+    }
+
+    @AuraEnabled(cacheable=true)
     public static List<FieldDescriptor> getFieldDescriptors(String objectApiName, String relationshipPath) {
         List<FieldDescriptor> results = new List<FieldDescriptor>();
 
@@ -80,6 +118,12 @@ public with sharing class ContractTemplateEditorController {
         }
 
         return results;
+    }
+
+    public class TemplateQuery {
+        @AuraEnabled public String key;
+        @AuraEnabled public String name;
+        @AuraEnabled public List<FieldDescriptor> fields;
     }
 
     public class FieldDescriptor {

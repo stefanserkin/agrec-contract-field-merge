@@ -11,20 +11,58 @@
  * @author
  * Asphalt Green Data and Information Systems
  ***********************************************************************/
-import { LightningElement, api, track } from 'lwc';
+import { LightningElement, api, wire, track } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import getTemplateQueries from '@salesforce/apex/ContractTemplateEditorController.getTemplateQueries';
 import getFieldDescriptors from '@salesforce/apex/ContractTemplateEditorController.getFieldDescriptors';
 
 export default class ContractMergeFieldWizard extends LightningElement {
+    @api recordId;
     @api objectApiName;
     @track fieldOptions = [];
     @track breadcrumbTrail = [];
     @track currentObject = '';
     @track currentPath = '';
     @track selectedValue = '';
-    pathIsCopied = false;
     includeFallback = false;
     fallbackValue = '';
+
+    wiredTemplateQueries = [];
+    @track templateQueries;
+    selectedQueryKey;
+    @track selectedQueryFields = [];
+
+    activeTab = 'fields';
+    isLoading = false;
+    pathIsCopied = false;
+    error;
+
+    get queryOptions() {
+        let options = [];
+        this.templateQueries.forEach(row => {
+            options.push({
+                label: row.name,
+                value: row.key
+            });
+        });
+        return options;
+    }
+
+    get queryFieldOptions() {
+        if (!this.selectedQueryKey) {
+            return;
+        }
+
+        const query = this.templateQueries.find(opt => opt.key === this.selectedQueryKey);
+        let options = [];
+        query.fields.forEach(field => {
+            options.push({
+                label: field.apiName,
+                value: field.apiName
+            });
+        });
+        return options;
+    }
 
     get breadcrumbLabels() {
         return this.breadcrumbTrail.map(crumb => crumb.label);
@@ -35,20 +73,53 @@ export default class ContractMergeFieldWizard extends LightningElement {
     }
     
     get pathActionsAreDisabled() {
-        return !this.selectedValue || !this.selectedValue.includes('{!') || 
-            (this.includeFallback && !this.fallbackValue);
+        return !this.mergeField || !this.mergeField.includes('{!') || (this.includeFallback && !this.fallbackValue);
     }
 
     get mergeField() {
-        let result = this.selectedValue;
-        if (this.includeFallback && this.fallbackValue) {
-            result = `${result.slice(0, -1)}, "${this.fallbackValue}"}`;
+        let result = '';
+        if (this.activeTab === 'fields') {
+            result = this.selectedValue;
+            if (this.includeFallback && this.fallbackValue) {
+                result = `${result.slice(0, -1)}, "${this.fallbackValue}"}`;
+            }
+        } else if (this.activeTab === 'tables') {
+            if (this.selectedQueryKey) {
+                let fieldBullets = [];
+                this.selectedQueryFields.forEach(field => {
+                    fieldBullets.push(`{!${field}}`);
+                });
+                result += `{!tableStart:${this.selectedQueryKey}}${fieldBullets.join(' | ')}{!tableEnd}`;
+            }
         }
         return result;
     }
 
     connectedCallback() {
         this.loadFieldOptions(this.objectApiName);
+    }
+
+    /**
+     * Database Calls
+     */
+
+    @wire(getTemplateQueries, { templateId: '$recordId' })
+    wiredQueryResult(result) {
+        console.log('::: looking for template queries for record');
+        this.isLoading = true;
+        this.wiredTemplateQueries = result;
+
+        if (result.data) {
+            console.log('got template data --> ' + JSON.stringify(result.data));
+            this.templateQueries = result.data;
+            this.error = undefined;
+            this.isLoading = false;
+        } else if (result.error) {
+            this.templateQueries = undefined;
+            this.error = result.error;
+            this.handleError();
+            this.isLoading = false;
+        }
     }
 
     loadFieldOptions(objectApiName, relationshipPath = null) {
@@ -96,6 +167,19 @@ export default class ContractMergeFieldWizard extends LightningElement {
             });
     }
 
+    /**
+     * Events
+     */
+
+    handleActiveTab(event) {
+        this.activeTab = event.target.value;
+    }
+
+    handleComboChange(event) {
+        this.selectedValue = event.detail.value;
+        this.handleFieldSelection();
+    }
+
     handleFieldSelection() {
         const selected = this.fieldOptions.find(opt => opt.value === this.selectedValue);
         if (selected?.isRelationship) {
@@ -110,19 +194,20 @@ export default class ContractMergeFieldWizard extends LightningElement {
         }
     }
 
-    handleComboChange(event) {
-        this.selectedValue = event.detail.value;
-        this.handleFieldSelection();
-    }
-
     handleFallbackChange(event) {
-        const selected = event.detail.checked;
-        this.includeFallback = selected;
+        this.includeFallback = event.detail.checked;
     }
 
     handleFallbackValueChange(event) {
-        const selected = event.detail.value;
-        this.fallbackValue = selected;
+        this.fallbackValue = event.detail.value;
+    }
+
+    handleQueryChange(event) {
+        this.selectedQueryKey = event.detail.value;
+    }
+
+    handleQueryFieldsChange(event) {
+        this.selectedQueryFields = event.detail.value;
     }
 
     handleBack() {
@@ -134,12 +219,21 @@ export default class ContractMergeFieldWizard extends LightningElement {
     }
 
     handleInsert() {
+        /*
         const selected = this.fieldOptions.find(opt => opt.value === this.selectedValue);
         if (selected && !selected.isRelationship) {
             this.dispatchEvent(new CustomEvent('mergefieldselected', {
                 detail: { mergeText: this.mergeField }
             }));
         }
+            */
+        if (!this.mergeField) {
+            return;
+        }
+
+        this.dispatchEvent(new CustomEvent('mergefieldselected', {
+            detail: { mergeText: this.mergeField }
+        }));
     }
 
     handleCopyPath() {
@@ -171,6 +265,25 @@ export default class ContractMergeFieldWizard extends LightningElement {
         setTimeout(() => {
             this.pathIsCopied = false;
         }, 4000);
+    }
+
+    /**
+     * Utilities
+     */
+
+    handleError() {
+        if (!this.error) {
+            return;
+        }
+        
+        const error = this.error;
+        let message = 'Unknown error';
+        if (Array.isArray(error.body)) {
+            message = error.body.map((e) => e.message).join(', ');
+        } else if (typeof error.body.message === 'string') {
+            message = error.body.message;
+        }
+        this.showToast('Something went wrong', message, 'error');
     }
 
     showToast(title, message, variant) {

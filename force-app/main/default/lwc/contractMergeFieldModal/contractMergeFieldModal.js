@@ -11,9 +11,11 @@
  * @author
  * Asphalt Green Data and Information Systems
  ***********************************************************************/
+import { api } from 'lwc';
 import LightningModal from 'lightning/modal';
 
 export default class ContractMergeFieldModal extends LightningModal {
+    @api recordId;
     objectApiName = 'TREX1__Contract_and_Form__c';
 
     handleMergeFieldSelected(event) {

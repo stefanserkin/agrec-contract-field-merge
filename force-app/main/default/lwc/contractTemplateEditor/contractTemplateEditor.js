@@ -98,7 +98,8 @@ export default class ContractTemplateEditor extends LightningElement {
 
     async openMergeFieldWizard() {
         const result = await MergeFieldModal.open({
-            size: 'small'
+            size: 'small',
+            recordId: this.recordId
         });
 
         if (result) {
