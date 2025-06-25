@@ -46,31 +46,6 @@ public inherited sharing class ContractMergeFieldService {
      * @param obj The sobject record
      * @return String String with merge fields replaced
      ****************************************************/
-    /*
-    public static String replaceMergeFieldsWithValues(String input, SObject obj) {
-        String result = input;
-        Pattern p = Pattern.compile(MERGE_FIELD_REGEX);
-        Matcher m = p.matcher(result);
-    
-        while (m.find()) {
-            String fieldApiPath = m.group(1);
-            String defaultValue = m.group(2) != null ? m.group(2) : m.group(3);
-    
-            Object fieldValue = getFieldValue(obj, fieldApiPath);
-            String formattedValue;
-            if (fieldValue != null) {
-                Schema.DescribeFieldResult fieldDescribe = getFieldDescribe(obj, fieldApiPath);
-                formattedValue = formatFieldValue(fieldValue, fieldDescribe);
-            } else {
-                formattedValue = defaultValue ?? '';
-            }
-    
-            result = result.replace(m.group(0), formattedValue);
-        }
-        return result;
-    }
-        */
-
     public static String replaceMergeFieldsWithValues(String input, SObject obj) {
         String result = input;
         Pattern p = Pattern.compile(MERGE_FIELD_REGEX);
@@ -84,7 +59,10 @@ public inherited sharing class ContractMergeFieldService {
 
             String formattedValue;
             if (fieldValue != null) {
-                FieldPathResolver.ResolutionResult resolved = FieldPathResolver.resolveFieldPath(obj.getSObjectType(), fieldApiPath);
+                agrec.FieldPathResolutionResult resolved = agrec.FieldPathResolver.resolveFieldPath(
+                    obj.getSObjectType(), 
+                    fieldApiPath
+                );
                 formattedValue = formatFieldValue(fieldValue, resolved.fieldDescribe);
             } else {
                 formattedValue = defaultValue ?? '';
@@ -205,58 +183,6 @@ public inherited sharing class ContractMergeFieldService {
             }
         }
         return result;
-    }
-
-    /****************************************************
-     * @description Gets the DescribeFieldResult for a given field path on an SObject.
-     *              Supports traversing relationship fields.
-     * 
-     * @param record The SObject to describe
-     * @param fieldPath The dot-separated field path (e.g., 'TREX1__Registration__r.TREX1__Contact__r.Account.Name')
-     * @return Schema.DescribeFieldResult for the last field in the path
-     ****************************************************/
-    @TestVisible
-    private static Schema.DescribeFieldResult getFieldDescribe(SObject record, String fieldPath) {
-        List<String> fieldParts = fieldPath.split('\\.');
-        Schema.SObjectType currentSObjectType = record.getSObjectType();
-
-        for (Integer i = 0; i < fieldParts.size(); i++) {
-            String fieldName = fieldParts[i];
-            Map<String, Schema.SObjectField> fieldMap = currentSObjectType.getDescribe().fields.getMap();
-
-            // Handle relationship field resolution
-            if (!fieldMap.containsKey(fieldName)) {
-                String lookupFieldName = fieldName.endsWith('__r') ? fieldName.replace('__r', '__c') : fieldName + 'Id';
-                if (!fieldMap.containsKey(lookupFieldName)) {
-                    return null;
-                }
-                fieldName = lookupFieldName;
-            }
-
-            Schema.SObjectField field = fieldMap.get(fieldName);
-            Schema.DescribeFieldResult fieldDescribe = field.getDescribe();
-
-            // If this is the last field in the path, return its describe result
-            if (i == fieldParts.size() - 1) {
-                return fieldDescribe;
-            }
-
-            // If it's a relationship, update currentSObjectType to the related SObject type
-            if (fieldDescribe.getType() == Schema.DisplayType.REFERENCE) {
-                List<Schema.SObjectType> referenceTo = fieldDescribe.getReferenceTo();
-                if (!referenceTo.isEmpty()) {
-                    // Assume single reference type
-                    currentSObjectType = referenceTo[0];
-                } else {
-                    return null;
-                }
-            } else {
-                // If a non-relationship field appears before the last, return null
-                return null;
-            }
-        }
-
-        return null;
     }
 
     /****************************************************

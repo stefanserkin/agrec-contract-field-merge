@@ -11,8 +11,8 @@
  * @author
  * Asphalt Green Data and Information Systems
  ***********************************************************************/
-import { LightningElement, api, wire } from 'lwc';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import { LightningElement, api } from 'lwc';
+import { handleError, showToast } from 'c/lwcUtils';
 import getPreviewContent from '@salesforce/apex/ContractTemplateEditorController.getPreviewWaiverText';
 import ID_FIELD from '@salesforce/schema/TREX1__Contract_and_Form__c.Id';
 import NAME_FIELD from '@salesforce/schema/TREX1__Contract_and_Form__c.Name';
@@ -56,7 +56,7 @@ export default class ContractTemplatePreview extends LightningElement {
 
     handleShowPreview() {
         if (!this.selectedContractId) {
-            this.showToast('Missing Selection', 'Please select a contract to preview', 'warning');
+            showToast(this, 'Missing Selection', 'Please select a contract to preview', 'warning');
             return;
         }
         this.isLoading = true;
@@ -69,7 +69,7 @@ export default class ContractTemplatePreview extends LightningElement {
             .catch(error => {
                 console.error(error);
                 this.error = error;
-                this.handleError();
+                handleError(this, this.error, 'Error retrieving preview content');
             })
             .finally(() => {
                 this.isLoading = false;
@@ -82,37 +82,6 @@ export default class ContractTemplatePreview extends LightningElement {
 
     toggleShowPreview() {
         this.isShowPreview = !this.isShowPreview;
-    }
-
-    /**
-     * Utilities
-     */
-
-    handleError() {
-        if (!this.error) {
-            return;
-        }
-        
-        const error = this.error;
-        let message = 'Unknown error';
-        if (Array.isArray(error.body)) {
-            message = error.body.map((e) => e.message).join(', ');
-        } else if (typeof error.body.message === 'string') {
-            message = error.body.message;
-        } else {
-            message = error.body?.message || JSON.stringify(error);
-        }
-        this.showToast('Something went wrong', message, 'error');
-    }
-
-    showToast(title, message, variant) {
-        this.dispatchEvent(
-            new ShowToastEvent({
-                title,
-                message,
-                variant
-            })
-        );
     }
     
 }

@@ -12,10 +12,10 @@
  * Asphalt Green Data and Information Systems
  ***********************************************************************/
 import { LightningElement, api, wire } from 'lwc';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import { updateRecord } from 'lightning/uiRecordApi';
 import { refreshApex } from '@salesforce/apex';
+import { handleError, showToast } from 'c/lwcUtils';
 import { unescapeAllowedHtml, normalizeHtml } from 'c/htmlUtils';
 import MergeFieldModal from 'c/contractMergeFieldModal';
 import PreviewModal from 'c/contractTemplatePreviewModal';
@@ -48,7 +48,7 @@ export default class ContractTemplateEditor extends LightningElement {
 
         if (result.error) {
             this.error = result.error;
-            this.handleError();
+            handleError(this, this.error, 'Error retrieving waiver text');
             this.isLoading = false;
         } else if (result.data) {
             this.contractTemplate = result.data;
@@ -63,7 +63,7 @@ export default class ContractTemplateEditor extends LightningElement {
 
         const editor = this.template.querySelector('lightning-input-rich-text');
         if (!editor.valid) {
-            this.showToast('Error', 'This content is not valid. Please fix the errors on the page before saving.', 'error');
+            showToast(this, 'Error', 'This content is not valid. Please fix the errors on the page before saving.', 'error');
         }
 
         const fields = {};
@@ -74,12 +74,12 @@ export default class ContractTemplateEditor extends LightningElement {
 
         updateRecord(recordInput)
             .then(() => {
-                this.showToast('Success', `The template's Waiver Text has been updated`, 'success');
+                showToast(this, 'Success', `The template's Waiver Text has been updated`, 'success');
                 refreshApex(this.wiredContractTemplate);
             })
             .catch((error) => {
                 this.error = error;
-                this.handleError();
+                handleError(this, this.error, 'Error updating waiver test');
             })
             .finally(() => {
                 this.isLoading = false;
@@ -96,7 +96,7 @@ export default class ContractTemplateEditor extends LightningElement {
 
     handleSave() {
         if (!this.waiverTextHasChanged) {
-            this.showToast('No Updates', 'There are no changes to save', 'info');
+            showToast(this, 'No Updates', 'There are no changes to save', 'info');
             return;
         }
         this.updateContractTemplate();
@@ -124,37 +124,6 @@ export default class ContractTemplateEditor extends LightningElement {
             size: 'medium',
             templateId: this.recordId
         });
-    }
-
-    /**
-     * Utilities
-     */
-
-    handleError() {
-        if (!this.error) {
-            return;
-        }
-        
-        const error = this.error;
-        let message = 'Unknown error';
-        if (Array.isArray(error.body)) {
-            message = error.body.map((e) => e.message).join(', ');
-        } else if (typeof error.body.message === 'string') {
-            message = error.body.message;
-        } else {
-            message = error.body?.message || JSON.stringify(error);
-        }
-        this.showToast('Something went wrong', message, 'error');
-    }
-
-    showToast(title, message, variant) {
-        this.dispatchEvent(
-            new ShowToastEvent({
-                title,
-                message,
-                variant
-            })
-        );
     }
 
 }

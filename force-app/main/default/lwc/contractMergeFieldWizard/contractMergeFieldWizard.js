@@ -12,7 +12,7 @@
  * Asphalt Green Data and Information Systems
  ***********************************************************************/
 import { LightningElement, api, wire, track } from 'lwc';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import { handleError, showToast } from 'c/lwcUtils';
 import { convertHtmlForClipboard } from 'c/htmlUtils';
 import getTemplateQueries from '@salesforce/apex/ContractTemplateEditorController.getTemplateQueries';
 import getFieldDescriptors from '@salesforce/apex/ContractTemplateEditorController.getFieldDescriptors';
@@ -122,7 +122,7 @@ export default class ContractMergeFieldWizard extends LightningElement {
         } else if (result.error) {
             this.templateQueries = undefined;
             this.error = result.error;
-            this.handleError();
+            handleError(this, this.error, 'Error retrieving template queries');
         }
     }
 
@@ -167,9 +167,8 @@ export default class ContractMergeFieldWizard extends LightningElement {
                 this.fieldOptions = options;
             })
             .catch((error) => {
-                console.error('Error loading fields:', error);
                 this.error = error;
-                this.handleError();
+                handleError(this, this.error, 'Error loading fields');
             });
     }
 
@@ -244,11 +243,11 @@ export default class ContractMergeFieldWizard extends LightningElement {
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(plainText)
                 .then(() => {
-                    this.showToast('Success', 'Merge path was copied to the clipboard', 'success');
+                    showToast(this, 'Success', 'Merge path was copied to the clipboard', 'success');
                 })
                 .catch(error => {
                     const errorMessage = error && error.message ? error.message : 'Merge path could not be copied';
-                    this.showToast('Error', errorMessage, 'error');
+                    showToast(this, 'Error', errorMessage, 'error');
                 });
         } else {
             let input = document.createElement("input");
@@ -258,44 +257,13 @@ export default class ContractMergeFieldWizard extends LightningElement {
             input.select();
             document.execCommand("Copy");
             input.remove();
-            this.showToast('Success', 'Merge path was copied to the clipboard', 'success');
+            showToast(this, 'Success', 'Merge path was copied to the clipboard', 'success');
         }
 
         this.pathIsCopied = true;
         setTimeout(() => {
             this.pathIsCopied = false;
         }, 4000);
-    }
-
-    /**
-     * Utilities
-     */
-
-    handleError() {
-        if (!this.error) {
-            return;
-        }
-        
-        const error = this.error;
-        let message = 'Unknown error';
-        if (Array.isArray(error.body)) {
-            message = error.body.map((e) => e.message).join(', ');
-        } else if (typeof error.body.message === 'string') {
-            message = error.body.message;
-        } else {
-            message = error.body?.message || JSON.stringify(error);
-        }
-        this.showToast('Something went wrong', message, 'error');
-    }
-
-    showToast(title, message, variant) {
-        this.dispatchEvent(
-            new ShowToastEvent({
-                title,
-                message,
-                variant
-            })
-        );
     }
 
 }
