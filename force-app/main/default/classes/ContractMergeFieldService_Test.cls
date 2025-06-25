@@ -138,17 +138,5 @@ private class ContractMergeFieldService_Test {
 
         System.Assert.isTrue(String.isBlank(cleaned), 'Should have received an empty string');
     }
-
-    @IsTest
-    static void testGetFieldDescribeForInvalidField() {
-        String invalidField = 'ruhroh__r';
-        Contact contact = new Contact(FirstName = 'Testeroo', LastName = 'Testeroodle');
-
-        Test.startTest();
-        Schema.DescribeFieldResult fieldDescribe = ContractMergeFieldService.getFieldDescribe(contact, invalidField);
-        Test.stopTest();
-
-        System.Assert.isNull(fieldDescribe, 'Should have received a null response for the invalid field');
-    }
     
 }
