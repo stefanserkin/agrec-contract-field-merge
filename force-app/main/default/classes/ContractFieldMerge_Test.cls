@@ -73,7 +73,7 @@ private class ContractFieldMerge_Test {
                 System.Assert.fail('Should have received an exception for the invalid status');
             } catch (Exception e) {
                 System.Assert.isTrue(
-                    e.getMessage().startsWith('Only draft contracts can be updated with merge field values'),
+                    e.getMessage().contains(ContractFieldMerge.EXCEPTION_BAD_STATUS),
                     'Received unexpected exception message'
                 );
             }
@@ -95,7 +95,7 @@ private class ContractFieldMerge_Test {
                 System.Assert.fail('Should have received an exception for the invalid status');
             } catch (Exception e) {
                 System.Assert.isTrue(
-                    e.getMessage().startsWith('Only contracts with a type of Waiver can be updated with merge field values'),
+                    e.getMessage().contains(ContractFieldMerge.EXCEPTION_BAD_TYPE),
                     'Received unexpected exception message'
                 );
             }

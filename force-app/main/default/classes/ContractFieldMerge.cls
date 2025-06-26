@@ -15,6 +15,8 @@ public with sharing class ContractFieldMerge {
 
     public class ContractFieldMergeException extends Exception {}
 
+    @TestVisible private static final String EXCEPTION_BAD_STATUS = 'Only draft contracts can be updated with merge field values';
+    @TestVisible private static final String EXCEPTION_BAD_TYPE = 'Only contracts with a Type of Waiver Form can be updated with merge field values';
     @TestVisible private static final String STATUS_DRAFT = 'Draft';
     @TestVisible private static final String TYPE_WAIVER = 'Waiver Form';
     private static final String WAIVER_STATUS_FIELD = 'trex1__status__c';
@@ -59,12 +61,12 @@ public with sharing class ContractFieldMerge {
 
         // Contract must be in draft
         if (contract.TREX1__Status__c != STATUS_DRAFT) {
-            throw new ContractFieldMergeException('Only draft contracts can be updated with merge field values');
+            throw new ContractFieldMergeException(EXCEPTION_BAD_STATUS);
         }
 
         // Contract must have a type of Waiver Form
         if (contract.TREX1__Type__c != TYPE_WAIVER) {
-            throw new ContractFieldMergeException('Only contracts with a Type of ' + TYPE_WAIVER + ' can be updated with merge field values');
+            throw new ContractFieldMergeException(EXCEPTION_BAD_TYPE);
         }
 
         // Contract must have a template
