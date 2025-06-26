@@ -65,12 +65,14 @@ public with sharing class ContractTemplateEditorController {
                     tq.fields = new List<FieldDescriptor>();
 
                     List<String> selectedFields = query.SOQL_Query__c
-                        .substringBetween('SELECT', 'FROM')
+                        .toLowerCase()
+                        .substringBetween('select', 'from')
                         .deleteWhitespace()
                         .split(',');
 
                     String baseObjectName = query.SOQL_Query__c
-                        .substringBetween('FROM', 'WHERE')
+                        .toLowerCase()
+                        .substringBetween('from', 'where')
                         .deleteWhitespace();
                         
                     Schema.SObjectType baseType = Schema.getGlobalDescribe().get(baseObjectName);
