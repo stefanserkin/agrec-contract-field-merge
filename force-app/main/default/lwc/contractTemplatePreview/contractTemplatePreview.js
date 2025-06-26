@@ -67,7 +67,6 @@ export default class ContractTemplatePreview extends LightningElement {
                 this.isShowPreview = true;
             })
             .catch(error => {
-                console.error(error);
                 this.error = error;
                 handleError(this, this.error, 'Error retrieving preview content');
             })
@@ -77,11 +76,7 @@ export default class ContractTemplatePreview extends LightningElement {
     }
 
     handleBack() {
-        this.toggleShowPreview();
-    }
-
-    toggleShowPreview() {
-        this.isShowPreview = !this.isShowPreview;
+        this.isShowPreview = false;
     }
     
 }
