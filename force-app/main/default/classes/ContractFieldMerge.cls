@@ -24,9 +24,14 @@ public with sharing class ContractFieldMerge {
 
     private List<TREX1__Contract_and_Form__c> contracts;
     private List<TREX1__Contract_and_Form__c> contractsWithMergeInfo;
+    private TREX1__Contract_or_Form_Template__c templateOverride;
 
     public ContractFieldMerge(List<TREX1__Contract_and_Form__c> contracts) {
         this.contracts = filterToEligibleTemplates(contracts);
+    }
+
+    public void overrideTemplate(TREX1__Contract_or_Form_Template__c template) {
+        templateOverride = template;
     }
 
     public List<TREX1__Contract_and_Form__c> populateMergeFields() {
@@ -54,12 +59,12 @@ public with sharing class ContractFieldMerge {
 
         // Contract must be in draft
         if (contract.TREX1__Status__c != STATUS_DRAFT) {
-            throw new ContractFieldMergeException('Only draft contracts can be updated with merge field values. Contract with Record ID');
+            throw new ContractFieldMergeException('Only draft contracts can be updated with merge field values');
         }
 
         // Contract must have a type of Waiver Form
         if (contract.TREX1__Type__c != TYPE_WAIVER) {
-            throw new ContractFieldMergeException('Only contracts with a type of Waiver can be updated with merge field values');
+            throw new ContractFieldMergeException('Only contracts with a Type of ' + TYPE_WAIVER + ' can be updated with merge field values');
         }
 
         // Contract must have a template
@@ -112,7 +117,7 @@ public with sharing class ContractFieldMerge {
 
     private List<TREX1__Contract_and_Form__c> replaceMergeFieldsWithValues(List<TREX1__Contract_and_Form__c> contractsWithMergeInfo) {
         for (TREX1__Contract_and_Form__c contract : contractsWithMergeInfo) {
-            TREX1__Contract_or_Form_Template__c template = ContractTemplateService.getTemplates().get(contract.TREX1__caf_Template__c);
+            TREX1__Contract_or_Form_Template__c template = templateOverride ?? ContractTemplateService.getTemplates().get(contract.TREX1__caf_Template__c);
             Map<String, List<SObject>> tableData = ContractMergeFieldService.prepareChildData(contract, template.TREX1__Waiver_Text__c);
             String waiverText = ContractMergeFieldService.expandTables(template.TREX1__Waiver_Text__c, tableData);
             waiverText = ContractMergeFieldService.replaceMergeFieldsWithValues(waiverText, contract);

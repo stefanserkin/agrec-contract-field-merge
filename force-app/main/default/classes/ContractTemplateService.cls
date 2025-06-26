@@ -11,7 +11,7 @@
  * @author
  * Asphalt Green Data and Information Systems
  ***********************************************************************/
-public with sharing class ContractTemplateService {
+public without sharing class ContractTemplateService {
 
     private static Map<Id, TREX1__Contract_or_Form_Template__c> templateMap = new Map<Id, TREX1__Contract_or_Form_Template__c>();
     private static Map<String, String> contractQueriesByKeys = new Map<String, String>();
@@ -41,7 +41,7 @@ public with sharing class ContractTemplateService {
                       FROM Contract_and_Form_Template_Queries__r)
               FROM TREX1__Contract_or_Form_Template__c
              WHERE Id IN :templateIdsToAdd
-              WITH USER_MODE
+              WITH SYSTEM_MODE
         ]) {
             for (TREX1__Contract_or_Form_Template__c template : templates) {
                 templateMap.put(template.Id, template);

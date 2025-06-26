@@ -37,6 +37,7 @@ public with sharing class ContractTemplateEditorController {
             );
 
             ContractFieldMerge fieldMerge = new ContractFieldMerge( new List<TREX1__Contract_and_Form__c>{contract} );
+            fieldMerge.overrideTemplate(template);
             TREX1__Contract_and_Form__c updatedForm = fieldMerge.populateMergeFields().get(0);
             return updatedForm.TREX1__Waiver_Text__c;
         } catch (Exception e) {
@@ -64,15 +65,15 @@ public with sharing class ContractTemplateEditorController {
                     tq.name = query.Name;
                     tq.fields = new List<FieldDescriptor>();
 
-                    List<String> selectedFields = query.SOQL_Query__c
-                        .toLowerCase()
-                        .substringBetween('select', 'from')
+                    String queryString = query.SOQL_Query__c.toLowerCase();
+
+                    List<String> selectedFields = queryString
+                        .substringBetween('select ', ' from ')
                         .deleteWhitespace()
                         .split(',');
 
-                    String baseObjectName = query.SOQL_Query__c
-                        .toLowerCase()
-                        .substringBetween('from', 'where')
+                    String baseObjectName = queryString
+                        .substringBetween(' from ', ' where ')
                         .deleteWhitespace();
                         
                     Schema.SObjectType baseType = Schema.getGlobalDescribe().get(baseObjectName);
