@@ -24,7 +24,7 @@ public inherited sharing class ContractMergeFieldService {
     /****************************************************
      * @description Returns a set of field api names for merge fields in the input
      * @param input String containing merge fields
-     * @return Set<String> Merge fields
+     * @return Set of merge field api names
      ****************************************************/
     public static Set<String> getMergeFieldsFromString(String input) {
         Set<String> mergeFields = new Set<String>();
@@ -44,7 +44,7 @@ public inherited sharing class ContractMergeFieldService {
      * @description Replaces standard field-level merge fields with actual field values
      * @param input String containing merge fields to be replaced
      * @param obj The sobject record
-     * @return String String with merge fields replaced
+     * @return String with merge fields replaced
      ****************************************************/
     public static String replaceMergeFieldsWithValues(String input, SObject obj) {
         String result = input;
@@ -76,7 +76,7 @@ public inherited sharing class ContractMergeFieldService {
     /****************************************************
      * @description Removes all table blocks (from {!tableStart:key} to {!tableEnd}) from the input
      * @param input Original string with table blocks
-     * @return String Updated string with table blocks removed
+     * @return Updated string with table blocks removed
      ****************************************************/
     public static String removeTableBlocks(String input) {
         if (String.isBlank(input)) {
@@ -88,12 +88,11 @@ public inherited sharing class ContractMergeFieldService {
     }
 
     /****************************************************
-     * @description Expands table blocks for related data based on a preloaded map
+     * @description Returns child data for queries associated with the template
      * Handles {!tableStart:key}...{!tableEnd} syntax
      * @param contract
      * @param waiverText
-     * @param tableQueryMap
-     * @return String
+     * @return Map of query keys to the list of returned records
      ****************************************************/
     public static Map<String, List<SObject>> prepareChildData(SObject contract, String waiverText) {
         Map<String, String> tableQueryMap = ContractTemplateService.getContractQueriesByKeys();
@@ -113,10 +112,9 @@ public inherited sharing class ContractMergeFieldService {
     /****************************************************
      * @description Expands table blocks for related data based on a preloaded map
      * Handles {!tableStart:key}...{!tableEnd} syntax
-     * @param contract
      * @param waiverText
      * @param tableData
-     * @return String
+     * @return Updated waiver text
      ****************************************************/
     public static String expandTables(String waiverText, Map<String, List<SObject>> tableData) {
         String result = waiverText;
@@ -147,7 +145,7 @@ public inherited sharing class ContractMergeFieldService {
     /****************************************************
      * @description Determines if a merge token is a non-field command
      * @param fieldPath
-     * @return Boolean True if fieldPath is a non-field command
+     * @return True if fieldPath is a non-field command
      ****************************************************/
     private static Boolean isNonFieldCommand(String fieldPath) {
         String lowerFieldPath = fieldPath.toLowerCase();
@@ -189,7 +187,7 @@ public inherited sharing class ContractMergeFieldService {
      * Format field values based on data type
      * @param Object The field value
      * @param Schema.DescribeFieldResult field describe for the provided field
-     * @return String Formatted field value
+     * @return The formatted field value
      ****************************************************/
     @TestVisible
     private static String formatFieldValue(Object fieldValue, Schema.DescribeFieldResult fieldDescribe) {
