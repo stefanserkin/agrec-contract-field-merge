@@ -17,6 +17,10 @@ public with sharing class ContractTemplateEditorController {
 
     private static final String STATUS_DRAFT = 'Draft';
     private static final String TYPE_WAIVER = 'Waiver Form';
+    private static final String SINGLE_SPACE = ' ';
+    private static final String REGEX_WHITESPACE_MULTI = '\\s+';
+    private static final String REGEX_QUERY_FROM_CLAUSE = '(?i)from\\s+(\\w+)';
+    private static final String REGEX_QUERY_SELECT_CLAUSE = '(?i)select\\s+(.*?)\\s+from';
 
     @AuraEnabled(cacheable=true)
     public static String getPreviewWaiverText(String templateId, String contractId) {
@@ -128,14 +132,14 @@ public with sharing class ContractTemplateEditorController {
 
     private static List<String> getSelectedFieldsFromQuery(String queryString) {
         List<String> selectedFields = new List<String>();
-        String query = queryString.replaceAll('\\s+', ' ');
+        String query = queryString.replaceAll(REGEX_WHITESPACE_MULTI, SINGLE_SPACE);
 
-        Pattern selectPattern = Pattern.compile('(?i)select\\s+(.*?)\\s+from');
+        Pattern selectPattern = Pattern.compile(REGEX_QUERY_SELECT_CLAUSE);
         Matcher selectMatcher = selectPattern.matcher(query);
 
         if (selectMatcher.find()) {
             String fieldClause = selectMatcher.group(1);
-            selectedFields = fieldClause.replaceAll('\\s+', '').split(',');
+            selectedFields = fieldClause.replaceAll(REGEX_WHITESPACE_MULTI, SINGLE_SPACE).split(',');
         }
 
         return selectedFields;
@@ -144,7 +148,7 @@ public with sharing class ContractTemplateEditorController {
     private static String getBaseObjectFromQuery(String queryString) {
         String baseObjectName;
 
-        Pattern fromPattern = Pattern.compile('(?i)from\\s+(\\w+)');
+        Pattern fromPattern = Pattern.compile(REGEX_QUERY_FROM_CLAUSE);
         Matcher fromMatcher = fromPattern.matcher(queryString);
 
         if (fromMatcher.find()) {
