@@ -65,17 +65,9 @@ public with sharing class ContractTemplateEditorController {
                     tq.name = query.Name;
                     tq.fields = new List<FieldDescriptor>();
 
-                    String queryString = query.SOQL_Query__c.toLowerCase();
+                    List<String> selectedFields = getSelectedFieldsFromQuery(query.SOQL_Query__c);
+                    String baseObjectName = getBaseObjectFromQuery(query.SOQL_Query__c);
 
-                    List<String> selectedFields = queryString
-                        .substringBetween('select ', ' from ')
-                        .deleteWhitespace()
-                        .split(',');
-
-                    String baseObjectName = queryString
-                        .substringBetween(' from ', ' where ')
-                        .deleteWhitespace();
-                        
                     Schema.SObjectType baseType = Schema.getGlobalDescribe().get(baseObjectName);
                     if (baseType == null) {
                         throw new AuraHandledException('Could not resolve base object for field introspection');
@@ -132,6 +124,34 @@ public with sharing class ContractTemplateEditorController {
         }
 
         return results;
+    }
+
+    private static List<String> getSelectedFieldsFromQuery(String queryString) {
+        List<String> selectedFields = new List<String>();
+        String query = queryString.replaceAll('\\s+', ' ');
+
+        Pattern selectPattern = Pattern.compile('(?i)select\\s+(.*?)\\s+from');
+        Matcher selectMatcher = selectPattern.matcher(query);
+
+        if (selectMatcher.find()) {
+            String fieldClause = selectMatcher.group(1);
+            selectedFields = fieldClause.replaceAll('\\s+', '').split(',');
+        }
+
+        return selectedFields;
+    }
+
+    private static String getBaseObjectFromQuery(String queryString) {
+        String baseObjectName;
+
+        Pattern fromPattern = Pattern.compile('(?i)from\\s+(\\w+)');
+        Matcher fromMatcher = fromPattern.matcher(queryString);
+
+        if (fromMatcher.find()) {
+            baseObjectName = fromMatcher.group(1);
+        }
+        
+        return baseObjectName;
     }
 
     public class TemplateQuery {
