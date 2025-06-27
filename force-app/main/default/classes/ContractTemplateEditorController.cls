@@ -19,7 +19,7 @@ public with sharing class ContractTemplateEditorController {
     private static final String TYPE_WAIVER = 'Waiver Form';
     private static final String SINGLE_SPACE = ' ';
     private static final String REGEX_WHITESPACE_MULTI = '\\s+';
-    private static final String REGEX_QUERY_FROM_CLAUSE = '(?i)from\\s+(\\w+)';
+    private static final String REGEX_QUERY_FROM_CLAUSE = '(?i)from\\s+([a-zA-Z0-9_]+)';
     private static final String REGEX_QUERY_SELECT_CLAUSE = '(?i)select\\s+(.*?)\\s+from';
 
     @AuraEnabled(cacheable=true)
@@ -139,7 +139,9 @@ public with sharing class ContractTemplateEditorController {
 
         if (selectMatcher.find()) {
             String fieldClause = selectMatcher.group(1);
-            selectedFields = fieldClause.replaceAll(REGEX_WHITESPACE_MULTI, SINGLE_SPACE).split(',');
+            for (String field : fieldClause.split(',')) {
+                selectedFields.add(field.trim());
+            }
         }
 
         return selectedFields;
