@@ -25,7 +25,7 @@ tasks:
                 u.TimeZoneSidKey = 'America/New_York';
                 update u;
 
-                insert TREX1__Trigger_Bypass__c(Name = 'Account', TREX1__Active__c = true, TREX1__Expiry__c = Datetime.now().addHours(1), 
+                insert new TREX1__Trigger_Bypass__c(Name = 'Account', TREX1__Active__c = true, TREX1__Expiry__c = Datetime.now().addHours(1), 
                     TREX1__User_Ids__c = u.Id, TREX1__Notes__c = 'Account Bypass', TREX1__SObject__c = 'Account');
     
     dx_deploy:
