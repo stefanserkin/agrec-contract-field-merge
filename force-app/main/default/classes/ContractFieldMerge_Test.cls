@@ -37,7 +37,7 @@ private class ContractFieldMerge_Test {
     }
 
     @IsTest
-    static void testresolveMergeFields() {
+    static void testResolveMergeFields() {
         System.runAs(getUser()) {
             makeData();
             

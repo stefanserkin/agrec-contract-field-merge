@@ -31,7 +31,7 @@ global with sharing class ContractFieldMergeInvocable {
             contractIds.add(req.contract.Id);
         }
 
-        Map<Id, TREX1__Contract_and_Form__c> resolvedContracts = ContractFieldMerge.mergeById(contractIds);
+        Map<Id, TREX1__Contract_and_Form__c> resolvedContracts = ContractMergeFieldService.mergeById(contractIds);
         updateContracts(requests, resolvedContracts);
 
         for (Request request : requests) {
@@ -53,12 +53,12 @@ global with sharing class ContractFieldMergeInvocable {
         }
 
         if (!contractsToUpdate.isEmpty()) {
-            ContractFieldMerge.updateContracts(contractsToUpdate.values());
+            ContractMergeFieldService.updateContracts(contractsToUpdate.values());
         }
     }
 
     global class Request {
-        @InvocableVariable(label='Contract and Form Record' required=true)
+        @InvocableVariable(label='Contract and Form Record')
         global TREX1__Contract_and_Form__c contract;
 
         @InvocableVariable(label='Update Record')

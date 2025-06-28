@@ -33,7 +33,7 @@ global with sharing class ContractFieldMergeListInvocable {
             }
         }
 
-        Map<Id, TREX1__Contract_and_Form__c> resolvedContracts = ContractFieldMerge.mergeById(contractIds);
+        Map<Id, TREX1__Contract_and_Form__c> resolvedContracts = ContractMergeFieldService.mergeById(contractIds);
         updateContracts(requests, resolvedContracts);
 
         for (Request request : requests) {
@@ -64,7 +64,7 @@ global with sharing class ContractFieldMergeListInvocable {
         }
 
         if (!contractsToUpdate.isEmpty()) {
-            ContractFieldMerge.updateContracts(contractsToUpdate.values());
+            ContractMergeFieldService.updateContracts(contractsToUpdate.values());
         }
     }
 

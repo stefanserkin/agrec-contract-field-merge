@@ -22,7 +22,7 @@ public without sharing class TA_CAF_MergeFieldValuesAI implements agrec.TriggerA
     public void afterInsert(List<TREX1__Contract_and_Form__c> newList) {
         filteredContracts = filterContracts(newList);
         contractsToUpdate = new ContractFieldMerge(filteredContracts).resolveMergeFields();
-        ContractFieldMerge.updateContracts(contractsToUpdate);
+        ContractMergeFieldService.updateContracts(contractsToUpdate);
     }
 
     private static List<TREX1__Contract_and_Form__c> filterContracts(List<TREX1__Contract_and_Form__c> newList) {

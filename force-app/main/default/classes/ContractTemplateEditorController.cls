@@ -92,6 +92,36 @@ public with sharing class ContractTemplateEditorController {
         return templateQueries;
     }
 
+    private static List<String> getSelectedFieldsFromQuery(String queryString) {
+        List<String> selectedFields = new List<String>();
+        String query = queryString.replaceAll(REGEX_WHITESPACE_MULTI, SINGLE_SPACE);
+
+        Pattern selectPattern = Pattern.compile(REGEX_QUERY_SELECT_CLAUSE);
+        Matcher selectMatcher = selectPattern.matcher(query);
+
+        if (selectMatcher.find()) {
+            String fieldClause = selectMatcher.group(1);
+            for (String field : fieldClause.split(',')) {
+                selectedFields.add(field.trim());
+            }
+        }
+
+        return selectedFields;
+    }
+
+    private static String getBaseObjectFromQuery(String queryString) {
+        String baseObjectName;
+
+        Pattern fromPattern = Pattern.compile(REGEX_QUERY_FROM_CLAUSE);
+        Matcher fromMatcher = fromPattern.matcher(queryString);
+
+        if (fromMatcher.find()) {
+            baseObjectName = fromMatcher.group(1);
+        }
+        
+        return baseObjectName;
+    }
+
     @AuraEnabled(cacheable=true)
     public static List<FieldDescriptor> getFieldDescriptors(String objectApiName, String relationshipPath) {
         List<FieldDescriptor> results = new List<FieldDescriptor>();
@@ -128,36 +158,6 @@ public with sharing class ContractTemplateEditorController {
         }
 
         return results;
-    }
-
-    private static List<String> getSelectedFieldsFromQuery(String queryString) {
-        List<String> selectedFields = new List<String>();
-        String query = queryString.replaceAll(REGEX_WHITESPACE_MULTI, SINGLE_SPACE);
-
-        Pattern selectPattern = Pattern.compile(REGEX_QUERY_SELECT_CLAUSE);
-        Matcher selectMatcher = selectPattern.matcher(query);
-
-        if (selectMatcher.find()) {
-            String fieldClause = selectMatcher.group(1);
-            for (String field : fieldClause.split(',')) {
-                selectedFields.add(field.trim());
-            }
-        }
-
-        return selectedFields;
-    }
-
-    private static String getBaseObjectFromQuery(String queryString) {
-        String baseObjectName;
-
-        Pattern fromPattern = Pattern.compile(REGEX_QUERY_FROM_CLAUSE);
-        Matcher fromMatcher = fromPattern.matcher(queryString);
-
-        if (fromMatcher.find()) {
-            baseObjectName = fromMatcher.group(1);
-        }
-        
-        return baseObjectName;
     }
 
     public class TemplateQuery {
