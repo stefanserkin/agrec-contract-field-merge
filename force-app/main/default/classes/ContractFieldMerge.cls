@@ -92,7 +92,7 @@ public with sharing class ContractFieldMerge {
     private String buildContractQuery() {
         List<String> mergeFields = getMergeFields();
         String query = 'SELECT ' + String.join(mergeFields, ', ') + 
-                        ' FROM TREX1__Contract_and_Form__c WHERE Id IN :contracts';
+                        ' FROM TREX1__Contract_and_Form__c WHERE Id IN :contracts WITH USER_MODE';
         return query;
     }
 
