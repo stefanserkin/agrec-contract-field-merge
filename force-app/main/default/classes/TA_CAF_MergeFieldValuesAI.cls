@@ -21,8 +21,8 @@ public without sharing class TA_CAF_MergeFieldValuesAI implements agrec.TriggerA
     @NamespaceAccessible
     public void afterInsert(List<TREX1__Contract_and_Form__c> newList) {
         filteredContracts = filterContracts(newList);
-        contractsToUpdate = new ContractFieldMerge(filteredContracts).populateMergeFields();
-        updateContracts(contractsToUpdate);
+        contractsToUpdate = new ContractFieldMerge(filteredContracts).resolveMergeFields();
+        ContractFieldMerge.updateContracts(contractsToUpdate);
     }
 
     private static List<TREX1__Contract_and_Form__c> filterContracts(List<TREX1__Contract_and_Form__c> newList) {
@@ -33,10 +33,6 @@ public without sharing class TA_CAF_MergeFieldValuesAI implements agrec.TriggerA
             }
         }
         return filteredContracts;
-    }
-
-    private static void updateContracts(List<TREX1__Contract_and_Form__c> contractsToUpdate) {
-        Database.update(contractsToUpdate, AccessLevel.SYSTEM_MODE);
     }
 
 }

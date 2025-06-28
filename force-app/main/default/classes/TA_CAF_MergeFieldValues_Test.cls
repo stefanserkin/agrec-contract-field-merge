@@ -35,7 +35,7 @@ private class TA_CAF_MergeFieldValues_Test {
     }
 
     @IsTest
-    static void testPopulateMergeFields() {
+    static void testresolveMergeFields() {
         System.runAs(getUser()) {
             makeData();
 

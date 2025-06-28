@@ -42,7 +42,7 @@ public with sharing class ContractTemplateEditorController {
 
             ContractFieldMerge fieldMerge = new ContractFieldMerge( new List<TREX1__Contract_and_Form__c>{contract} );
             fieldMerge.overrideTemplate(template);
-            TREX1__Contract_and_Form__c updatedForm = fieldMerge.populateMergeFields().get(0);
+            TREX1__Contract_and_Form__c updatedForm = fieldMerge.resolveMergeFields().get(0);
             return updatedForm.TREX1__Waiver_Text__c;
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());

@@ -37,7 +37,7 @@ private class ContractFieldMerge_Test {
     }
 
     @IsTest
-    static void testPopulateMergeFields() {
+    static void testresolveMergeFields() {
         System.runAs(getUser()) {
             makeData();
             
@@ -45,7 +45,7 @@ private class ContractFieldMerge_Test {
 
             Test.startTest();
             ContractFieldMerge fieldMerge = new ContractFieldMerge(contracts);
-            updatedContracts = fieldMerge.populateMergeFields();
+            updatedContracts = fieldMerge.resolveMergeFields();
             Test.stopTest();
 
             System.Assert.areNotEqual(null, updatedContracts, 'Returned contract list should not be null.');
@@ -69,7 +69,7 @@ private class ContractFieldMerge_Test {
 
             Test.startTest();
             try {
-                new ContractFieldMerge(contracts).populateMergeFields();
+                new ContractFieldMerge(contracts).resolveMergeFields();
                 System.Assert.fail('Should have received an exception for the invalid status');
             } catch (Exception e) {
                 System.Assert.isTrue(
@@ -91,7 +91,7 @@ private class ContractFieldMerge_Test {
 
             Test.startTest();
             try {
-                new ContractFieldMerge(contracts).populateMergeFields();
+                new ContractFieldMerge(contracts).resolveMergeFields();
                 System.Assert.fail('Should have received an exception for the invalid status');
             } catch (Exception e) {
                 System.Assert.isTrue(
@@ -109,7 +109,7 @@ private class ContractFieldMerge_Test {
             List<TREX1__Contract_and_Form__c> emptyContracts = new List<TREX1__Contract_and_Form__c>();
 
             Test.startTest();
-            List<TREX1__Contract_and_Form__c> updatedContracts = new ContractFieldMerge(emptyContracts).populateMergeFields();
+            List<TREX1__Contract_and_Form__c> updatedContracts = new ContractFieldMerge(emptyContracts).resolveMergeFields();
             Test.stopTest();
 
             System.Assert.isNotNull(updatedContracts, 'Returned list should not be null');
@@ -129,7 +129,7 @@ private class ContractFieldMerge_Test {
             Test.startTest();
             List<TREX1__Contract_and_Form__c> updatedContracts = new ContractFieldMerge(
                 new List<TREX1__Contract_and_Form__c>{ contract }
-            ).populateMergeFields();
+            ).resolveMergeFields();
             Test.stopTest();
 
             System.Assert.isNotNull(updatedContracts, 'Returned list should not be null');

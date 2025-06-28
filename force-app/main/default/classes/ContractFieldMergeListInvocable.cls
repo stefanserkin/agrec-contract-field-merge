@@ -11,11 +11,11 @@
  * @author
  * Asphalt Green Data and Information Systems
  ***********************************************************************/
-global with sharing class ContractFieldMergeInvocable {
+global with sharing class ContractFieldMergeListInvocable {
 
     @InvocableMethod(
-        label='Refresh Contract Merge Fields'
-        description='Refreshes Waiver Text by recalculating merge fields for a Contract and Form record.'
+        label='Refresh Contract Collection Merge Fields'
+        description='Refreshes Waiver Text by recalculating merge fields for a collection of Contract and Form records'
         category='agrec'
         iconName='resource:agrec__agGlyph:Layer_1'
     )
@@ -27,17 +27,27 @@ global with sharing class ContractFieldMergeInvocable {
         }
 
         Set<Id> contractIds = new Set<Id>();
-        for (Request req : requests) {
-            contractIds.add(req.contract.Id);
+        for (Request request : requests) {
+            for (TREX1__Contract_and_Form__c ct : request.contracts) {
+                contractIds.add(ct.Id);
+            }
         }
 
         Map<Id, TREX1__Contract_and_Form__c> resolvedContracts = ContractFieldMerge.mergeById(contractIds);
         updateContracts(requests, resolvedContracts);
 
         for (Request request : requests) {
-            Result res = new Result();
-            res.updatedContract = resolvedContracts.get(request.contract.Id);
-            results.add(res);
+            Result result = new Result();
+
+            List<TREX1__Contract_and_Form__c> contractsToReturn = new List<TREX1__Contract_and_Form__c>();
+            for (TREX1__Contract_and_Form__c ct : request.contracts) {
+                if (resolvedContracts.containsKey(ct.Id)) {
+                    contractsToReturn.add( resolvedContracts.get(ct.Id) );
+                }
+            }
+
+            result.updatedContracts = contractsToReturn;
+            results.add(result);
         }
 
         return results;
@@ -46,9 +56,10 @@ global with sharing class ContractFieldMergeInvocable {
     private static void updateContracts(List<Request> requests, Map<Id, TREX1__Contract_and_Form__c> resolvedContracts) {
         Map<Id, TREX1__Contract_and_Form__c> contractsToUpdate = new Map<Id, TREX1__Contract_and_Form__c>();
         for (Request request : requests) {
-            if (request.updateRecord) {
-                Id contractId = request.contract.Id;
-                contractsToUpdate.put(contractId, resolvedContracts.get(contractId));
+            if (request.updateRecords) {
+                for (TREX1__Contract_and_Form__c contract : request.contracts) {
+                    contractsToUpdate.put(contract.Id, resolvedContracts.get(contract.Id));
+                }
             }
         }
 
@@ -58,16 +69,16 @@ global with sharing class ContractFieldMergeInvocable {
     }
 
     global class Request {
-        @InvocableVariable(label='Contract and Form Record' required=true)
-        global TREX1__Contract_and_Form__c contract;
+        @InvocableVariable(label='Contract and Form Records' required=true)
+        global List<TREX1__Contract_and_Form__c> contracts;
 
-        @InvocableVariable(label='Update Record')
-        global Boolean updateRecord;
+        @InvocableVariable(label='Update Records')
+        global Boolean updateRecords;
     }
 
     global class Result {
-        @InvocableVariable(label='Updated Contract and Form')
-        global TREX1__Contract_and_Form__c updatedContract;
+        @InvocableVariable(label='Updated Contract and Forms')
+        global List<TREX1__Contract_and_Form__c> updatedContracts;
     }
 
 }

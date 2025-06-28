@@ -13,8 +13,6 @@
  ***********************************************************************/
 public with sharing class ContractFieldMerge {
 
-    public class ContractFieldMergeException extends Exception {}
-
     @TestVisible private static final String EXCEPTION_BAD_STATUS = 'Only draft contracts can be updated with merge field values';
     @TestVisible private static final String EXCEPTION_BAD_TYPE = 'Only contracts with a Type of Waiver Form can be updated with merge field values';
     @TestVisible private static final String STATUS_DRAFT = 'Draft';
@@ -28,6 +26,27 @@ public with sharing class ContractFieldMerge {
     private List<TREX1__Contract_and_Form__c> contractsWithMergeInfo;
     private TREX1__Contract_or_Form_Template__c templateOverride;
 
+    public static Map<Id, TREX1__Contract_and_Form__c> mergeById(Set<Id> contractIds) {
+        if (contractIds == null || contractIds.isEmpty()) return new Map<Id, TREX1__Contract_and_Form__c>();
+
+        List<TREX1__Contract_and_Form__c> contracts = fetchContractsById(contractIds);
+        List<TREX1__Contract_and_Form__c> updated = new ContractFieldMerge(contracts).resolveMergeFields();
+        return new Map<Id, TREX1__Contract_and_Form__c>(updated);
+    }
+
+    private static List<TREX1__Contract_and_Form__c> fetchContractsById(Set<Id> contractIds) {
+        return [
+            SELECT Id, TREX1__caf_Template__c, TREX1__Status__c, TREX1__Type__c
+              FROM TREX1__Contract_and_Form__c
+             WHERE Id IN :contractIds
+              WITH USER_MODE
+        ];
+    }
+
+    public static void updateContracts(List<TREX1__Contract_and_Form__c> contractsToUpdate) {
+        Database.update(contractsToUpdate, AccessLevel.SYSTEM_MODE);
+    }
+
     public ContractFieldMerge(List<TREX1__Contract_and_Form__c> contracts) {
         this.contracts = filterToEligibleTemplates(contracts);
     }
@@ -36,7 +55,7 @@ public with sharing class ContractFieldMerge {
         templateOverride = template;
     }
 
-    public List<TREX1__Contract_and_Form__c> populateMergeFields() {
+    public List<TREX1__Contract_and_Form__c> resolveMergeFields() {
         if (contracts == null || contracts.isEmpty()) {
             return new List<TREX1__Contract_and_Form__c>();
         }
@@ -127,5 +146,7 @@ public with sharing class ContractFieldMerge {
         }
         return contractsWithMergeInfo;
     }
+
+    public class ContractFieldMergeException extends Exception {}
     
 }
