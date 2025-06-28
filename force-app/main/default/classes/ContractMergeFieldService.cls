@@ -5,11 +5,18 @@
  * See the LICENSE file in the project root for full license text.
  * 
  * @description 
- * Utilities for merge field substitution for an SObject:
- *  - Normalize and validate field paths
- *  - Replace merge fields with values
- *  - Expand dynamic tables
- *  - Remove table blocks from waiver text
+ * Service layer for initiating merge field population on Contract and Form records.
+ * 
+ * This utility class exposes static methods for resolving and optionally updating
+ * waiver text on Contract and Form (`TREX1__Contract_and_Form__c`) records. It serves 
+ * as a shared entry point for invocable methods and other process automation that 
+ * require merge field substitution.
+ * 
+ * Responsibilities:
+ * - Return fully populated waiver text values for a set of record ids
+ * - Provide a safe update operation (in system mode) to persist those changes
+ * 
+ * This class delegates merge logic to the ContractFieldMerge domain class.
  * 
  * @date 2025
  * @author 
@@ -21,8 +28,12 @@ public with sharing class ContractMergeFieldService {
         if (contractIds == null || contractIds.isEmpty()) return new Map<Id, TREX1__Contract_and_Form__c>();
 
         List<TREX1__Contract_and_Form__c> contracts = fetchContractsById(contractIds);
-        List<TREX1__Contract_and_Form__c> updated = new ContractFieldMerge(contracts).resolveMergeFields();
-        return new Map<Id, TREX1__Contract_and_Form__c>(updated);
+        List<TREX1__Contract_and_Form__c> updatedContract = new ContractFieldMerge(contracts).resolveMergeFields();
+        return new Map<Id, TREX1__Contract_and_Form__c>(updatedContract);
+    }
+
+    public static void updateContracts(List<TREX1__Contract_and_Form__c> contractsToUpdate) {
+        Database.update(contractsToUpdate, AccessLevel.SYSTEM_MODE);
     }
 
     private static List<TREX1__Contract_and_Form__c> fetchContractsById(Set<Id> contractIds) {
@@ -32,10 +43,6 @@ public with sharing class ContractMergeFieldService {
              WHERE Id IN :contractIds
               WITH USER_MODE
         ];
-    }
-
-    public static void updateContracts(List<TREX1__Contract_and_Form__c> contractsToUpdate) {
-        Database.update(contractsToUpdate, AccessLevel.SYSTEM_MODE);
     }
 
 }

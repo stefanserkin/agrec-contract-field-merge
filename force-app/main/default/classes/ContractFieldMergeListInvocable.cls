@@ -56,7 +56,7 @@ global with sharing class ContractFieldMergeListInvocable {
     private static void updateContracts(List<Request> requests, Map<Id, TREX1__Contract_and_Form__c> resolvedContracts) {
         Map<Id, TREX1__Contract_and_Form__c> contractsToUpdate = new Map<Id, TREX1__Contract_and_Form__c>();
         for (Request request : requests) {
-            if (request.updateRecords) {
+            if (request.saveChanges) {
                 for (TREX1__Contract_and_Form__c contract : request.contracts) {
                     contractsToUpdate.put(contract.Id, resolvedContracts.get(contract.Id));
                 }
@@ -72,8 +72,8 @@ global with sharing class ContractFieldMergeListInvocable {
         @InvocableVariable(label='Contract and Form Records' required=true)
         global List<TREX1__Contract_and_Form__c> contracts;
 
-        @InvocableVariable(label='Update Records')
-        global Boolean updateRecords;
+        @InvocableVariable(label='Save Changes')
+        global Boolean saveChanges;
     }
 
     global class Result {

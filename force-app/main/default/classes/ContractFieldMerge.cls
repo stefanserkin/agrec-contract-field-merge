@@ -5,7 +5,13 @@
  * See the LICENSE file in the project root for full license text.
  * 
  * @description 
- * Merge field substitution handler for Contract and Form records
+ * Merge field substitution for Contract and Form records
+ * 
+ * Responsibilities:
+ * - Validate contract eligibility for merge substitution
+ * - Query required fields dynamically based on merge tags
+ * - Delegate parsing and merge substitution to utility collaborators
+ * - Provide a reusable, encapsulated unit for contract merge logic
  * 
  * @date 2025
  * @author

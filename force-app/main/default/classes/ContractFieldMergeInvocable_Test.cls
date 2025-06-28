@@ -52,7 +52,7 @@ private class ContractFieldMergeInvocable_Test {
             TREX1__Contract_and_Form__c contract = [SELECT Id, TREX1__caf_Template__c, TREX1__Status__c, TREX1__Type__c FROM TREX1__Contract_and_Form__c LIMIT 1];
 
             request.contract = contract;
-            request.updateRecord = false;
+            request.saveChanges = false;
             requests.add(request);
 
             Test.startTest();
@@ -74,7 +74,7 @@ private class ContractFieldMergeInvocable_Test {
             TREX1__Contract_and_Form__c contract = [SELECT Id, TREX1__caf_Template__c, TREX1__Status__c, TREX1__Type__c FROM TREX1__Contract_and_Form__c LIMIT 1];
 
             request.contract = contract;
-            request.updateRecord = true;
+            request.saveChanges = true;
             requests.add(request);
 
             Test.startTest();
@@ -126,7 +126,7 @@ private class ContractFieldMergeInvocable_Test {
             insert secondContract;
 
             listRequest.contracts = new List<TREX1__Contract_and_Form__c>{ contract, secondContract };
-            listRequest.updateRecords = false;
+            listRequest.saveChanges = false;
             listRequests.add(listRequest);
 
             Test.startTest();
@@ -149,7 +149,7 @@ private class ContractFieldMergeInvocable_Test {
             List<TREX1__Contract_and_Form__c> contracts = new List<TREX1__Contract_and_Form__c>{contract};
 
             listRequest.contracts = contracts;
-            listRequest.updateRecords = true;
+            listRequest.saveChanges = true;
             listRequests.add(listRequest);
 
             Test.startTest();
