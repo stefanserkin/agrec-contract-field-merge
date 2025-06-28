@@ -6,7 +6,7 @@
             <lightning-card>
                 <!-- BREADCRUMB PATH -->
                 <template if:true={breadcrumbLabels}>
-                    <div class="slds-text-title_bold slds-m-bottom_small">
+                    <div class="slds-text-title_bold slds-var-m-around_medium">
                         Path: TREX1__Contract_and_Form__c
                         <template for:each={breadcrumbLabels} for:item="label" for:index="index">
                             <span key={label}>
@@ -37,8 +37,8 @@
 
                 <template lwc:if={selectedValue}>
                     <!-- ADDITIONAL SETTINGS -->
-                    <lightning-layout multiple-rows="true" class="slds-var-m-around_medium">
-                        <lightning-layout-item size="6" padding="around-small">
+                    <lightning-layout multiple-rows="true">
+                        <lightning-layout-item size="6" padding="horizontal-medium">
                             <!-- FALLBACK VALUE -->
                             <lightning-input 
                                 type="toggle" 
@@ -59,16 +59,14 @@
                             </template>
                         </lightning-layout-item>
 
-                        <lightning-layout-item size="6" padding="around-small"></lightning-layout-item>
-
+                        <lightning-layout-item size="6" padding="horizontal-medium"></lightning-layout-item>
                     </lightning-layout>
                 </template>
-
             </lightning-card>
         </lightning-tab>
 
         <!-- INSERT TABLES -->
-        <template lwc:if={templateQueries}>
+        <template lwc:if={hasTemplateQueries}>
             <lightning-tab label={tabs.TABLES.label} value={tabs.TABLES.value} onactive={handleActiveTab}>
                 <lightning-card>
                     <lightning-layout>
@@ -103,8 +101,8 @@
     </lightning-tabset>
 
     <!-- SELECTED MERGE FIELD -->
-    <lightning-card lwc:if={mergeField}>
-        <div class="slds-var-m-around_small merge-field-output slds-text-align_center">
+    <template lwc:if={mergeField}>
+        <div class="slds-var-m-around_medium merge-field-output slds-text-align_center">
             <span class="slds-text-color_default">{mergeField}</span>
         </div>
 
@@ -131,5 +129,5 @@
                 class="slds-m-left_x-small"
             ></lightning-button>
         </div>
-    </lightning-card>
+    </template>
 </template>

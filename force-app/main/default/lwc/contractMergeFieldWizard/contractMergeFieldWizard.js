@@ -52,6 +52,10 @@ export default class ContractMergeFieldWizard extends LightningElement {
         return this.activeTab === this.tabs.TABLES.value;
     }
 
+    get hasTemplateQueries() {
+        return this.templateQueries && this.templateQueries.length > 0;
+    }
+
     get queryOptions() {
         if (!this.templateQueries) return [];
 

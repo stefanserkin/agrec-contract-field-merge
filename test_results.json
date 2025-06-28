@@ -7,7 +7,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 2583,
+            "duration": 3660,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -25,7 +25,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 989,
+                "used": 921,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -49,7 +49,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:40.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:42.000+0000"
     },
     {
         "Children": null,
@@ -59,7 +59,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 1579,
+            "duration": 1949,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -77,7 +77,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 618,
+                "used": 535,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -101,7 +101,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:45.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
     },
     {
         "Children": null,
@@ -111,7 +111,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 1459,
+            "duration": 1848,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -129,7 +129,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 623,
+                "used": 520,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -153,7 +153,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:47.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
     },
     {
         "Children": null,
@@ -163,7 +163,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 1541,
+            "duration": 2041,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -181,7 +181,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 615,
+                "used": 602,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -205,672 +205,12 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:48.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:56.000+0000"
     },
     {
         "Children": null,
         "ClassName": "ContractFieldMergeInvocable_Test",
         "Method": "testRefreshContractsWithNoRequests",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 29,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 1,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:50.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractFieldMergeInvocable_Test",
-        "Method": "testRefreshContractsWithNullRequests",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 7,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 1,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:50.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractFieldMergeInvocable_Test",
-        "Method": "testRefreshEmptyCollection",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 515,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 248,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:50.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractFieldMerge_Test",
-        "Method": "testInitializeServiceWithTemplatelessContract",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 1267,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 423,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:21.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractFieldMerge_Test",
-        "Method": "testPopulateMergeFieldsForEmptyList",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 582,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 221,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:34.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractFieldMerge_Test",
-        "Method": "testResolveMergeFields",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 1922,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 681,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:36.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractFieldMerge_Test",
-        "Method": "testServiceWithInvalidStatus",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 1559,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 624,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:38.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractFieldMerge_Test",
-        "Method": "testServiceWithInvalidType",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 1570,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 639,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:40.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractMergeFieldService_Test",
-        "Method": "testMergeContractCollectionById",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 20
-        },
-        "TestTimestamp": "2025-06-28T15:45:22.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractMergeFieldService_Test",
-        "Method": "testMergeSingleContractById",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 22
-        },
-        "TestTimestamp": "2025-06-28T15:45:44.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractMergeFieldService_Test",
-        "Method": "testUpdateContracts",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 21
-        },
-        "TestTimestamp": "2025-06-28T15:45:48.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractMergeFieldUtils_Test",
-        "Method": "testFormatCurrencyFieldValue",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 35,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 5,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:44.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractMergeFieldUtils_Test",
-        "Method": "testFormatDateFieldValue",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 21,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 1,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:46.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractMergeFieldUtils_Test",
-        "Method": "testFormatDatetimeFieldValue",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 6,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 1,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:47.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractMergeFieldUtils_Test",
-        "Method": "testFormatNullValue",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 5,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:47.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractMergeFieldUtils_Test",
-        "Method": "testGetMergeFieldsFromString",
         "Message": null,
         "Outcome": "Pass",
         "StackTrace": null,
@@ -917,12 +257,636 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:47.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:58.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractFieldMergeInvocable_Test",
+        "Method": "testRefreshContractsWithNullRequests",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 9,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:59.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractFieldMergeInvocable_Test",
+        "Method": "testRefreshEmptyCollection",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 627,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 218,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:59.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractFieldMerge_Test",
+        "Method": "testInitializeServiceWithTemplatelessContract",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 1445,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 422,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:42.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractFieldMerge_Test",
+        "Method": "testPopulateMergeFieldsForEmptyList",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 721,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 239,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractFieldMerge_Test",
+        "Method": "testResolveMergeFields",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2077,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 628,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractFieldMerge_Test",
+        "Method": "testServiceWithInvalidStatus",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 1560,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 550,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractFieldMerge_Test",
+        "Method": "testServiceWithInvalidType",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 1543,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 565,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractMergeFieldService_Test",
+        "Method": "testMergeContractCollectionById",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3295,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 784,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:44.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractMergeFieldService_Test",
+        "Method": "testMergeSingleContractById",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 1997,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 475,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractMergeFieldService_Test",
+        "Method": "testUpdateContracts",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 1096,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 259,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:55.000+0000"
     },
     {
         "Children": null,
         "ClassName": "ContractMergeFieldUtils_Test",
-        "Method": "testGetMergeFieldsWithFallbackValue",
+        "Method": "testFormatCurrencyFieldValue",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 50,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 7,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:45.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractMergeFieldUtils_Test",
+        "Method": "testFormatDateFieldValue",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 30,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 2,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractMergeFieldUtils_Test",
+        "Method": "testFormatDatetimeFieldValue",
         "Message": null,
         "Outcome": "Pass",
         "StackTrace": null,
@@ -945,7 +909,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 0,
+                "used": 1,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -969,17 +933,69 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:47.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
     },
     {
         "Children": null,
         "ClassName": "ContractMergeFieldUtils_Test",
-        "Method": "testRemoveTableBlocks",
+        "Method": "testFormatNullValue",
         "Message": null,
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 5,
+            "duration": 7,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 1,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractMergeFieldUtils_Test",
+        "Method": "testGetMergeFieldsFromString",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 14,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -1021,7 +1037,111 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:48.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractMergeFieldUtils_Test",
+        "Method": "testGetMergeFieldsWithFallbackValue",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 8,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractMergeFieldUtils_Test",
+        "Method": "testRemoveTableBlocks",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 6,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
     },
     {
         "Children": null,
@@ -1073,7 +1193,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:48.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
     },
     {
         "Children": null,
@@ -1083,7 +1203,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 31,
+            "duration": 39,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -1125,7 +1245,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:48.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
     },
     {
         "Children": null,
@@ -1135,7 +1255,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 265,
+            "duration": 420,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -1153,7 +1273,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 83,
+                "used": 108,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -1177,7 +1297,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:49.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:54.000+0000"
     },
     {
         "Children": null,
@@ -1187,7 +1307,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 1688,
+            "duration": 2042,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -1205,7 +1325,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 383,
+                "used": 462,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -1229,7 +1349,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:21.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
     },
     {
         "Children": null,
@@ -1239,7 +1359,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 68,
+            "duration": 67,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -1281,7 +1401,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:37.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:59.000+0000"
     },
     {
         "Children": null,
@@ -1291,7 +1411,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 712,
+            "duration": 1010,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -1309,7 +1429,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 211,
+                "used": 252,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -1333,7 +1453,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:38.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:59.000+0000"
     },
     {
         "Children": null,
@@ -1343,7 +1463,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 1606,
+            "duration": 2523,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -1361,7 +1481,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 561,
+                "used": 682,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -1385,7 +1505,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:39.000+0000"
+        "TestTimestamp": "2025-06-28T16:28:01.000+0000"
     },
     {
         "Children": null,
@@ -1395,7 +1515,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 1300,
+            "duration": 2086,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -1413,7 +1533,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 540,
+                "used": 649,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -1437,7 +1557,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:40.000+0000"
+        "TestTimestamp": "2025-06-28T16:28:04.000+0000"
     },
     {
         "Children": null,
@@ -1447,2071 +1567,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 737,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 246,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:42.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractTemplateEditorController_Test",
-        "Method": "testGetTemplateQueriesWithInvalidId",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 500,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 203,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:43.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractTemplateService_Test",
-        "Method": "testAddTemplatesToCache",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 1261,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 453,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:21.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractTemplateService_Test",
-        "Method": "testDoesNotReloadAlreadyCachedTemplates",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 660,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 241,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:37.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "ContractTemplateService_Test",
-        "Method": "testMissingQueryRelationship",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 578,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 218,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:39.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FieldPathManager_Test",
-        "Method": "testIsValid",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 31
-        },
-        "TestTimestamp": "2025-06-28T15:45:37.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FieldPathManager_Test",
-        "Method": "testNormalize",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 8
-        },
-        "TestTimestamp": "2025-06-28T15:45:40.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FieldPathResolver_Test",
-        "Method": "testFallbackByRelationshipName",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 57
-        },
-        "TestTimestamp": "2025-06-28T15:45:41.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FieldPathResolver_Test",
-        "Method": "testInvalidFieldPath",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 62
-        },
-        "TestTimestamp": "2025-06-28T15:45:43.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FieldPathResolver_Test",
-        "Method": "testNonRelationshipMidPath",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 5
-        },
-        "TestTimestamp": "2025-06-28T15:45:43.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FieldPathResolver_Test",
-        "Method": "testOneLevelRelationshipResolution",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 8
-        },
-        "TestTimestamp": "2025-06-28T15:45:43.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FieldPathResolver_Test",
-        "Method": "testSimpleFieldResolution",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 5
-        },
-        "TestTimestamp": "2025-06-28T15:45:43.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FieldPathResolver_Test",
-        "Method": "testTwoLevelRelationshipResolution",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 13
-        },
-        "TestTimestamp": "2025-06-28T15:45:44.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FinalizerHandler_Test",
-        "Method": "bypassFinalizerShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 27
-        },
-        "TestTimestamp": "2025-06-28T15:45:22.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FinalizerHandler_Test",
-        "Method": "bypassedFinalizerShouldNotExecute",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 31
-        },
-        "TestTimestamp": "2025-06-28T15:45:39.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FinalizerHandler_Test",
-        "Method": "clearAllFinalizerBypassesShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 21
-        },
-        "TestTimestamp": "2025-06-28T15:45:40.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FinalizerHandler_Test",
-        "Method": "clearFinalizerBypassShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 21
-        },
-        "TestTimestamp": "2025-06-28T15:45:40.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FinalizerHandler_Test",
-        "Method": "finalizerIsBypassedShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 20
-        },
-        "TestTimestamp": "2025-06-28T15:45:41.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FinalizerHandler_Test",
-        "Method": "finalizerThatInvokesDmlShouldCauseException",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 27
-        },
-        "TestTimestamp": "2025-06-28T15:45:41.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FinalizerHandler_Test",
-        "Method": "finalizersShouldExecuteInOrder",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 26
-        },
-        "TestTimestamp": "2025-06-28T15:45:41.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FinalizerHandler_Test",
-        "Method": "invalidFinalizerClassShouldThrowException",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 25
-        },
-        "TestTimestamp": "2025-06-28T15:45:42.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FinalizerHandler_Test",
-        "Method": "noConfiguredFinalizerShouldTakeNoAction",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 20
-        },
-        "TestTimestamp": "2025-06-28T15:45:42.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FinalizerHandler_Test",
-        "Method": "properlyConfiguredFinalizerShouldExecute",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 27
-        },
-        "TestTimestamp": "2025-06-28T15:45:42.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FinalizerHandler_Test",
-        "Method": "referencedClassDoesNotImplementDmlFinalizerShouldThrowException",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 27
-        },
-        "TestTimestamp": "2025-06-28T15:45:43.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FinalizerHandler_Test",
-        "Method": "staticallyBypassedFinalizerShouldNotExecute",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 22
-        },
-        "TestTimestamp": "2025-06-28T15:45:43.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FinalizerHandler_Test",
-        "Method": "userWithBypassPermissionDefinedOnFinalizerShouldNotExecute",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 22
-        },
-        "TestTimestamp": "2025-06-28T15:45:44.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FinalizerHandler_Test",
-        "Method": "userWithoutRequiredPermissionDefinedOnFinalizerShouldNotExecute",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 22
-        },
-        "TestTimestamp": "2025-06-28T15:45:44.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FlowChangeEventHeader_Test",
-        "Method": "shouldBeAbleToCompare",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 30
-        },
-        "TestTimestamp": "2025-06-28T15:45:21.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FlowChangeEventHeader_Test",
-        "Method": "shouldBeAbleToConstruct",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 24
-        },
-        "TestTimestamp": "2025-06-28T15:45:39.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FlowChangeEventHeader_Test",
-        "Method": "shouldBeAbleToGenerateHashCode",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 23
-        },
-        "TestTimestamp": "2025-06-28T15:45:39.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FormulaFilter_Test",
-        "Method": "emptyClassShouldThrowException",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 22
-        },
-        "TestTimestamp": "2025-06-28T15:45:24.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FormulaFilter_Test",
-        "Method": "emptyStringFormulaShouldProcessAllRecords",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 13
-        },
-        "TestTimestamp": "2025-06-28T15:45:34.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FormulaFilter_Test",
-        "Method": "invalidFormulaSyntaxShouldThrowException",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 25
-        },
-        "TestTimestamp": "2025-06-28T15:45:36.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FormulaFilter_Test",
-        "Method": "noFormulaShouldProcessAllRecords",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 14
-        },
-        "TestTimestamp": "2025-06-28T15:45:36.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FormulaFilter_Test",
-        "Method": "nonExistentClassShouldThrowException",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 21
-        },
-        "TestTimestamp": "2025-06-28T15:45:37.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FormulaFilter_Test",
-        "Method": "nonGlobalShouldThrowException",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 17
-        },
-        "TestTimestamp": "2025-06-28T15:45:37.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FormulaFilter_Test",
-        "Method": "nonTriggerRecordClassShouldThrowException",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 20
-        },
-        "TestTimestamp": "2025-06-28T15:45:37.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FormulaFilter_Test",
-        "Method": "nullClassShouldThrowException",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 16
-        },
-        "TestTimestamp": "2025-06-28T15:45:37.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FormulaFilter_Test",
-        "Method": "validFormulaShouldFilterContentsOftriggerNew",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 20
-        },
-        "TestTimestamp": "2025-06-28T15:45:37.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "FormulaFilter_Test",
-        "Method": "validFormulaWithNoMatchingRecordsShouldProcessNoRecords",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 20
-        },
-        "TestTimestamp": "2025-06-28T15:45:38.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "actionMetadataShouldConstruct",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 190
-        },
-        "TestTimestamp": "2025-06-28T15:45:21.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "actionShouldExecuteIfNoRequiredOrBypassPermissionsAreDefinedForSObjectOrAction",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 51
-        },
-        "TestTimestamp": "2025-06-28T15:45:50.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "actionShouldExecuteIfUserDoesNotHaveBypassPermissionForSObjectOrAction",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 47
-        },
-        "TestTimestamp": "2025-06-28T15:45:55.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "actionShouldNotExecuteIfUserDoesNotHaveRequiredPermissionForAction",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 32
-        },
-        "TestTimestamp": "2025-06-28T15:45:56.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "actionShouldNotExecuteIfUserDoesNotHaveRequiredPermissionForSObject",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 33
-        },
-        "TestTimestamp": "2025-06-28T15:45:56.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "actionShouldNotExecuteIfUserHasBypassPermissionForAction",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 34
-        },
-        "TestTimestamp": "2025-06-28T15:45:57.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "actionShouldNotExecuteIfUserHasBypassPermissionForSObject",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 34
-        },
-        "TestTimestamp": "2025-06-28T15:45:58.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "afterDeleteShouldFailWithIncorrectClass",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 32
-        },
-        "TestTimestamp": "2025-06-28T15:45:58.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "afterDeleteShouldFailWithIncorrectType",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 33
-        },
-        "TestTimestamp": "2025-06-28T15:45:59.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "afterDeleteShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 44
-        },
-        "TestTimestamp": "2025-06-28T15:46:00.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "afterInsertShouldFailWithIncorrectClass",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 31
-        },
-        "TestTimestamp": "2025-06-28T15:46:00.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "afterInsertShouldFailWithIncorrectType",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 31
-        },
-        "TestTimestamp": "2025-06-28T15:46:01.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "afterInsertShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 34
-        },
-        "TestTimestamp": "2025-06-28T15:46:01.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "afterUndeleteShouldFailWithIncorrectClass",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 32
-        },
-        "TestTimestamp": "2025-06-28T15:46:02.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "afterUndeleteShouldFailWithIncorrectType",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 30
-        },
-        "TestTimestamp": "2025-06-28T15:46:02.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "afterUndeleteShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 33
-        },
-        "TestTimestamp": "2025-06-28T15:46:03.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "afterUpdateShouldFailWithIncorrectClass",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 31
-        },
-        "TestTimestamp": "2025-06-28T15:46:04.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "afterUpdateShouldFailWithIncorrectType",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 36
-        },
-        "TestTimestamp": "2025-06-28T15:46:04.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "afterUpdateShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 36
-        },
-        "TestTimestamp": "2025-06-28T15:46:05.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "beforeDeleteShouldFailWithIncorrectClass",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 30
-        },
-        "TestTimestamp": "2025-06-28T15:46:05.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "beforeDeleteShouldFailWithIncorrectType",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 32
-        },
-        "TestTimestamp": "2025-06-28T15:46:06.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "beforeDeleteShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 33
-        },
-        "TestTimestamp": "2025-06-28T15:46:06.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "beforeInsertShouldFailWithIncorrectClass",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 33
-        },
-        "TestTimestamp": "2025-06-28T15:46:07.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "beforeInsertShouldFailWithIncorrectType",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 34
-        },
-        "TestTimestamp": "2025-06-28T15:46:08.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "beforeInsertShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 31
-        },
-        "TestTimestamp": "2025-06-28T15:46:08.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "beforeUpdateShouldFailWithIncorrectClass",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 32
-        },
-        "TestTimestamp": "2025-06-28T15:46:09.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "beforeUpdateShouldFailWithIncorrectType",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 33
-        },
-        "TestTimestamp": "2025-06-28T15:46:09.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "beforeUpdateShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 36
-        },
-        "TestTimestamp": "2025-06-28T15:46:10.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "bypassShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 37
-        },
-        "TestTimestamp": "2025-06-28T15:46:11.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "clearAllBypassesShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 30
-        },
-        "TestTimestamp": "2025-06-28T15:46:11.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "clearBypassShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 28
-        },
-        "TestTimestamp": "2025-06-28T15:46:12.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "finalizerShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 35
-        },
-        "TestTimestamp": "2025-06-28T15:46:12.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "isBypassedShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 28
-        },
-        "TestTimestamp": "2025-06-28T15:46:13.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "nothingToProcessShouldExitEarly",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 32
-        },
-        "TestTimestamp": "2025-06-28T15:46:13.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "theFrameworkShouldSupportFlow",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 37
-        },
-        "TestTimestamp": "2025-06-28T15:46:14.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "MetadataTriggerHandler_Test",
-        "Method": "theFrameworkShouldSupportSObjectsFromManagedPackages",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 59
-        },
-        "TestTimestamp": "2025-06-28T15:46:15.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TA_CAF_MergeFieldValues_Test",
-        "Method": "testresolveMergeFields",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 3695,
-            "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
-                "allowed": 100
-            },
-            "TESTING_LIMITS: Number of Email Invocations": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of future calls": {
-                "used": 0,
-                "allowed": 50
-            },
-            "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Maximum CPU time": {
-                "used": 918,
-                "allowed": 10000
-            },
-            "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
-                "allowed": 50000
-            },
-            "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
-                "allowed": 150
-            },
-            "TESTING_LIMITS: Number of Mobile Apex push calls": {
-                "used": 0,
-                "allowed": 10
-            },
-            "TESTING_LIMITS: Number of SOSL queries": {
-                "used": 0,
-                "allowed": 20
-            },
-            "TESTING_LIMITS: Number of callouts": {
-                "used": 0,
-                "allowed": 100
-            }
-        },
-        "TestTimestamp": "2025-06-28T15:45:39.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowAddError_Test",
-        "Method": "addErrorShouldAddAnErrorAtTheFieldSpecified",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 29
-        },
-        "TestTimestamp": "2025-06-28T15:45:22.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowAddError_Test",
-        "Method": "addErrorShouldSucceedWithValidRequest",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 20
-        },
-        "TestTimestamp": "2025-06-28T15:45:39.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowBypass_Test",
-        "Method": "bypassApexShouldSucceedWithValidRequest",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 72
-        },
-        "TestTimestamp": "2025-06-28T15:45:21.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowBypass_Test",
-        "Method": "bypassFlowShouldSucceedWithValidRequest",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 32
-        },
-        "TestTimestamp": "2025-06-28T15:45:40.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowBypass_Test",
-        "Method": "bypassObjectShouldSucceedWithValidRequest",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 22
-        },
-        "TestTimestamp": "2025-06-28T15:45:41.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowBypass_Test",
-        "Method": "bypassShouldFailWithInvalidType",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 26
-        },
-        "TestTimestamp": "2025-06-28T15:45:41.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowChangeEvent_Test",
-        "Method": "correctInputShouldProduceFlowInputs",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 33
-        },
-        "TestTimestamp": "2025-06-28T15:45:28.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowChangeEvent_Test",
-        "Method": "emptyInputShouldProduceEmptyFlowInputs",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 14
-        },
-        "TestTimestamp": "2025-06-28T15:45:37.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowChangeEvent_Test",
-        "Method": "wrongDataTypeShouldThrowException",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 14
-        },
-        "TestTimestamp": "2025-06-28T15:45:39.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowClearAllBypasses_Test",
-        "Method": "clearAllBypassApexShouldSucceedWithValidRequest",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 66
-        },
-        "TestTimestamp": "2025-06-28T15:45:35.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowClearAllBypasses_Test",
-        "Method": "clearAllBypassFlowShouldSucceedWithValidRequest",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 9
-        },
-        "TestTimestamp": "2025-06-28T15:45:37.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowClearAllBypasses_Test",
-        "Method": "clearAllBypassObjectShouldSucceedWithValidRequest",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 4
-        },
-        "TestTimestamp": "2025-06-28T15:45:38.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowClearAllBypasses_Test",
-        "Method": "clearAllBypassShouldFailWithInvalidType",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 8
-        },
-        "TestTimestamp": "2025-06-28T15:45:38.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowClearBypass_Test",
-        "Method": "clearBypassApexShouldSucceedWithValidRequest",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 39
-        },
-        "TestTimestamp": "2025-06-28T15:45:22.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowClearBypass_Test",
-        "Method": "clearBypassFlowShouldSucceedWithValidRequest",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 24
-        },
-        "TestTimestamp": "2025-06-28T15:45:34.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowClearBypass_Test",
-        "Method": "clearBypassObjecthouldSucceedWithValidRequest",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 15
-        },
-        "TestTimestamp": "2025-06-28T15:45:36.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowClearBypass_Test",
-        "Method": "clearBypassShouldFailWithInvalidType",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 15
-        },
-        "TestTimestamp": "2025-06-28T15:45:36.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowIsBypassed_Test",
-        "Method": "isBypassedApexShouldSucceedWithValidRequest",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 31
-        },
-        "TestTimestamp": "2025-06-28T15:45:21.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowIsBypassed_Test",
-        "Method": "isBypassedFlowShouldSucceedWithValidRequest",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 15
-        },
-        "TestTimestamp": "2025-06-28T15:45:33.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowIsBypassed_Test",
-        "Method": "isBypassedObjectShouldSucceedWithValidRequest",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 16
-        },
-        "TestTimestamp": "2025-06-28T15:45:35.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlowIsBypassed_Test",
-        "Method": "isBypassedShouldFailWithInvalidType",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 15
-        },
-        "TestTimestamp": "2025-06-28T15:45:35.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "afterDeleteShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 28
-        },
-        "TestTimestamp": "2025-06-28T15:45:22.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "afterInsertShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 17
-        },
-        "TestTimestamp": "2025-06-28T15:45:36.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "afterUndeleteShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 15
-        },
-        "TestTimestamp": "2025-06-28T15:45:37.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "afterUpdateShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 17
-        },
-        "TestTimestamp": "2025-06-28T15:45:37.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "afterUpdateWithNoRecordsToProcessShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 17
-        },
-        "TestTimestamp": "2025-06-28T15:45:37.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "beforeDeleteShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 17
-        },
-        "TestTimestamp": "2025-06-28T15:45:38.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "beforeInsertShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 16
-        },
-        "TestTimestamp": "2025-06-28T15:45:38.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "beforeUpdateShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 20
-        },
-        "TestTimestamp": "2025-06-28T15:45:38.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "beforeUpdateWithNoRecordsToProcessShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 17
-        },
-        "TestTimestamp": "2025-06-28T15:45:38.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "bypassShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 15
-        },
-        "TestTimestamp": "2025-06-28T15:45:38.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "clearAllBypassesShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 15
-        },
-        "TestTimestamp": "2025-06-28T15:45:39.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "clearBypassShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 14
-        },
-        "TestTimestamp": "2025-06-28T15:45:39.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "emptyFlowNameShouldThrowException",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 17
-        },
-        "TestTimestamp": "2025-06-28T15:45:39.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "flowMissingRecordVariableInOutputShouldThrowException",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 18
-        },
-        "TestTimestamp": "2025-06-28T15:45:39.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "invokeFlowShouldReturnUnsuccessfulResponseWithBogusFlowName",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 239
-        },
-        "TestTimestamp": "2025-06-28T15:45:40.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "isBypassedShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 15
-        },
-        "TestTimestamp": "2025-06-28T15:45:40.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "noRecordMutationsShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 16
-        },
-        "TestTimestamp": "2025-06-28T15:45:40.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "nulledFieldInFlowShouldBeTransferredBack",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 18
-        },
-        "TestTimestamp": "2025-06-28T15:45:41.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "shouldDoNothingWhenBypassed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 16
-        },
-        "TestTimestamp": "2025-06-28T15:45:41.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "unsuccessfulActionResultShouldBeAddedAsErrorToRecord",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 26
-        },
-        "TestTimestamp": "2025-06-28T15:45:41.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerActionFlow_Test",
-        "Method": "validateTypeShouldThrowExceptionWithInvalidInput",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 15
-        },
-        "TestTimestamp": "2025-06-28T15:45:41.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "afterDeleteShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 86
-        },
-        "TestTimestamp": "2025-06-28T15:45:21.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "afterInsertShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 34
-        },
-        "TestTimestamp": "2025-06-28T15:45:43.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "afterUndeleteShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 30
-        },
-        "TestTimestamp": "2025-06-28T15:45:44.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "afterUpdateShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 30
-        },
-        "TestTimestamp": "2025-06-28T15:45:44.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "beforeDeleteShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 28
-        },
-        "TestTimestamp": "2025-06-28T15:45:45.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "beforeInsertShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 28
-        },
-        "TestTimestamp": "2025-06-28T15:45:45.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "beforeUpdateShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 29
-        },
-        "TestTimestamp": "2025-06-28T15:45:46.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "bypassShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 24
-        },
-        "TestTimestamp": "2025-06-28T15:45:46.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "clearAllBypassesShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 23
-        },
-        "TestTimestamp": "2025-06-28T15:45:47.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "clearBypassShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 24
-        },
-        "TestTimestamp": "2025-06-28T15:45:47.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "finalizingWithoutWaitingShouldThrowError",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 26
-        },
-        "TestTimestamp": "2025-06-28T15:45:48.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "idToNumberOfTimesSeenAfterUpdate",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 38
-        },
-        "TestTimestamp": "2025-06-28T15:45:48.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "idToNumberOfTimesSeenBeforeUpdate",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 31
-        },
-        "TestTimestamp": "2025-06-28T15:45:48.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "inverseContextsShouldFinalizeDmlOperationDelete",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 31
-        },
-        "TestTimestamp": "2025-06-28T15:45:49.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "inverseContextsShouldFinalizeDmlOperationInsert",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 29
-        },
-        "TestTimestamp": "2025-06-28T15:45:49.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "inverseContextsShouldFinalizeDmlOperationUndelete",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 28
-        },
-        "TestTimestamp": "2025-06-28T15:45:50.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "inverseContextsShouldFinalizeDmlOperationUpdate",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 31
-        },
-        "TestTimestamp": "2025-06-28T15:45:50.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "isBypassedShouldSucceed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 23
-        },
-        "TestTimestamp": "2025-06-28T15:45:51.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "offsetRowsShouldWork",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 27
-        },
-        "TestTimestamp": "2025-06-28T15:45:51.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "oldAndNewShouldComeFromTrigger",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 25
-        },
-        "TestTimestamp": "2025-06-28T15:45:52.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "peekShouldShowMostRecentlyAdded",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 23
-        },
-        "TestTimestamp": "2025-06-28T15:45:52.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "peekingStackWhileEmptyShouldThrowException",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 26
-        },
-        "TestTimestamp": "2025-06-28T15:45:53.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "poppingStackWhileEmptyShouldThrowException",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 26
-        },
-        "TestTimestamp": "2025-06-28T15:45:53.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "runShouldDoNothingWhenBypassed",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 26
-        },
-        "TestTimestamp": "2025-06-28T15:45:54.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "runShouldFailWhenCalledOutsideTrigger",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 26
-        },
-        "TestTimestamp": "2025-06-28T15:45:54.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "sObjectNameShouldBePopulatedFromTriggerNew",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 28
-        },
-        "TestTimestamp": "2025-06-28T15:45:55.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "sObjectNameShouldBePopulatedFromTriggerOld",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 23
-        },
-        "TestTimestamp": "2025-06-28T15:45:55.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "stackDepthShouldBeCalculatedProperly",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 29
-        },
-        "TestTimestamp": "2025-06-28T15:45:56.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "stackShouldBeFirstInLastOut",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 25
-        },
-        "TestTimestamp": "2025-06-28T15:45:56.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "stackShouldBeLastInFirstOut",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 26
-        },
-        "TestTimestamp": "2025-06-28T15:45:57.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "stacksShouldBeAbleToDetermineIftheyAreEmpty",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 24
-        },
-        "TestTimestamp": "2025-06-28T15:45:57.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerBase_Test",
-        "Method": "waitingThenFinalizingShouldWork",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 25
-        },
-        "TestTimestamp": "2025-06-28T15:45:58.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "TriggerRecord_Test",
-        "Method": "shouldBeAbleToConstructATriggerRecord",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 21
-        },
-        "TestTimestamp": "2025-06-28T15:45:21.000+0000"
-    },
-    {
-        "Children": null,
-        "ClassName": "Triggers_Test",
-        "Method": "testContentDocumentLinkTrigger",
-        "Message": null,
-        "Outcome": "Pass",
-        "StackTrace": null,
-        "Stats": {
-            "duration": 1853,
+            "duration": 1143,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -3553,7 +1609,2071 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:21.000+0000"
+        "TestTimestamp": "2025-06-28T16:28:06.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractTemplateEditorController_Test",
+        "Method": "testGetTemplateQueriesWithInvalidId",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 741,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 267,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:28:08.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractTemplateService_Test",
+        "Method": "testAddTemplatesToCache",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 1515,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 420,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:42.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractTemplateService_Test",
+        "Method": "testDoesNotReloadAlreadyCachedTemplates",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 886,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 268,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "ContractTemplateService_Test",
+        "Method": "testMissingQueryRelationship",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 600,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 223,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FieldPathManager_Test",
+        "Method": "testIsValid",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 18
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FieldPathManager_Test",
+        "Method": "testNormalize",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FieldPathResolver_Test",
+        "Method": "testFallbackByRelationshipName",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 121
+        },
+        "TestTimestamp": "2025-06-28T16:27:43.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FieldPathResolver_Test",
+        "Method": "testInvalidFieldPath",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 55
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FieldPathResolver_Test",
+        "Method": "testNonRelationshipMidPath",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FieldPathResolver_Test",
+        "Method": "testOneLevelRelationshipResolution",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 6
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FieldPathResolver_Test",
+        "Method": "testSimpleFieldResolution",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FieldPathResolver_Test",
+        "Method": "testTwoLevelRelationshipResolution",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 12
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FinalizerHandler_Test",
+        "Method": "bypassFinalizerShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 14
+        },
+        "TestTimestamp": "2025-06-28T16:27:43.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FinalizerHandler_Test",
+        "Method": "bypassedFinalizerShouldNotExecute",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 22
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FinalizerHandler_Test",
+        "Method": "clearAllFinalizerBypassesShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 11
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FinalizerHandler_Test",
+        "Method": "clearFinalizerBypassShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 7
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FinalizerHandler_Test",
+        "Method": "finalizerIsBypassedShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 8
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FinalizerHandler_Test",
+        "Method": "finalizerThatInvokesDmlShouldCauseException",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 12
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FinalizerHandler_Test",
+        "Method": "finalizersShouldExecuteInOrder",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 9
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FinalizerHandler_Test",
+        "Method": "invalidFinalizerClassShouldThrowException",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 8
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FinalizerHandler_Test",
+        "Method": "noConfiguredFinalizerShouldTakeNoAction",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 18
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FinalizerHandler_Test",
+        "Method": "properlyConfiguredFinalizerShouldExecute",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 14
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FinalizerHandler_Test",
+        "Method": "referencedClassDoesNotImplementDmlFinalizerShouldThrowException",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 8
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FinalizerHandler_Test",
+        "Method": "staticallyBypassedFinalizerShouldNotExecute",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 7
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FinalizerHandler_Test",
+        "Method": "userWithBypassPermissionDefinedOnFinalizerShouldNotExecute",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 6
+        },
+        "TestTimestamp": "2025-06-28T16:27:54.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FinalizerHandler_Test",
+        "Method": "userWithoutRequiredPermissionDefinedOnFinalizerShouldNotExecute",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 6
+        },
+        "TestTimestamp": "2025-06-28T16:27:54.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FlowChangeEventHeader_Test",
+        "Method": "shouldBeAbleToCompare",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 8
+        },
+        "TestTimestamp": "2025-06-28T16:27:43.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FlowChangeEventHeader_Test",
+        "Method": "shouldBeAbleToConstruct",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FlowChangeEventHeader_Test",
+        "Method": "shouldBeAbleToGenerateHashCode",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FormulaFilter_Test",
+        "Method": "emptyClassShouldThrowException",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 19
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FormulaFilter_Test",
+        "Method": "emptyStringFormulaShouldProcessAllRecords",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:55.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FormulaFilter_Test",
+        "Method": "invalidFormulaSyntaxShouldThrowException",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 10
+        },
+        "TestTimestamp": "2025-06-28T16:27:55.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FormulaFilter_Test",
+        "Method": "noFormulaShouldProcessAllRecords",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:55.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FormulaFilter_Test",
+        "Method": "nonExistentClassShouldThrowException",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:55.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FormulaFilter_Test",
+        "Method": "nonGlobalShouldThrowException",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 6
+        },
+        "TestTimestamp": "2025-06-28T16:27:56.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FormulaFilter_Test",
+        "Method": "nonTriggerRecordClassShouldThrowException",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 8
+        },
+        "TestTimestamp": "2025-06-28T16:27:56.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FormulaFilter_Test",
+        "Method": "nullClassShouldThrowException",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:56.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FormulaFilter_Test",
+        "Method": "validFormulaShouldFilterContentsOftriggerNew",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 6
+        },
+        "TestTimestamp": "2025-06-28T16:27:56.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "FormulaFilter_Test",
+        "Method": "validFormulaWithNoMatchingRecordsShouldProcessNoRecords",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 8
+        },
+        "TestTimestamp": "2025-06-28T16:27:56.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "actionMetadataShouldConstruct",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 95
+        },
+        "TestTimestamp": "2025-06-28T16:27:43.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "actionShouldExecuteIfNoRequiredOrBypassPermissionsAreDefinedForSObjectOrAction",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 11
+        },
+        "TestTimestamp": "2025-06-28T16:27:47.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "actionShouldExecuteIfUserDoesNotHaveBypassPermissionForSObjectOrAction",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 11
+        },
+        "TestTimestamp": "2025-06-28T16:27:47.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "actionShouldNotExecuteIfUserDoesNotHaveRequiredPermissionForAction",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:47.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "actionShouldNotExecuteIfUserDoesNotHaveRequiredPermissionForSObject",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "actionShouldNotExecuteIfUserHasBypassPermissionForAction",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "actionShouldNotExecuteIfUserHasBypassPermissionForSObject",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "afterDeleteShouldFailWithIncorrectClass",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "afterDeleteShouldFailWithIncorrectType",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "afterDeleteShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 6
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "afterInsertShouldFailWithIncorrectClass",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "afterInsertShouldFailWithIncorrectType",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "afterInsertShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "afterUndeleteShouldFailWithIncorrectClass",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "afterUndeleteShouldFailWithIncorrectType",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "afterUndeleteShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "afterUpdateShouldFailWithIncorrectClass",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "afterUpdateShouldFailWithIncorrectType",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "afterUpdateShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 6
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "beforeDeleteShouldFailWithIncorrectClass",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "beforeDeleteShouldFailWithIncorrectType",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "beforeDeleteShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "beforeInsertShouldFailWithIncorrectClass",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "beforeInsertShouldFailWithIncorrectType",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "beforeInsertShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "beforeUpdateShouldFailWithIncorrectClass",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "beforeUpdateShouldFailWithIncorrectType",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "beforeUpdateShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "bypassShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "clearAllBypassesShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "clearBypassShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "finalizerShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "isBypassedShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "nothingToProcessShouldExitEarly",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:54.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "theFrameworkShouldSupportFlow",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:54.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "MetadataTriggerHandler_Test",
+        "Method": "theFrameworkShouldSupportSObjectsFromManagedPackages",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 16
+        },
+        "TestTimestamp": "2025-06-28T16:27:54.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TA_CAF_MergeFieldValues_Test",
+        "Method": "testresolveMergeFields",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3924,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 863,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:43.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowAddError_Test",
+        "Method": "addErrorShouldAddAnErrorAtTheFieldSpecified",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 32
+        },
+        "TestTimestamp": "2025-06-28T16:27:42.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowAddError_Test",
+        "Method": "addErrorShouldSucceedWithValidRequest",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 11
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowBypass_Test",
+        "Method": "bypassApexShouldSucceedWithValidRequest",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 64
+        },
+        "TestTimestamp": "2025-06-28T16:27:42.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowBypass_Test",
+        "Method": "bypassFlowShouldSucceedWithValidRequest",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 15
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowBypass_Test",
+        "Method": "bypassObjectShouldSucceedWithValidRequest",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 6
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowBypass_Test",
+        "Method": "bypassShouldFailWithInvalidType",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 13
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowChangeEvent_Test",
+        "Method": "correctInputShouldProduceFlowInputs",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 38
+        },
+        "TestTimestamp": "2025-06-28T16:27:42.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowChangeEvent_Test",
+        "Method": "emptyInputShouldProduceEmptyFlowInputs",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:47.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowChangeEvent_Test",
+        "Method": "wrongDataTypeShouldThrowException",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:47.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowClearAllBypasses_Test",
+        "Method": "clearAllBypassApexShouldSucceedWithValidRequest",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 29
+        },
+        "TestTimestamp": "2025-06-28T16:27:43.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowClearAllBypasses_Test",
+        "Method": "clearAllBypassFlowShouldSucceedWithValidRequest",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowClearAllBypasses_Test",
+        "Method": "clearAllBypassObjectShouldSucceedWithValidRequest",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowClearAllBypasses_Test",
+        "Method": "clearAllBypassShouldFailWithInvalidType",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowClearBypass_Test",
+        "Method": "clearBypassApexShouldSucceedWithValidRequest",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 25
+        },
+        "TestTimestamp": "2025-06-28T16:27:43.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowClearBypass_Test",
+        "Method": "clearBypassFlowShouldSucceedWithValidRequest",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 13
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowClearBypass_Test",
+        "Method": "clearBypassObjecthouldSucceedWithValidRequest",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowClearBypass_Test",
+        "Method": "clearBypassShouldFailWithInvalidType",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 12
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowIsBypassed_Test",
+        "Method": "isBypassedApexShouldSucceedWithValidRequest",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 61
+        },
+        "TestTimestamp": "2025-06-28T16:27:42.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowIsBypassed_Test",
+        "Method": "isBypassedFlowShouldSucceedWithValidRequest",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 8
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowIsBypassed_Test",
+        "Method": "isBypassedObjectShouldSucceedWithValidRequest",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlowIsBypassed_Test",
+        "Method": "isBypassedShouldFailWithInvalidType",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 7
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "afterDeleteShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 41
+        },
+        "TestTimestamp": "2025-06-28T16:27:43.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "afterInsertShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 7
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "afterUndeleteShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "afterUpdateShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 10
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "afterUpdateWithNoRecordsToProcessShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "beforeDeleteShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "beforeInsertShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 6
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "beforeUpdateShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 6
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "beforeUpdateWithNoRecordsToProcessShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "bypassShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "clearAllBypassesShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "clearBypassShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "emptyFlowNameShouldThrowException",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 7
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "flowMissingRecordVariableInOutputShouldThrowException",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 7
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "invokeFlowShouldReturnUnsuccessfulResponseWithBogusFlowName",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 209
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "isBypassedShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "noRecordMutationsShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "nulledFieldInFlowShouldBeTransferredBack",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 7
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "shouldDoNothingWhenBypassed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:54.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "unsuccessfulActionResultShouldBeAddedAsErrorToRecord",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 8
+        },
+        "TestTimestamp": "2025-06-28T16:27:54.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerActionFlow_Test",
+        "Method": "validateTypeShouldThrowExceptionWithInvalidInput",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 7
+        },
+        "TestTimestamp": "2025-06-28T16:27:54.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "afterDeleteShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 31
+        },
+        "TestTimestamp": "2025-06-28T16:27:42.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "afterInsertShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:47.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "afterUndeleteShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:47.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "afterUpdateShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "beforeDeleteShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "beforeInsertShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "beforeUpdateShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "bypassShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-06-28T16:27:48.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "clearAllBypassesShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 5
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "clearBypassShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "finalizingWithoutWaitingShouldThrowError",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "idToNumberOfTimesSeenAfterUpdate",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:49.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "idToNumberOfTimesSeenBeforeUpdate",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "inverseContextsShouldFinalizeDmlOperationDelete",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "inverseContextsShouldFinalizeDmlOperationInsert",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 4
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "inverseContextsShouldFinalizeDmlOperationUndelete",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:50.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "inverseContextsShouldFinalizeDmlOperationUpdate",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "isBypassedShouldSucceed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "offsetRowsShouldWork",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "oldAndNewShouldComeFromTrigger",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "peekShouldShowMostRecentlyAdded",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "peekingStackWhileEmptyShouldThrowException",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "poppingStackWhileEmptyShouldThrowException",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "runShouldDoNothingWhenBypassed",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "runShouldFailWhenCalledOutsideTrigger",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "sObjectNameShouldBePopulatedFromTriggerNew",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "sObjectNameShouldBePopulatedFromTriggerOld",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "stackDepthShouldBeCalculatedProperly",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "stackShouldBeFirstInLastOut",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-06-28T16:27:53.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "stackShouldBeLastInFirstOut",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:54.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "stacksShouldBeAbleToDetermineIftheyAreEmpty",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:54.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerBase_Test",
+        "Method": "waitingThenFinalizingShouldWork",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-06-28T16:27:54.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerRecord_Test",
+        "Method": "shouldBeAbleToConstructATriggerRecord",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 9
+        },
+        "TestTimestamp": "2025-06-28T16:27:42.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "Triggers_Test",
+        "Method": "testContentDocumentLinkTrigger",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 1992,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 0,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 374,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 0,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
     },
     {
         "Children": null,
@@ -3563,7 +3683,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 795,
+            "duration": 906,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -3581,7 +3701,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 77,
+                "used": 73,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -3605,7 +3725,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:39.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:55.000+0000"
     },
     {
         "Children": null,
@@ -3615,7 +3735,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 308,
+            "duration": 367,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -3633,7 +3753,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 33,
+                "used": 35,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -3657,7 +3777,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:41.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:57.000+0000"
     },
     {
         "Children": null,
@@ -3667,7 +3787,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 32,
+            "duration": 24,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -3685,7 +3805,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 4,
+                "used": 3,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -3709,7 +3829,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:41.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:58.000+0000"
     },
     {
         "Children": null,
@@ -3719,7 +3839,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 33,
+            "duration": 20,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -3761,7 +3881,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:26.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
     },
     {
         "Children": null,
@@ -3771,7 +3891,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 39,
+            "duration": 15,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -3789,7 +3909,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 9,
+                "used": 8,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -3813,7 +3933,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:49.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:51.000+0000"
     },
     {
         "Children": null,
@@ -3823,7 +3943,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 24,
+            "duration": 4,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -3841,7 +3961,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 1,
+                "used": 0,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -3865,6 +3985,6 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-06-28T15:45:53.000+0000"
+        "TestTimestamp": "2025-06-28T16:27:52.000+0000"
     }
 ]
