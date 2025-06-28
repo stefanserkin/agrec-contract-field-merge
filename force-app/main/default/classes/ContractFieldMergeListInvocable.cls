@@ -5,7 +5,7 @@
  * See the LICENSE file in the project root for full license text.
  * 
  * @description 
- * Invocable utility to refresh Contract and Form Waiver Text values
+ * Invocable utility to refresh a collection of Contract and Forms' Waiver Text values
  * 
  * @date 2025
  * @author
