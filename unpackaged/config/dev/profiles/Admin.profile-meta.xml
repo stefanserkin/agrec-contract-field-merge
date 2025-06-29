@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Profile xmlns="https://soap.sforce.com/2006/04/metadata">
+    <layoutAssignments>
+        <layout>Account-agrec Account Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contact-agrec Contact Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>TREX1__Contract_and_Form__c-agrec Contract and Form Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>TREX1__Contract_or_Form_Template__c-agrec Contract or Form Template Layout</layout>
+    </layoutAssignments>
+</Profile>
