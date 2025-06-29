@@ -28,6 +28,13 @@ tasks:
                 insert new TREX1__Trigger_Bypass__c(Name = 'Account', TREX1__Active__c = true, TREX1__Expiry__c = Datetime.now().addHours(1), 
                     TREX1__User_Ids__c = u.Id, TREX1__Notes__c = 'Account Bypass', TREX1__SObject__c = 'Account');
     
+    deploy_dev_config:
+        description: Deploys the post-install configuration for an unmanaged DE org
+        class_path: cumulusci.tasks.salesforce.Deploy
+        group: Salesforce Metadata
+        options:
+            path: unpackaged/config/dev
+
     dx_deploy:
         description: Deploy metadata to the org using the new command
         class_path: cumulusci.tasks.sfdx.SFDXOrgTask
@@ -58,6 +65,8 @@ tasks:
 flows:
     config_dev:
         steps:
+            9:
+                task: deploy_dev_config
             10:
                 task: configure_scratch_user
 
